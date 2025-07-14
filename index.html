@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cristian Gómez – Portafolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -19,46 +20,169 @@
     </script>
     <style>
       body {
-        transition: background 0.5s, color 0.5s;
+        transition: background-color 0.5s, color 0.5s;
+      }
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
     </style>
   </head>
-  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
-    <div class="min-h-screen flex flex-col md:flex-row">
-      <!-- Sidebar -->
-      <aside class="bg-gray-100 dark:bg-gray-800 p-6 md:w-64 w-full">
-        <h1 class="text-2xl font-bold">Cristian Gómez</h1>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Project Manager @ Núcleo Factory</p>
-        <div class="mt-4 space-y-2">
-          <a href="mailto:cristgomezc@gmail.com" class="block text-blue-500 hover:underline">📧 Email</a>
-          <a href="https://linkedin.com/in/aikristian" class="block text-blue-500 hover:underline" target="_blank">🔗 LinkedIn</a>
-          <a href="https://github.com/aiKristian" class="block text-blue-500 hover:underline" target="_blank">💻 GitHub</a>
-        </div>
-        <div class="mt-6">
-          <button onclick="toggleTheme()" class="bg-gray-300 dark:bg-gray-600 px-3 py-1 rounded text-sm">
-            Cambiar tema
-          </button>
-        </div>
-      </aside>
+  <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
+    <div class="container mx-auto p-8">
+      <!-- Header -->
+      <header class="flex justify-between items-center mb-8 fade-in">
+        <h1 class="text-3xl font-bold">Cristian Gómez</h1>
+        <nav>
+          <a href="#profile" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Perfil</a>
+          <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Experiencia</a>
+          <a href="#education" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Educación</a>
+          <a href="#certifications" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Cursos</a>
+          <a href="#technologies" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Tecnologías</a>
+        </nav>
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+          <i class="fas fa-moon text-gray-800 dark:text-white"></i>
+        </button>
+      </header>
 
-      <!-- Main Content -->
-      <main class="flex-1 p-6">
-        <section>
-          <h2 class="text-xl font-semibold mb-4">Proyectos Destacados</h2>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="p-4 border dark:border-gray-700 rounded shadow hover:shadow-lg transition">
-              <h3 class="font-bold">Nombre del Proyecto</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">Descripción breve del proyecto...</p>
-              <a href="#" class="text-blue-500 text-sm hover:underline">Ver más →</a>
-            </div>
-            <!-- Puedes duplicar esto para más proyectos -->
+      <!-- Profile Section -->
+      <section id="profile" class="mb-12 fade-in" style="animation-delay: 0.2s;">
+        <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Perfil Profesional</h2>
+        <p class="text-lg">
+          Ingeniero en Informática y Gestión con 14 años de experiencia liderando proyectos de tecnología, logística y transformación digital. Mi foco es maximizar la entrega de valor mediante prácticas ágiles, automatización y la integración de IA, asegurando calidad, ahorro de costos y alta satisfacción del cliente.
+        </p>
+        <div class="mt-6 flex space-x-4">
+          <a href="mailto:cristgomezc@gmail.com" class="text-blue-500 hover:underline"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://linkedin.com/in/aikristian" class="text-blue-500 hover:underline" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/aiKristian" class="text-blue-500 hover:underline" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="mb-12 fade-in" style="animation-delay: 0.4s;">
+        <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Experiencia Laboral</h2>
+        <div class="space-y-6">
+          <!-- NetAdsWork -->
+          <div class="p-4 border-l-4 border-blue-500">
+            <h3 class="font-bold text-xl">Socio Fundador — NetAdsWork</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">2022-01 – Actualidad</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>Desarrollo de sitios WordPress a medida.</li>
+              <li>Estrategias de marketing digital (SEO, PPC).</li>
+              <li>Integración de IA para personalizar la experiencia de usuario y analítica predictiva.</li>
+            </ul>
           </div>
-        </section>
-      </main>
+          <!-- WOM Chile -->
+          <div class="p-4 border-l-4 border-blue-500">
+            <h3 class="font-bold text-xl">DevOps Engineer — WOM Chile</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">2023-05 – 2024-01</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>Lideré el módulo CRM ZSmart en la migración del datacenter.</li>
+              <li>Introduje mejoras DevOps que redujeron tiempos de despliegue y aumentaron la estabilidad.</li>
+            </ul>
+          </div>
+          <!-- Epysa Implementos -->
+          <div class="p-4 border-l-4 border-blue-500">
+            <h3 class="font-bold text-xl">Jefe de Proyectos — Epysa Implementos</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">2021-03 – 2021-12</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>Participé en la implantación de Oracle WMS, logrando +20% de eficiencia.</li>
+              <li>Lideré proyectos logísticos que redujeron costos en un 15%.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="mb-12 fade-in" style="animation-delay: 0.6s;">
+        <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Competencias Clave</h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Gestión de Proyectos (Scrum/Kanban)</span>
+          <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Desarrollo Web (PHP, Laravel, React)</span>
+          <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Cloud & Infraestructura (AWS, Docker)</span>
+          <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Diseño UX/UI</span>
+          <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Integración de IA</span>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="mb-12 fade-in" style="animation-delay: 0.8s;">
+        <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Educación</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-bold text-xl">Ingeniería en Informática y Gestión</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Universidad Diego Portales (2009 – 2014)</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl">Analista Programador Computacional</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">DUOC UC (2004 – 2007)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section id="certifications" class="mb-12 fade-in" style="animation-delay: 1s;">
+        <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Cursos y Certificaciones</h2>
+        <div class="space-y-4">
+          <p class="text-sm">Listado completo disponible en <a href="https://linkedin.com/in/aikristian" class="text-blue-500 hover:underline" target="_blank">LinkedIn</a>.</p>
+          <ul class="list-disc list-inside">
+            <li>Fundamentos profesionales de IA generativa — Microsoft & LinkedIn (2024)</li>
+            <li>Conviértete en desarrollador WordPress — LinkedIn (2024)</li>
+            <li>Metodologías Ágiles & Design Thinking — LinkedIn (2024)</li>
+            <li>Gestión de proyectos ágil — LinkedIn (2024)</li>
+            <li>Data Science: 10 habilidades clave — LinkedIn (2024)</li>
+            <li>SCRUM (roles, avanzado, Product Owner) — LinkedIn (2024)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Technologies Section -->
+      <section id="technologies" class="mb-12 fade-in" style="animation-delay: 1.2s;">
+        <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Tecnologías y Herramientas</h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">JavaScript</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">PHP / Laravel</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">React / Inertia</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">WordPress</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Oracle DB</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">PostgreSQL</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Docker</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">CI/CD</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">AWS</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">n8n</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Trello</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">VS Code</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Slack</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Notion</span>
+          <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">ChatGPT</span>
+        </div>
+      </section>
     </div>
+
     <script>
-      const toggleTheme = () => {
-        document.documentElement.classList.toggle('dark');
+      const themeToggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        const icon = themeToggle.querySelector('i');
+        if (html.classList.contains('dark')) {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        } else {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      });
+
+      // Set initial icon
+      const icon = themeToggle.querySelector('i');
+      if (html.classList.contains('dark')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
       }
     </script>
   </body>
