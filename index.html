@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cristian Gómez – Portafolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['ui-sans-serif', 'system-ui'],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        transition: background 0.5s, color 0.5s;
+      }
+    </style>
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
+    <div class="min-h-screen flex flex-col md:flex-row">
+      <!-- Sidebar -->
+      <aside class="bg-gray-100 dark:bg-gray-800 p-6 md:w-64 w-full">
+        <h1 class="text-2xl font-bold">Cristian Gómez</h1>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Project Manager</p>
+        <div class="mt-4 space-y-2">
+          <a href="mailto:cristgomezc@gmail.com" class="block text-blue-500 hover:underline">📧 Email</a>
+          <a href="https://linkedin.com/in/aikristian" class="block text-blue-500 hover:underline" target="_blank">🔗 LinkedIn</a>
+          <a href="https://github.com/aiKristian" class="block text-blue-500 hover:underline" target="_blank">💻 GitHub</a>
+        </div>
+        <div class="mt-6">
+          <button onclick="toggleTheme()" class="bg-gray-300 dark:bg-gray-600 px-3 py-1 rounded text-sm">
+            Cambiar tema
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-6">
+        <section>
+          <h2 class="text-xl font-semibold mb-4">Proyectos Destacados</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="p-4 border dark:border-gray-700 rounded shadow hover:shadow-lg transition">
+              <h3 class="font-bold">Nombre del Proyecto</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Descripción breve del proyecto...</p>
+              <a href="#" class="text-blue-500 text-sm hover:underline">Ver más →</a>
+            </div>
+            <!-- Puedes duplicar esto para más proyectos -->
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      const toggleTheme = () => {
+        document.documentElement.classList.toggle('dark');
+      }
+    </script>
+  </body>
+</html>
