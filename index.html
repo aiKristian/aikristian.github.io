@@ -50,6 +50,11 @@
           <button id="theme-toggle" class="bg-gray-300 dark:bg-gray-600 px-3 py-1 rounded text-sm">
             Cambiar tema
           </button>
+          <div class="palette-selector">
+            <span class="palette-icon" id="palette-1" title="Azul/Verde">🎨</span>
+            <span class="palette-icon" id="palette-2" title="Tierra">🌵</span>
+            <span class="palette-icon" id="palette-3" title="Pastel">🍬</span>
+          </div>
         </div>
       </aside>
       <!-- Main Content -->
@@ -228,7 +233,32 @@
     <script>
       const themeToggle = document.getElementById('theme-toggle');
       const html = document.documentElement;
-
+      const body = document.body;
+      // Paleta
+      const paletteIcons = [
+        document.getElementById('palette-1'),
+        document.getElementById('palette-2'),
+        document.getElementById('palette-3')
+      ];
+      function setPalette(palette) {
+        body.classList.remove('palette-1', 'palette-2', 'palette-3');
+        body.classList.add('palette-' + palette);
+        paletteIcons.forEach((icon, idx) => {
+          if (idx === palette - 1) {
+            icon.classList.add('selected');
+          } else {
+            icon.classList.remove('selected');
+          }
+        });
+        localStorage.setItem('palette', palette);
+      }
+      paletteIcons.forEach((icon, idx) => {
+        icon.addEventListener('click', () => setPalette(idx + 1));
+      });
+      // Inicializar paleta desde localStorage
+      const savedPalette = localStorage.getItem('palette') || '1';
+      setPalette(Number(savedPalette));
+      // Tema oscuro/claro
       themeToggle.addEventListener('click', () => {
         html.classList.toggle('dark');
         const icon = themeToggle.querySelector('i');
@@ -242,7 +272,6 @@
           }
         }
       });
-
       // Set initial icon
       const icon = themeToggle.querySelector('i');
       if (icon && html.classList.contains('dark')) {
