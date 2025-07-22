@@ -3,22 +3,7 @@ const html = document.documentElement;
 
 themeToggle.addEventListener('click', () => {
   html.classList.toggle('dark');
-  const icon = themeToggle.querySelector('i');
-  if (html.classList.contains('dark')) {
-    icon.classList.remove('fa-moon');
-    icon.classList.add('fa-sun');
-  } else {
-    icon.classList.remove('fa-sun');
-    icon.classList.add('fa-moon');
-  }
 });
-
-// Set initial icon
-const icon = themeToggle.querySelector('i');
-if (html.classList.contains('dark')) {
-  icon.classList.remove('fa-moon');
-  icon.classList.add('fa-sun');
-}
 
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -28,5 +13,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
+    });
+});
+
+// Intersection Observer for fade-in animations
+const sections = document.querySelectorAll('section');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+// Tabs for experience section
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabPanes = document.querySelectorAll('.tab-pane');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Deactivate all tabs
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+
+        // Activate clicked tab
+        button.classList.add('active');
+        const target = button.getAttribute('data-target');
+        document.querySelector(target).classList.add('active');
     });
 });
