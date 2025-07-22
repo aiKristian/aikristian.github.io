@@ -1,6 +1,11 @@
 /* Estilos inspirados en Brittany Chiang y temas de VS Code */
 
+
 :root {
+=======
+/* Paleta 1: Azul/Verde (actual) */
+:root,
+.palette-1 {
   --dark-navy: #020c1b;
   --navy: #0a192f;
   --light-navy: #112240;
@@ -37,6 +42,63 @@
   --ham-before-active: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
   --ham-after: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   --ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+}
+
+/* Paleta 2: Tonos tierra */
+.palette-2 {
+  --dark-navy: #3e2723;
+  --navy: #5d4037;
+  --light-navy: #8d6e63;
+  --lightest-navy: #a1887f;
+  --navy-shadow: rgba(62, 39, 35, 0.7);
+  --dark-slate: #bcaaa4;
+  --slate: #d7ccc8;
+  --light-slate: #ffe0b2;
+  --lightest-slate: #fff8e1;
+  --white: #fffde7;
+  --green: #ff7043;
+  --green-tint: rgba(255, 112, 67, 0.1);
+  --pink: #ffab91;
+  --blue: #ffb300;
+}
+
+/* Paleta 3: Pastel */
+.palette-3 {
+  --dark-navy: #b39ddb;
+  --navy: #9575cd;
+  --light-navy: #ce93d8;
+  --lightest-navy: #f8bbd0;
+  --navy-shadow: rgba(179, 157, 219, 0.7);
+  --dark-slate: #80cbc4;
+  --slate: #b2dfdb;
+  --light-slate: #b3e5fc;
+  --lightest-slate: #e1bee7;
+  --white: #fce4ec;
+  --green: #ffd54f;
+  --green-tint: rgba(255, 213, 79, 0.1);
+  --pink: #f8bbd0;
+  --blue: #81d4fa;
+}
+
+/* Iconos de selección de paleta */
+.palette-selector {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.palette-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 6px;
+  transition: border 0.2s;
+  background: var(--lightest-navy);
+  color: var(--green);
+}
+.palette-icon.selected {
+  border: 2px solid var(--green);
+  background: var(--navy);
 }
 
 html {
