@@ -6,6 +6,7 @@
     <title>Cristian Gómez – Portafolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -18,22 +19,21 @@
         },
       }
     </script>
-    <style>
-      body {
-        transition: background-color 0.5s, color 0.5s;
-      }
-      .fade-in {
-        animation: fadeIn 1s ease-in-out;
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-    </style>
   </head>
   <body class="font-sans">
     <div class="min-h-screen flex flex-col md:flex-row">
       <!-- Sidebar -->
+      <aside class="p-6 md:w-64 w-full sidebar">
+        <h1 class="text-2xl font-bold">CRISTIAN GÓMEZ CARRASCO</h1>
+        <p class="text-sm">Scrum Master · Project & Product Manager TI · Desarrollador Full Stack</p>
+        <div class="mt-4 space-y-2">
+          <a href="mailto:cristgomezc@gmail.com" class="block">📧 Email</a>
+          <a href="https://linkedin.com/in/aikristian" class="block" target="_blank">🔗 LinkedIn</a>
+          <a href="https://github.com/aiKristian" class="block" target="_blank">💻 GitHub</a>
+          <a href="https://youtube.com/@ai_kristian" class="block" target="_blank">▶️ YouTube</a>
+        </div>
+        <div class="mt-6">
+          <button id="theme-toggle" class="px-3 py-1 rounded text-sm theme-toggle"><i class="fas fa-moon mr-1"></i> Cambiar tema</button>
       <aside style="background: var(--lightest-navy); color: var(--slate);" class="p-6 md:w-64 w-full">
         <h1 class="text-2xl font-bold" style="color: var(--green);">CRISTIAN GÓMEZ CARRASCO</h1>
         <p class="text-sm" style="color: var(--light-slate);">Scrum Master · Project & Product Manager TI · Desarrollador Full Stack</p>
@@ -55,6 +55,7 @@
         </div>
       </aside>
       <!-- Main Content -->
+      <main class="flex-1 p-6 main-content">
       <main class="flex-1 p-6" style="background: var(--navy); color: var(--slate);">
         <!-- Header Navigation -->
         <header class="flex justify-between items-center mb-8 fade-in">
@@ -67,14 +68,14 @@
           </nav>
         </header>
         <!-- Profile Section -->
-        <section id="profile" class="mb-12 fade-in" style="animation-delay: 0.2s;">
+        <section id="profile" class="mb-12 fade-in delay-1">
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Perfil Profesional</h2>
           <p class="text-lg">
             Ingeniero en Informática y Gestión con 14 años de experiencia liderando proyectos de tecnología, logística y transformación digital. Mi foco es maximizar la entrega de valor mediante prácticas ágiles, automatización y la integración de IA, asegurando calidad, ahorro de costos y alta satisfacción del cliente.
           </p>
         </section>
         <!-- Experience Section -->
-        <section id="experience" class="mb-12 fade-in" style="animation-delay: 0.4s;">
+        <section id="experience" class="mb-12 fade-in delay-2">
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Experiencia Laboral</h2>
           <div class="space-y-6">
             <!-- NetAdsWork -->
@@ -146,6 +147,39 @@
                 </ul>
               </div>
             </div>
+            <!-- Epysa Implementos -->
+            <div class="p-4 border-l-4 border-blue-500">
+              <h3 class="font-bold text-xl">Jefe de Proyectos — Epysa Implementos</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">2021-03 – 2021-12</p>
+              <ul class="list-disc list-inside mt-2">
+                <li>Participé en la implantación de Oracle WMS: +20 % eficiencia.</li>
+                <li>Proyectos logísticos que redujeron costos en 15 % y mejoraron el servicio con socios estratégicos.</li>
+              </ul>
+            </div>
+            <!-- Sodimac -->
+            <div class="p-4 border-l-4 border-blue-500">
+              <h3 class="font-bold text-xl">Sodimac S.A.</h3>
+              <div class="mt-2 space-y-4">
+                <div>
+                  <h4 class="font-semibold">Jefe de Proyectos / Ingeniero Desarrollo Logístico</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">2018-10 – 2019-10</p>
+                  <ul class="list-disc list-inside mt-2">
+                    <li>Optimización de distribución y reposición: –5 % costos.</li>
+                    <li>Soluciones tecnológicas para supply chain y mejora de lead time.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Scrum Master & Jefe de Proyectos Software</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">2015-07 – 2018-10</p>
+                  <ul class="list-disc list-inside mt-2">
+                    <li>Implementación de metodologías ágiles a escala.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Analista de Reposición Senior</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">2010-03 – 2015-07</p>
+                </div>
+              </div>
           </section>
   
           <!-- Skills Section -->
@@ -189,8 +223,94 @@
                 <li>SCRUM (roles, avanzado, Product Owner) — LinkedIn (2024)</li>
               </ul>
             </div>
+          </div>
+        </section>
+        <!-- Skills Section -->
+        <section id="skills" class="mb-12 fade-in delay-3">
+          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Competencias Clave</h2>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Gestión de Proyectos Ágiles (Scrum / Kanban / DevOps)</span>
+            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Diseño y Desarrollo Web</span>
+            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Arquitectura y Operación en la Nube</span>
+            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Diseño UX/UI & Design Thinking</span>
+            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Integración de IA y Analítica Predictiva</span>
+            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Liderazgo de Equipos y Comunicación Interpersonal</span>
+            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Optimización de Procesos Logísticos y Supply Chain</span>
+          </div>
+        </section>
+        <!-- Education Section -->
+        <section id="education" class="mb-12 fade-in delay-4">
+          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Educación</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="font-bold text-xl">Ingeniería en Informática y Gestión</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Universidad Diego Portales (2009 – 2014)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl">Analista Programador Computacional</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Duoc UC (2004 – 2007)</p>
+            </div>
+          </div>
+        </section>
+        <!-- Certifications Section -->
+        <section id="certifications" class="mb-12 fade-in delay-5">
+          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Cursos y Certificaciones</h2>
+          <div class="space-y-4">
+            <p class="text-sm">Listado completo en <a href="https://linkedin.com/in/aikristian" class="text-blue-500 hover:underline" target="_blank">LinkedIn</a>.</p>
+            <ul class="list-disc list-inside">
+              <li>Fundamentos profesionales de IA generativa — Microsoft & LinkedIn (2024-07)</li>
+              <li>Conviértete en desarrollador WordPress — LinkedIn (2024-06)</li>
+              <li>Domina las habilidades de vida personales — LinkedIn (2024-06)</li>
+              <li>Profundiza competencias en Metodologías Ágiles & Design Thinking — LinkedIn (2024-06)</li>
+              <li>Ruta de aprendizaje de Habilidades blandas — LinkedIn (2024-06)</li>
+              <li>Fundamentos de Big Data: técnicas y conceptos — LinkedIn (2024-05)</li>
+              <li>Gestión de proyectos ágil — LinkedIn (2024-05)</li>
+              <li>Transición de proyectos Waterfall → Agile — LinkedIn (2024-05)</li>
+              <li>Resolución de conflictos (avanzado) — LinkedIn (2024-05)</li>
+              <li>WordPress 6 (esencial & avanzado) — LinkedIn (2024-05)</li>
+              <li>Data Science: 10 habilidades clave — LinkedIn (2024-04)</li>
+              <li>Fundamentos de IA: Machine Learning — LinkedIn (2024-04)</li>
+              <li>Fundamentos de Big Data — LinkedIn (2024-04)</li>
+              <li>Reuniones eficaces — LinkedIn (2024-04)</li>
+              <li>Trabajo en equipo — LinkedIn (2024-04)</li>
+              <li>Agilidad estratégica — LinkedIn (2024-03)</li>
+              <li>Comunicación interpersonal — LinkedIn (2024-03)</li>
+              <li>Administración Cloud (AWS & Google Cloud) — LinkedIn (2024-03)</li>
+              <li>Fundamentos de AWS Cloud Services — LinkedIn (2024-03)</li>
+              <li>Fundamentos de gestión de proyectos (Proyectos pequeños) — LinkedIn (2024-03)</li>
+              <li>Gestión de proyectos simplificada — LinkedIn (2024-03)</li>
+              <li>SCRUM (roles, avanzado, Product Owner) — LinkedIn (2024-02)</li>
+              <li>Gestión de proyectos con Jira — LinkedIn (2024-02)</li>
+              <li>Cloud computing avanzado & Retos de la Industria 4.0 — LinkedIn (2024-02)</li>
+              <li>Gestión ágil de proyectos con Scrum — Formación TI (2016-08)</li>
+            </ul>
+          </div>
+        </section>
+        <!-- Technologies Section -->
+        <section id="technologies" class="mb-12 fade-in delay-6">
+          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Tecnologías y Herramientas</h2>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">JavaScript</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">PHP / Laravel 12</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">React / Inertia</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">WordPress</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Oracle DB</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">PostgreSQL</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Docker</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">CI/CD</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">AWS</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">n8n</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Trello</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">VS Code</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Slack</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Notion</span>
+            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">ChatGPT</span>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
           </section>
-  
           <!-- Technologies Section -->
           <section id="technologies" class="mb-12 fade-in" style="animation-delay: 1.2s;">
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Tecnologías y Herramientas</h2>
