@@ -1,8 +1,8 @@
 /* Estilos inspirados en Brittany Chiang y temas de VS Code */
 
 
-:root {
-=======
+.root-fix-placeholder {
+}
 /* Paleta 1: Azul/Verde (actual) */
 :root,
 .palette-1 {
@@ -172,6 +172,10 @@ section {
 section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+h3 {
+  font-size: 22px;
 }
 
 h1, h2, h3 {
@@ -406,3 +410,23 @@ h2::after {
 .footer a:hover {
     color: var(--green);
 }
+
+/* Print styles */
+@media print {
+  .sidebar, .theme-toggle, .palette-selector, #print-cv { display: none !important; }
+  body { background: #fff; color: #000; }
+  .main-content { background: #fff; color: #000; }
+  a { color: #000; text-decoration: none; }
+  section { padding: 24px 0; opacity: 1 !important; transform: none !important; }
+  h2::after { display: none; }
+}
+
+/* Focus mode */
+.focus-mode .sidebar,
+.focus-mode #projects,
+.focus-mode #certifications,
+.focus-mode #technologies {
+  display: none !important;
+}
+.focus-mode main { padding: 0 24px; }
+.focus-mode #experience { padding-top: 24px; }

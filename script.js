@@ -94,3 +94,19 @@ tabButtons.forEach(button => {
         document.querySelector(target).classList.add('active');
     });
 });
+
+// Print / Download CV
+const printBtn = document.getElementById('print-cv');
+if (printBtn) {
+  printBtn.addEventListener('click', () => {
+    window.print();
+  });
+}
+
+// Focus mode toggle
+const focusBtn = document.getElementById('focus-mode');
+if (focusBtn) {
+  focusBtn.addEventListener('click', () => {
+    body.classList.toggle('focus-mode');
+  });
+}
