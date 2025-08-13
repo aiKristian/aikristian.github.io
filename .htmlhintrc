@@ -1,0 +1,14 @@
+{
+  "attr-no-duplication": true,
+  "attr-no-undef": true,
+  "doctype-first": false,
+  "doctype-html5": true,
+  "head-script-disabled": false,
+  "id-unique": true,
+  "space-tab-mixed-disabled": false,
+  "tag-pair": true,
+  "tag-self-close": false,
+  "title-require": true
+}
+
+
