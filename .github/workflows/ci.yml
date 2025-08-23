@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, new_design ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install linters
+        run: |
+          npm install -g htmlhint
+          npm install --no-fund --no-audit --silent -D stylelint stylelint-config-standard
+
+      - name: HTML validation
+        run: |
+          npx htmlhint "**/*.html" --config .htmlhintrc
+
+      - name: CSS lint
+        run: |
+          npx stylelint "**/*.css"
+
+      - name: Check internal links (offline)
+        uses: lycheeverse/lychee-action@v1.7.0
+        with:
+          args: --offline --no-progress --verbose "./**/*.html"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
