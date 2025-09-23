@@ -34,18 +34,17 @@
         <nav class="mt-8 flex-grow overflow-y-auto"> <!-- Scrollable middle part -->
             <a href="#profile" class="nav-link block mb-2">Perfil</a>
             <a href="#experience" class="nav-link block mb-2">Experiencia</a>
-            <a href="#skills" class="nav-link block mb-2">Competencias</a>
+            <a href="#skills" class="nav-link block mb-2">Habilidades</a>
             <a href="#projects" class="nav-link block mb-2">Proyectos</a>
             <a href="#education" class="nav-link block mb-2">Educación</a>
-            <a href="#certifications" class="nav-link block mb-2">Cursos</a>
-            <a href="#technologies" class="nav-link block mb-2">Tecnologías</a>
+            <a href="#certifications" class="nav-link block mb-2">Certificaciones</a>
         </nav>
 
         <div class="pt-4"> <!-- Bottom part -->
             <div class="theme-switcher mb-4">
-                <button class="theme-btn" data-theme="light">Light</button>
-                <button class="theme-btn" data-theme="developer">Dev</button>
-                <button class="theme-btn" data-theme="retro">Retro</button>
+                <button class="theme-btn" data-theme="light" aria-label="Tema Claro"><i class="fas fa-sun"></i></button>
+                <button class="theme-btn" data-theme="developer" aria-label="Tema Developer"><i class="fas fa-terminal"></i></button>
+                <button class="theme-btn" data-theme="retro" aria-label="Tema Retro"><i class="fas fa-gamepad"></i></button>
             </div>
             <div class="social-links">
                 <a href="mailto:cristgomezc@gmail.com" aria-label="Email" target="_blank"><i class="fas fa-envelope"></i></a>
@@ -72,7 +71,7 @@
         <section id="profile" class="mb-12 fade-in delay-1">
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Perfil Profesional</h2>
           <p>
-            Ingeniero en Informática y Gestión con 14 años de experiencia liderando proyectos de tecnología, logística y transformación digital. Mi foco es maximizar la entrega de valor mediante prácticas ágiles, automatización y la integración de IA, asegurando calidad, ahorro de costos y alta satisfacción del cliente.
+            Ingeniero en Informática y Gestión con más de 14 años de experiencia en la dirección de proyectos de IT y gestión logística. Experiencia en roles de liderazgo, implementación de soluciones tecnológicas innovadoras y optimización de procesos operacionales.
           </p>
         </section>
 
@@ -80,75 +79,70 @@
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Experiencia Laboral</h2>
           <div class="inner">
             <ul class="tab-list">
-              <li><button class="tab-button active" data-target="#exp-netadswork">NetAdsWork</button></li>
-              <li><button class="tab-button" data-target="#exp-wom">WOM Chile</button></li>
-              <li><button class="tab-button" data-target="#exp-epysa">Epysa Implementos</button></li>
-              <li><button class="tab-button" data-target="#exp-sodimac">Sodimac S.A.</button></li>
+              <li><button class="tab-button active" data-target="#exp-wom">WOM</button></li>
+              <li><button class="tab-button" data-target="#exp-netadswork">NetAdsWork</button></li>
+              <li><button class="tab-button" data-target="#exp-epysa">Epysa</button></li>
+              <li><button class="tab-button" data-target="#exp-sodimac">Sodimac</button></li>
+              <li><button class="tab-button" data-target="#exp-uchile">U. de Chile</button></li>
             </ul>
             <div class="tab-content">
-              <div id="exp-netadswork" class="tab-pane active">
-                <h3>Socio Fundador <span class="company">— NetAdsWork</span></h3>
-                <p class="range">2022-01 – Actualidad</p>
+              <div id="exp-wom" class="tab-pane active">
+                <h3>Ingeniero de Operaciones IT / Jefe de Proyectos <span class="company">— WOM</span></h3>
+                <p class="range">Mayo 2023 – Ene 2024</p>
                 <ul>
-                  <li>Desarrollo de sitios WordPress a medida.</li>
-                  <li>Estrategias de marketing digital (SEO, PPC).</li>
-                  <li>Integración de IA para personalizar la experiencia de usuario y analítica predictiva.</li>
+                  <li>Responsable del módulo CRM de Zsmart en el Proyecto de Migración del Datacenter de Quilicura a Panamericana.</li>
+                  <li>Implementación de mejoras en las prácticas de DevOps, reduciendo los tiempos de despliegue de la plataforma WhaleCloud y se esperaba que la estabilidad del sistema mejorara en un 15% y cumplir con el uptime del 99.7% al tener una red de última generación.</li>
                 </ul>
               </div>
-              <div id="exp-wom" class="tab-pane">
-                <h3>DevOps Engineer / Ingeniero Especialista Operaciones TI <span class="company">— WOM Chile</span></h3>
-                <p class="range">2023-05 – 2024-01</p>
+              <div id="exp-netadswork" class="tab-pane">
+                <h3>Socio Fundador <span class="company">— NetAdsWork</span></h3>
+                <p class="range">Ene 2022 – Actualidad</p>
                 <ul>
-                  <li>Lideré el módulo CRM ZSmart en la migración del datacenter Quilicura → Panamericana.</li>
-                  <li>Mejoras DevOps que redujeron tiempos de despliegue y alcanzaron 99,7 % de uptime (proyección +15 % estabilidad).</li>
+                  <li>Desarrollo de sitios web personalizados en WordPress.</li>
+                  <li>Implementación de estrategias de marketing digital efectivas, incluyendo SEO y PPC.</li>
+                  <li>Integración de herramientas de IA para análisis predictivo y personalización de la experiencia del usuario.</li>
                 </ul>
               </div>
               <div id="exp-epysa" class="tab-pane">
-                <h3>Jefe de Proyectos <span class="company">— Epysa Implementos</span></h3>
-                <p class="range">2021-03 – 2021-12</p>
+                <h3>Jefe de Proyectos / Ingeniero de Desarrollo Logístico <span class="company">— Epysa Implementos</span></h3>
+                <p class="range">Marzo 2021 – Diciembre 2021</p>
                 <ul>
-                  <li>Implantación de Oracle WMS: +20 % de eficiencia.</li>
-                  <li>Proyectos logísticos que redujeron costos en 15 %.</li>
+                  <li>Participación equipo multidisciplinario en la evaluación e implementación del sistema Oracle WMS, el cual mejorar la eficiencia operativa en un 20%.</li>
+                  <li>Gestión de proyectos logísticos orientados a optimizar la cadena de abastecimiento, reduciendo costos en un 15% y mejorando la calidad de servicio con diferentes socios estratégicos como mercado libre, mineras, empresas de transporte.</li>
                 </ul>
               </div>
               <div id="exp-sodimac" class="tab-pane">
-                <h3>Sodimac S.A.</h3>
-                <div class="mt-2 space-y-4">
-                  <div>
-                    <h4 class="font-semibold">Jefe de Proyectos / Ingeniero Desarrollo Logístico</h4>
-                    <p class="range">2018-10 – 2019-10</p>
-                    <ul>
-                      <li>Optimización de distribución y reposición: –5 % costos.</li>
-                      <li>Soluciones tecnológicas para supply chain y mejora de lead time.</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">Scrum Master & Jefe de Proyectos Software</h4>
-                    <p class="range">2015-07 – 2018-10</p>
-                    <ul>
-                      <li>Implementación de metodologías ágiles a escala.</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">Analista de Reposición Senior</h4>
-                    <p class="range">2010-03 – 2015-07</p>
-                  </div>
-                </div>
+                <h3>Jefe de Proyectos / Ing. Desarrollo Logístico <span class="company">— Sodimac S.A.</span></h3>
+                <p class="range">Marzo 2010 – Octubre 2019</p>
+                <ul>
+                  <li><strong>Como Jefe de Proyectos / Ing. Desarrollo Logístico:</strong> Optimización de procesos de distribución, transporte y reposición. Implementación de soluciones tecnológicas que mejoraron la eficiencia operativa y redujeron costos en un 5%.</li>
+                  <li><strong>Como Jefe de Proyectos (Software Corporativo):</strong> Desarrollo de soluciones tecnológicas innovadoras para mejorar el rendimiento económico y operativo.</li>
+                  <li><strong>Como Analista de Reposición Senior:</strong> Análisis y mejora de los procesos de reposición de tiendas.</li>
+                </ul>
+              </div>
+              <div id="exp-uchile" class="tab-pane">
+                <h3>Supervisor de Área / Dpto. Informática y Sistemas <span class="company">— Facultad de Economía y Negocios U. De Chile</span></h3>
+                <p class="range">Junio 2008 – Marzo 2010</p>
+                <ul>
+                  <li>Coordinar y gestionar todas las tareas del área de soporte informático para los alumnos, profesores y funcionarios de la escuela de pre-grado.</li>
+                  <li>Presentar diferentes soluciones para la mejora o requerimientos informáticos solicitados por las escuelas de pre-grado.</li>
+                  <li>Cotizar y comprar en portal Chile Compra equipos computacionales para las diferentes áreas de la facultad.</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
         <section id="skills" class="mb-12 fade-in delay-3">
-          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Competencias Clave</h2>
+          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Habilidades</h2>
           <div class="flex flex-wrap gap-2">
-            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Gestión de Proyectos Ágiles (Scrum / Kanban / DevOps)</span>
-            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Diseño y Desarrollo Web</span>
-            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Arquitectura y Operación en la Nube</span>
-            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Diseño UX/UI & Design Thinking</span>
-            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Integración de IA y Analítica Predictiva</span>
-            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Liderazgo de Equipos y Comunicación Interpersonal</span>
-            <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Optimización de Procesos Logísticos y Supply Chain</span>
+            <span class="tag">Metodologías Ágiles</span>
+            <span class="tag">Gestión de Proyectos</span>
+            <span class="tag">Optimización de Procesos Logisticos</span>
+            <span class="tag">Liderazgo</span>
+            <span class="tag">Resolución de Problemas</span>
+            <span class="tag">Adaptabilidad y Flexibilidad</span>
+            <span class="tag">Gestión de Equipos</span>
           </div>
         </section>
 
@@ -189,60 +183,23 @@
         </section>
 
         <section id="certifications" class="mb-12 fade-in delay-5">
-          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Cursos y Certificaciones</h2>
+          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Certificaciones</h2>
           <div class="space-y-4">
             <p class="text-sm">Listado completo en <a href="https://linkedin.com/in/aikristian" class="link" target="_blank">LinkedIn</a>.</p>
             <ul id="certifications-list" class="list-disc list-inside">
-              <li>Fundamentos profesionales de IA generativa — Microsoft & LinkedIn (2024-07)</li>
-              <li>Conviértete en desarrollador WordPress — LinkedIn (2024-06)</li>
-              <li>Domina las habilidades de vida personales — LinkedIn (2024-06)</li>
-              <li>Profundiza competencias en Metodologías Ágiles & Design Thinking — LinkedIn (2024-06)</li>
-              <li>Ruta de aprendizaje de Habilidades blandas — LinkedIn (2024-06)</li>
-              <li>Fundamentos de Big Data: técnicas y conceptos — LinkedIn (2024-05)</li>
-              <li>Gestión de proyectos ágil — LinkedIn (2024-05)</li>
-              <li>Transición de proyectos Waterfall → Agile — LinkedIn (2024-05)</li>
-              <li>Resolución de conflictos (avanzado) — LinkedIn (2024-05)</li>
-              <li>WordPress 6 (esencial & avanzado) — LinkedIn (2024-05)</li>
-              <li>Data Science: 10 habilidades clave — LinkedIn (2024-04)</li>
-              <li>Fundamentos de IA: Machine Learning — LinkedIn (2024-04)</li>
-              <li>Fundamentos de Big Data — LinkedIn (2024-04)</li>
-              <li>Reuniones eficaces — LinkedIn (2024-04)</li>
-              <li>Trabajo en equipo — LinkedIn (2024-04)</li>
-              <li>Agilidad estratégica — LinkedIn (2024-03)</li>
-              <li>Comunicación interpersonal — LinkedIn (2024-03)</li>
-              <li>Administración Cloud (AWS & Google Cloud) — LinkedIn (2024-03)</li>
-              <li>Fundamentos de AWS Cloud Services — LinkedIn (2024-03)</li>
-              <li>Fundamentos de gestión de proyectos (Proyectos pequeños) — LinkedIn (2024-03)</li>
-              <li>Gestión de proyectos simplificada — LinkedIn (2024-03)</li>
-              <li>SCRUM (roles, avanzado, Product Owner) — LinkedIn (2024-02)</li>
-              <li>Gestión de proyectos con Jira — LinkedIn (2024-02)</li>
-              <li>Cloud computing avanzado & Retos de la Industria 4.0 — LinkedIn (2024-02)</li>
-              <li>Gestión ágil de proyectos con Scrum — Formación TI (2016-08)</li>
+              <li>Conviértete en desarrollador WordPress (LinkedIn, Jun 2024)</li>
+              <li>Fundamentos de la gestión de proyectos ágil (LinkedIn, May 2024)</li>
+              <li>Scrum avanzado (LinkedIn, Feb 2024)</li>
+              <li>Product Owner esencial (LinkedIn, Feb 2024)</li>
+              <li>Gestión de proyectos con Jira (LinkedIn, Feb 2024)</li>
+              <li>Fundamentos de AWS Cloud Services (LinkedIn, Mar 2024)</li>
+              <li>Fundamentos de Inteligencia artificial: Machine Learning (LinkedIn, Abr 2024)</li>
+              <li>Fundamentos de big data: Técnicas y conceptos (LinkedIn, May 2024)</li>
             </ul>
             <button id="toggle-certs" class="link">Ver más</button>
           </div>
         </section>
 
-        <section id="technologies" class="mb-12 fade-in delay-6">
-          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Tecnologías y Herramientas</h2>
-          <div class="flex flex-wrap gap-2">
-            <span class="tag">JavaScript</span>
-            <span class="tag">PHP / Laravel 12</span>
-            <span class="tag">React / Inertia</span>
-            <span class="tag">WordPress</span>
-            <span class="tag">Oracle DB</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Docker</span>
-            <span class="tag">CI/CD</span>
-            <span class="tag">AWS</span>
-            <span class="tag">n8n</span>
-            <span class="tag">Trello</span>
-            <span class="tag">VS Code</span>
-            <span class="tag">Slack</span>
-            <span class="tag">Notion</span>
-            <span class="tag">ChatGPT</span>
-          </div>
-        </section>
       </main>
     </div>
 
