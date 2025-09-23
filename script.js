@@ -6,11 +6,10 @@ const body = document.body;
 const paletteIcons = [
   document.getElementById('palette-1'),
   document.getElementById('palette-2'),
-  document.getElementById('palette-3'),
 ];
 
 function setPalette(palette) {
-  body.classList.remove('palette-1', 'palette-2', 'palette-3');
+  body.classList.remove('palette-1', 'palette-2');
   body.classList.add('palette-' + palette);
   paletteIcons.forEach((icon, idx) => {
     if (idx === palette - 1) {
@@ -35,19 +34,19 @@ themeToggle.addEventListener('click', () => {
   const icon = themeToggle.querySelector('i');
   if (icon) {
     if (html.classList.contains('dark')) {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-    } else {
       icon.classList.remove('fa-sun');
       icon.classList.add('fa-moon');
+    } else {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
     }
   }
 });
 
 const icon = themeToggle.querySelector('i');
 if (icon && html.classList.contains('dark')) {
-  icon.classList.remove('fa-moon');
-  icon.classList.add('fa-sun');
+  icon.classList.remove('fa-sun');
+  icon.classList.add('fa-moon');
 }
 
 // Smooth scrolling
