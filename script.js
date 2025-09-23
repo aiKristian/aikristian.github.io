@@ -1,111 +1,114 @@
-const themeToggle = document.getElementById('theme-toggle');
-const html = document.documentElement;
 const body = document.body;
 
-// Palette handling
-const paletteIcons = [
-  document.getElementById('palette-1'),
-  document.getElementById('palette-2'),
-];
-
-function setPalette(palette) {
-  body.classList.remove('palette-1', 'palette-2');
-  body.classList.add('palette-' + palette);
-  paletteIcons.forEach((icon, idx) => {
-    if (idx === palette - 1) {
-      icon.classList.add('selected');
-    } else {
-      icon.classList.remove('selected');
-    }
-  });
-  localStorage.setItem('palette', palette);
+// --- FOCUS & PRINT BUTTONS ---
+const focusBtn = document.getElementById('focus-mode');
+if (focusBtn) {
+  focusBtn.addEventListener('click', () => body.classList.toggle('focus-mode'));
+}
+const printBtn = document.getElementById('print-cv');
+if (printBtn) {
+  printBtn.addEventListener('click', () => window.print());
+}
+const focusBtnDesktop = document.getElementById('focus-mode-desktop');
+if (focusBtnDesktop) {
+  focusBtnDesktop.addEventListener('click', () => body.classList.toggle('focus-mode'));
+}
+const printBtnDesktop = document.getElementById('print-cv-desktop');
+if (printBtnDesktop) {
+  printBtnDesktop.addEventListener('click', () => window.print());
 }
 
-paletteIcons.forEach((icon, idx) => {
-  icon.addEventListener('click', () => setPalette(idx + 1));
-});
+// --- THEME SWITCHER ---
+const themeButtons = document.querySelectorAll('.theme-btn');
+const THEME_KEY = 'selected_theme';
 
-const savedPalette = localStorage.getItem('palette') || '1';
-setPalette(Number(savedPalette));
-
-// Theme toggle
-themeToggle.addEventListener('click', () => {
-  html.classList.toggle('dark');
-  const icon = themeToggle.querySelector('i');
-  if (icon) {
-    if (html.classList.contains('dark')) {
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
-    } else {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-    }
+const activateTheme = (theme) => {
+  body.classList.remove('theme-developer', 'theme-retro');
+  if (theme !== 'light') {
+    body.classList.add(`theme-${theme}`);
   }
+  
+  themeButtons.forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.theme === theme);
+  });
+
+  localStorage.setItem(THEME_KEY, theme);
+};
+
+themeButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    activateTheme(button.dataset.theme);
+  });
 });
 
-const icon = themeToggle.querySelector('i');
-if (icon && html.classList.contains('dark')) {
-  icon.classList.remove('fa-sun');
-  icon.classList.add('fa-moon');
-}
+// Load saved theme on page load
+const savedTheme = localStorage.getItem(THEME_KEY) || 'light';
+activateTheme(savedTheme);
 
-// Smooth scrolling
+
+// --- SMOOTH SCROLLING ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
     });
 });
 
-// Intersection Observer for fade-in animations
+// --- FADE-IN SECTIONS ON SCROLL ---
 const sections = document.querySelectorAll('section');
-
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
         }
     });
-}, {
-    threshold: 0.1
-});
-
+}, { threshold: 0.1 });
 sections.forEach(section => {
     observer.observe(section);
 });
 
-// Tabs for experience section
+// --- EXPERIENCE TABS ---
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabPanes = document.querySelectorAll('.tab-pane');
-
 tabButtons.forEach(button => {
     button.addEventListener('click', () => {
-        // Deactivate all tabs
         tabButtons.forEach(btn => btn.classList.remove('active'));
         tabPanes.forEach(pane => pane.classList.remove('active'));
-
-        // Activate clicked tab
         button.classList.add('active');
         const target = button.getAttribute('data-target');
         document.querySelector(target).classList.add('active');
     });
 });
 
-// Print / Download CV
-const printBtn = document.getElementById('print-cv');
-if (printBtn) {
-  printBtn.addEventListener('click', () => {
-    window.print();
+// --- TOGGLE CERTIFICATIONS ---
+const toggleCertsBtn = document.getElementById('toggle-certs');
+const certsList = document.getElementById('certifications-list');
+if (toggleCertsBtn && certsList) {
+  toggleCertsBtn.addEventListener('click', () => {
+    const isExpanded = certsList.classList.toggle('expanded');
+    toggleCertsBtn.textContent = isExpanded ? 'Ver menos' : 'Ver más';
   });
 }
 
-// Focus mode toggle
-const focusBtn = document.getElementById('focus-mode');
-if (focusBtn) {
-  focusBtn.addEventListener('click', () => {
-    body.classList.toggle('focus-mode');
-  });
-}
+// --- ACTIVE NAVIGATION LINK ON SCROLL ---
+const navLinks = document.querySelectorAll('.sidebar nav a');
+const contentSections = document.querySelectorAll('main section');
+window.addEventListener('scroll', () => {
+    let currentSectionId = '';
+    contentSections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+            currentSectionId = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add('active');
+        }
+    });
+});

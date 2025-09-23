@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cristian Gómez – Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
@@ -13,7 +16,7 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['ui-sans-serif', 'system-ui'],
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
             },
           },
         },
@@ -22,40 +25,49 @@
   </head>
   <body class="font-sans">
     <div class="min-h-screen flex flex-col md:flex-row">
-      <aside class="p-6 md:w-64 w-full sidebar">
-        <h1 class="text-2xl font-bold">CRISTIAN GÓMEZ CARRASCO</h1>
-        <p class="text-sm">Scrum Master · Project & Product Manager TI · Desarrollador Full Stack</p>
-        <div class="mt-4 space-y-2">
-          <a href="mailto:cristgomezc@gmail.com" class="block">📧 Email</a>
-          <a href="https://linkedin.com/in/aikristian" class="block" target="_blank">🔗 LinkedIn</a>
-          <a href="https://github.com/aiKristian" class="block" target="_blank">💻 GitHub</a>
-          <a href="https://youtube.com/@ai_kristian" class="block" target="_blank">▶️ YouTube</a>
+      <aside class="p-4 md:w-64 w-full sidebar md:sticky top-0 h-screen">
+        <div> <!-- Top part -->
+            <h1 class="text-2xl font-bold">CRISTIAN GÓMEZ CARRASCO</h1>
+            <p class="text-sm">Scrum Master · Project & Product Manager TI · Desarrollador Full Stack</p>
         </div>
-        <div class="mt-6">
-          <button id="theme-toggle" class="px-3 py-1 rounded text-sm theme-toggle"><i class="fas fa-sun mr-1"></i> Cambiar tema</button>
-          <div class="palette-selector">
-            <span class="palette-icon" id="palette-1" title="Profesional">🎨</span>
-            <span class="palette-icon" id="palette-2" title="Developer">💻</span>
-          </div>
+        
+        <nav class="mt-8 flex-grow overflow-y-auto"> <!-- Scrollable middle part -->
+            <a href="#profile" class="nav-link block mb-2">Perfil</a>
+            <a href="#experience" class="nav-link block mb-2">Experiencia</a>
+            <a href="#skills" class="nav-link block mb-2">Competencias</a>
+            <a href="#projects" class="nav-link block mb-2">Proyectos</a>
+            <a href="#education" class="nav-link block mb-2">Educación</a>
+            <a href="#certifications" class="nav-link block mb-2">Cursos</a>
+            <a href="#technologies" class="nav-link block mb-2">Tecnologías</a>
+        </nav>
+
+        <div class="pt-4"> <!-- Bottom part -->
+            <div class="theme-switcher mb-4">
+                <button class="theme-btn" data-theme="light">Light</button>
+                <button class="theme-btn" data-theme="developer">Dev</button>
+                <button class="theme-btn" data-theme="retro">Retro</button>
+            </div>
+            <div class="social-links">
+                <a href="mailto:cristgomezc@gmail.com" aria-label="Email" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/aikristian" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/aiKristian" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://youtube.com/@ai_kristian" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
       </aside>
 
       <main class="flex-1 p-6 main-content">
-        <header class="flex justify-between items-center mb-8 fade-in">
-          <nav>
-            <a href="#profile" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Perfil</a>
-            <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Experiencia</a>
-            <a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Competencias</a>
-            <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Proyectos</a>
-            <a href="#education" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Educación</a>
-            <a href="#certifications" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Cursos</a>
-            <a href="#technologies" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 mx-2">Tecnologías</a>
-          </nav>
+        <header class="flex justify-end items-center mb-8 fade-in md:hidden">
           <div class="flex gap-2">
             <button id="focus-mode" class="px-3 py-1 rounded text-sm theme-toggle">🎯 Modo foco</button>
             <button id="print-cv" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
           </div>
         </header>
+
+        <div class="hidden md:flex justify-end items-center mb-8 fade-in">
+             <button id="focus-mode-desktop" class="px-3 py-1 rounded text-sm theme-toggle mr-2">🎯 Modo foco</button>
+             <button id="print-cv-desktop" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
+        </div>
 
         <section id="profile" class="mb-12 fade-in delay-1">
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Perfil Profesional</h2>
@@ -167,11 +179,11 @@
           <div class="space-y-4">
             <div>
               <h3 class="font-bold text-xl">Ingeniería en Informática y Gestión</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Universidad Diego Portales (2009 – 2014)</p>
+              <p class="text-sm">Universidad Diego Portales (2009 – 2014)</p>
             </div>
             <div>
               <h3 class="font-bold text-xl">Analista Programador Computacional</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Duoc UC (2004 – 2007)</p>
+              <p class="text-sm">Duoc UC (2004 – 2007)</p>
             </div>
           </div>
         </section>
@@ -179,8 +191,8 @@
         <section id="certifications" class="mb-12 fade-in delay-5">
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Cursos y Certificaciones</h2>
           <div class="space-y-4">
-            <p class="text-sm">Listado completo en <a href="https://linkedin.com/in/aikristian" class="text-blue-500 hover:underline" target="_blank">LinkedIn</a>.</p>
-            <ul class="list-disc list-inside">
+            <p class="text-sm">Listado completo en <a href="https://linkedin.com/in/aikristian" class="link" target="_blank">LinkedIn</a>.</p>
+            <ul id="certifications-list" class="list-disc list-inside">
               <li>Fundamentos profesionales de IA generativa — Microsoft & LinkedIn (2024-07)</li>
               <li>Conviértete en desarrollador WordPress — LinkedIn (2024-06)</li>
               <li>Domina las habilidades de vida personales — LinkedIn (2024-06)</li>
@@ -207,27 +219,28 @@
               <li>Cloud computing avanzado & Retos de la Industria 4.0 — LinkedIn (2024-02)</li>
               <li>Gestión ágil de proyectos con Scrum — Formación TI (2016-08)</li>
             </ul>
+            <button id="toggle-certs" class="link">Ver más</button>
           </div>
         </section>
 
         <section id="technologies" class="mb-12 fade-in delay-6">
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Tecnologías y Herramientas</h2>
           <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">JavaScript</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">PHP / Laravel 12</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">React / Inertia</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">WordPress</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Oracle DB</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">PostgreSQL</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Docker</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">CI/CD</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">AWS</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">n8n</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Trello</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">VS Code</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Slack</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Notion</span>
-            <span class="bg-gray-200 dark:bg-gray-700 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">ChatGPT</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">PHP / Laravel 12</span>
+            <span class="tag">React / Inertia</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">Oracle DB</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">AWS</span>
+            <span class="tag">n8n</span>
+            <span class="tag">Trello</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Slack</span>
+            <span class="tag">Notion</span>
+            <span class="tag">ChatGPT</span>
           </div>
         </section>
       </main>
