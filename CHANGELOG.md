@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.0.0] - 2025-01-XX
+
+### Added
+- **Sistema de Vistas Múltiples**: Implementado selector de vistas (Completa, Técnica, Gestión) que filtra y reorganiza el contenido según el perfil seleccionado
+- **Rediseño Visual Completo**: Nuevo diseño moderno y profesional con mejor tipografía, espaciado y animaciones
+- **Sección de Certificaciones Rediseñada**: Diseño tipo tarjetas organizadas por categorías (Scrum/Ágil, Cloud, Desarrollo, Liderazgo, Negocios)
+- **Enlaces a Certificaciones PDF**: Todos los certificados ahora tienen enlaces directos a sus PDFs
+- **Meta Tags SEO**: Agregados meta tags para descripción, keywords, Open Graph y Twitter Cards
+- **Favicon Support**: Preparado para agregar favicon personalizado
+- **Mejoras de Accesibilidad**: Mejorados los aria-labels y estructura semántica
+- **Iconos en Habilidades**: Agregados iconos Font Awesome a cada habilidad para mejor visualización
+- **Animaciones Mejoradas**: Transiciones suaves al cambiar de vistas y mejor feedback visual
+
+### Changed
+- **CSS Completamente Rediseñado**: Nuevo sistema de variables CSS, mejor jerarquía visual y diseño más limpio
+- **Estructura de Certificaciones**: Reorganizada por categorías con diseño tipo grid de tarjetas
+- **Enlaces de Proyectos**: Actualizados para usar clases CSS personalizadas que respetan los temas
+- **Filtrado Inteligente**: El contenido se filtra y reordena automáticamente según la vista seleccionada
+- **Sidebar Mejorado**: Mejor organización visual con selector de vistas prominente
+
+### Fixed
+- **Código Duplicado**: Eliminado código JavaScript duplicado en script.js
+- **Filtrado de Contenido**: Corregido el filtrado de habilidades y certificaciones según la vista activa
+- **Responsive Design**: Mejorado el diseño responsive para móviles y tablets
+
+### Technical
+- **Carpeta de Certificaciones**: Creada carpeta `certificaciones/` para organizar todos los PDFs
+- **LocalStorage**: Preferencias de vista y tema se guardan en localStorage
+- **Performance**: Optimizadas las animaciones y transiciones
+
 ## [1.0.0] - 2025-09-23
 
 ### Added
