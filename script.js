@@ -128,6 +128,8 @@ const filterContentByView = (view) => {
 
 const reorderSectionsByView = (view) => {
   const main = document.querySelector('main');
+  if (!main) return;
+
   const sectionOrder = {
     technical: ['profile', 'projects', 'skills', 'experience', 'education', 'certifications'],
     management: ['profile', 'experience', 'skills', 'certifications', 'projects', 'education'],
@@ -135,17 +137,21 @@ const reorderSectionsByView = (view) => {
   };
 
   const order = sectionOrder[view] || sectionOrder.complete;
-  const sectionsArray = Array.from(document.querySelectorAll('main > section'));
-  
+  const sectionsArray = Array.from(main.querySelectorAll(':scope > section'));
+  const hasOrdered = sectionsArray.some((s) => order.includes(s.getAttribute('id')));
+  if (!hasOrdered) return;
+
   sectionsArray.sort((a, b) => {
     const aId = a.getAttribute('id');
     const bId = b.getAttribute('id');
     const aIndex = order.indexOf(aId);
     const bIndex = order.indexOf(bId);
-    return aIndex - bIndex;
+    const rankA = aIndex === -1 ? 999 : aIndex;
+    const rankB = bIndex === -1 ? 999 : bIndex;
+    return rankA - rankB;
   });
 
-  sectionsArray.forEach(section => {
+  sectionsArray.forEach((section) => {
     main.appendChild(section);
   });
 };
@@ -167,10 +173,11 @@ if (viewButtons.length > 0) {
 // --- SMOOTH SCROLLING ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const id = this.getAttribute('href');
+        const el = id && id.length > 1 ? document.querySelector(id) : null;
+        if (!el) return;
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        el.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -192,11 +199,13 @@ const tabButtons = document.querySelectorAll('.tab-button');
 const tabPanes = document.querySelectorAll('.tab-pane');
 tabButtons.forEach(button => {
     button.addEventListener('click', () => {
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabPanes.forEach(pane => pane.classList.remove('active'));
-        button.classList.add('active');
         const target = button.getAttribute('data-target');
-        document.querySelector(target).classList.add('active');
+        const pane = target ? document.querySelector(target) : null;
+        if (!pane) return;
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(p => p.classList.remove('active'));
+        button.classList.add('active');
+        pane.classList.add('active');
     });
 });
 
