@@ -5,7 +5,15 @@
   "rules": {
     "no-empty-source": null,
     "color-hex-length": "short",
-    "block-no-empty": true
+    "block-no-empty": true,
+    "no-descending-specificity": null,
+    "keyframes-name-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "selector-class-pattern": [
+      "^[a-z][a-z0-9-]*(__[a-z0-9-]+)?(--[a-z0-9-]+)?$",
+      {
+        "message": "Usa kebab-case o BEM (bloque__elemento--modificador)."
+      }
+    ]
   }
 }
 

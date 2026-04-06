@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Curriculum vitae — Cristian Gómez Carrasco. Documento compartido de forma privada." />
+    <meta name="keywords" content="Cristian Gómez, Scrum Master, Project Manager, Product Manager, Desarrollador Full Stack, CV, Portafolio, Ingeniero Informática, Gestión TI" />
+    <meta name="author" content="Cristian Gómez Carrasco" />
+    
+    <title>CV — Cristian Gómez Carrasco</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            },
+          },
+        },
+      }
+    </script>
+  </head>
+  <body class="font-sans">
+    <div class="min-h-screen flex flex-col md:flex-row">
+      <aside class="p-4 md:w-64 w-full sidebar md:sticky top-0 h-screen">
+        <div> <!-- Top part -->
+            <h1 class="text-2xl font-bold">CRISTIAN GÓMEZ CARRASCO</h1>
+            <p class="text-sm">Product Manager · Sistemas con IA y arquitectura de software · Transformación digital</p>
+            <p class="text-xs text-[var(--text-muted)] mt-3 leading-relaxed">+56 9 7767 3927</p>
+        </div>
+        
+        <nav class="mt-8 flex-grow overflow-y-auto"> <!-- Scrollable middle part -->
+            <a href="#profile" class="nav-link block mb-2">Perfil</a>
+            <a href="#experience" class="nav-link block mb-2">Experiencia</a>
+            <a href="#skills" class="nav-link block mb-2">Habilidades</a>
+            <a href="#projects" class="nav-link block mb-2">Proyectos</a>
+            <a href="#education" class="nav-link block mb-2">Educación</a>
+            <a href="#certifications" class="nav-link block mb-2">Certificaciones</a>
+        </nav>
+
+        <div class="pt-4"> <!-- Bottom part -->
+            <div class="view-switcher mb-4">
+                <label class="view-switcher-label">Vista:</label>
+                <div class="view-buttons">
+                    <button class="view-btn active" data-view="complete" aria-label="Vista Completa" title="Vista Completa">
+                        <i class="fas fa-th"></i> <span class="view-btn-text">Completa</span>
+                    </button>
+                    <button class="view-btn" data-view="technical" aria-label="Vista Técnica" title="Vista Técnica">
+                        <i class="fas fa-code"></i> <span class="view-btn-text">Técnica</span>
+                    </button>
+                    <button class="view-btn" data-view="management" aria-label="Vista Gestión" title="Vista Gestión">
+                        <i class="fas fa-users"></i> <span class="view-btn-text">Gestión</span>
+                    </button>
+                </div>
+            </div>
+            <div class="theme-switcher mb-4">
+                <button class="theme-btn" data-theme="light" aria-label="Tema Claro"><i class="fas fa-sun"></i></button>
+                <button class="theme-btn" data-theme="developer" aria-label="Tema Developer"><i class="fas fa-terminal"></i></button>
+                <button class="theme-btn" data-theme="retro" aria-label="Tema Retro"><i class="fas fa-gamepad"></i></button>
+            </div>
+            <div class="social-links">
+                <a href="mailto:cristgomezc@gmail.com" aria-label="Email" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/aikristian" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/aiKristian" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://youtube.com/@ai_kristian" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+      </aside>
+
+      <main class="flex-1 p-6 main-content">
+        <header class="flex justify-end items-center mb-8 fade-in md:hidden">
+          <div class="flex gap-2">
+            <button id="focus-mode" class="px-3 py-1 rounded text-sm theme-toggle">🎯 Modo foco</button>
+            <button id="print-cv" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
+          </div>
+        </header>
+
+        <div class="hidden md:flex justify-end items-center mb-8 fade-in">
+             <button id="focus-mode-desktop" class="px-3 py-1 rounded text-sm theme-toggle mr-2">🎯 Modo foco</button>
+             <button id="print-cv-desktop" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
+        </div>
+
+        <section id="profile" class="mb-12 fade-in delay-1" data-view="complete technical management">
+          <div class="hero-section py-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-primary)]">Cristian Gómez Carrasco</h1>
+            <p class="text-xl md:text-2xl text-[var(--accent)] mb-6 font-medium">Product Manager | AI Systems &amp; Software Architecture | Driving Digital Transformation</p>
+            <p class="text-lg leading-relaxed max-w-3xl mb-4">
+              Product Manager especializado en diseño de sistemas basados en inteligencia artificial y arquitectura de software. Más de 15 años de experiencia en tecnología, liderando la definición, desarrollo e implementación de soluciones digitales que optimizan procesos de negocio en organizaciones complejas.
+            </p>
+            <p class="text-lg leading-relaxed max-w-3xl mb-4">
+              Actualmente en el <strong>Poder Judicial de Chile</strong>, participo en la evolución de productos tecnológicos con foco en inteligencia artificial, transformación digital y mejora de procesos judiciales. Combino visión de producto con definición técnica: arquitecturas, lineamientos de implementación, calidad, seguridad y escalabilidad.
+            </p>
+            <p class="text-base leading-relaxed max-w-3xl text-[var(--text-muted)]">
+              Trayectoria en telecomunicaciones, logística, consultoría y sector público. Incorporación intensiva de desarrollo asistido por IA manteniendo foco en arquitectura y valor de negocio. <strong>Idiomas:</strong> inglés (nivel profesional de trabajo).
+            </p>
+          </div>
+        </section>
+
+        <section id="experience" class="mb-12 fade-in delay-2" data-view="complete technical management">
+          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Experiencia Laboral</h2>
+          <div class="inner">
+            <ul class="tab-list flex flex-wrap gap-1">
+              <li><button type="button" class="tab-button active" data-target="#exp-pj">P. Judicial</button></li>
+              <li><button type="button" class="tab-button" data-target="#exp-nucleo">Núcleo</button></li>
+              <li><button type="button" class="tab-button" data-target="#exp-netadswork">aiKristian</button></li>
+              <li><button type="button" class="tab-button" data-target="#exp-wom">WOM</button></li>
+              <li><button type="button" class="tab-button" data-target="#exp-epysa">Epysa</button></li>
+              <li><button type="button" class="tab-button" data-target="#exp-sodimac">Sodimac</button></li>
+              <li><button type="button" class="tab-button" data-target="#exp-uchile">U. Chile</button></li>
+              <li><button type="button" class="tab-button" data-target="#exp-getgo">Getgo</button></li>
+            </ul>
+            <div class="tab-content">
+              <div id="exp-pj" class="tab-pane active" data-view="complete technical management">
+                <h3>Arquitectura y Desarrollo de Sistemas (IA) <span class="company">— Poder Judicial de Chile</span></h3>
+                <p class="range">Enero 2026 – Presente · Chile</p>
+                <ul>
+                  <li>Responsable de la definición y evolución de productos tecnológicos en el área informática, con enfoque en soluciones basadas en inteligencia artificial y mejora de procesos judiciales.</li>
+                  <li>Diseño y gestión de productos digitales, alineando requerimientos de negocio con soluciones tecnológicas escalables.</li>
+                  <li>Definición de arquitectura de sistemas, patrones de diseño y lineamientos técnicos para implementaciones en entornos críticos.</li>
+                  <li>Levantamiento, análisis y priorización de requerimientos; participación en soluciones con IA aplicadas a sistemas judiciales y procesos de calidad.</li>
+                  <li>Coordinación con equipos multidisciplinarios (desarrollo, QA, infraestructura e institucionales).</li>
+                  <li>Aseguramiento de calidad, seguridad y cumplimiento de estándares; documentación técnica y funcional.</li>
+                </ul>
+              </div>
+              <div id="exp-nucleo" class="tab-pane" data-view="complete technical management">
+                <h3>Arquitecto de soluciones | Product Manager <span class="company">— Núcleo Factory</span></h3>
+                <p class="range">Mayo 2025 – Enero 2026</p>
+                <ul>
+                  <li>Diseño y gobierno arquitectural end-to-end: dominios, límites de contexto, modelado de datos y contratos de API versionados.</li>
+                  <li>CI/CD con GitHub Actions: pruebas de contrato, control de artefactos y rollbacks seguros; entornos dev/stage/prod con observabilidad.</li>
+                  <li>Ecosistema Laravel + PostgreSQL: patrones de integración, caching (Redis/Memcached) y optimización de consultas.</li>
+                  <li>PRDs y ADRs; priorización por valor y riesgo; QA/UAT y monitoreo post-release.</li>
+                </ul>
+              </div>
+              <div id="exp-netadswork" class="tab-pane" data-view="complete technical">
+                <h3>Socio fundador <span class="company">— aiKristian / NetAdsWork</span></h3>
+                <p class="range">Enero 2022 – Actualidad</p>
+                <ul>
+                  <li>Desarrollo de sitios web personalizados en WordPress y de aplicaciones web a medida.</li>
+                  <li>Estrategias de marketing digital (SEO y PPC).</li>
+                  <li>Integración de herramientas de IA para análisis predictivo y personalización de la experiencia de usuario.</li>
+                </ul>
+              </div>
+              <div id="exp-wom" class="tab-pane" data-view="complete technical management">
+                <h3>DevOps Engineer | Ingeniero especialista operaciones de TI <span class="company">— WOM Chile</span></h3>
+                <p class="range">Mayo 2023 – Enero 2024 · Región Metropolitana</p>
+                <ul>
+                  <li>Responsable del módulo CRM de Zsmart en el proyecto de migración del datacenter de Quilicura a Panamericana.</li>
+                  <li>Mejoras en prácticas DevOps y tiempos de despliegue en WhaleCloud; objetivos de estabilidad (~15%) y uptime 99.7% con red de nueva generación.</li>
+                </ul>
+              </div>
+              <div id="exp-epysa" class="tab-pane" data-view="complete management">
+                <h3>Jefe de Proyectos | Ingeniero de proyectos y logística <span class="company">— Implementos Chile (Epysa)</span></h3>
+                <p class="range">Marzo 2021 – Diciembre 2021</p>
+                <ul>
+                  <li>Evaluación e implementación de Oracle WMS en equipo multidisciplinario; mejora esperada de eficiencia operativa ~20%.</li>
+                  <li>Proyectos logísticos en cadena de abastecimiento; reducción de costos ~15% y mejora de servicio con retail, minería y transporte.</li>
+                </ul>
+              </div>
+              <div id="exp-sodimac" class="tab-pane" data-view="complete technical management">
+                <h3>Sodimac S.A. <span class="company">— 10 años 8 meses</span></h3>
+                <h4 class="text-lg font-semibold mt-4 mb-2">Jefe de Proyectos | Ingeniero desarrollo logístico</h4>
+                <p class="range">Octubre 2018 – Octubre 2020</p>
+                <ul class="mb-6">
+                  <li>Optimización de distribución, transporte y reposición; soluciones tecnológicas y reducción de costos ~5%.</li>
+                </ul>
+                <h4 class="text-lg font-semibold mt-4 mb-2">Scrum Master | Jefe de Proyectos · Ingeniería software corporativo</h4>
+                <p class="range">Julio 2015 – Octubre 2018</p>
+                <ul class="mb-6">
+                  <li>Soluciones tecnológicas para rendimiento económico y operativo; gestión de proveedores y proyectos de supply chain.</li>
+                </ul>
+                <h4 class="text-lg font-semibold mt-4 mb-2">Analista del proceso de reposición senior</h4>
+                <p class="range">Marzo 2010 – Julio 2015</p>
+                <ul>
+                  <li>Análisis comercial y logístico; desarrollo y mantenimiento de sistemas web y bases de datos para abastecimiento y despacho.</li>
+                </ul>
+              </div>
+              <div id="exp-uchile" class="tab-pane" data-view="complete technical">
+                <h3>Coordinador de Soporte y Operaciones Infotecnología <span class="company">— Escuela de Postgrado, FEN, Universidad de Chile</span></h3>
+                <p class="range">Junio 2008 – Marzo 2010 · Santiago</p>
+                <ul>
+                  <li>Gestión del soporte informático a pregrado; mantención de servidores y equipos.</li>
+                  <li>Soluciones a requerimientos de escuelas de pregrado; eventos en la facultad.</li>
+                  <li>Cotización y compra de equipos; implementación en salas de clase y auditorio.</li>
+                </ul>
+              </div>
+              <div id="exp-getgo" class="tab-pane" data-view="complete management">
+                <h3>Analista de Distribución <span class="company">— Getgo</span></h3>
+                <p class="range">Agosto 2007 – Junio 2008</p>
+                <ul>
+                  <li>Análisis para reducir costos y tiempos operativos; gestión de base de datos de clientes.</li>
+                  <li>Coordinación de clasificadores y rutas de entrega para certificación de correspondencia prioritaria.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="mb-12 fade-in delay-3" data-view="complete technical management">
+          <h2 class="text-3xl font-bold mb-6 border-b pb-2">Habilidades</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div data-view="complete management">
+              <h3 class="text-lg font-semibold mb-3 text-[var(--accent)]">
+                <i class="fas fa-users-cog mr-2"></i>Producto y gestión
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag"><i class="fas fa-certificate mr-1"></i>Product Management</span>
+                <span class="tag"><i class="fas fa-tasks mr-1"></i>Gestión de partes interesadas</span>
+                <span class="tag"><i class="fas fa-user-tie mr-1"></i>Ingeniería de requisitos</span>
+                <span class="tag"><i class="fas fa-sync-alt mr-1"></i>Desarrollo de productos</span>
+                <span class="tag"><i class="fas fa-chart-line mr-1"></i>Scrum / Agile</span>
+              </div>
+            </div>
+            
+            <div data-view="complete technical">
+              <h3 class="text-lg font-semibold mb-3 text-[var(--accent)]">
+                <i class="fas fa-laptop-code mr-2"></i>Técnicas y Desarrollo
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag"><i class="fas fa-code mr-1"></i>Desarrollo Full Stack</span>
+                <span class="tag"><i class="fas fa-server mr-1"></i>DevOps</span>
+                <span class="tag"><i class="fas fa-cogs mr-1"></i>Optimización de Procesos</span>
+                <span class="tag"><i class="fas fa-chart-bar mr-1"></i>Análisis de Datos</span>
+                <span class="tag"><i class="fas fa-sitemap mr-1"></i>Arquitectura de software</span>
+                <span class="tag"><i class="fas fa-brain mr-1"></i>IA aplicada / asistida</span>
+              </div>
+            </div>
+
+            <div data-view="complete technical">
+              <h3 class="text-lg font-semibold mb-3 text-[var(--accent)]">
+                <i class="fas fa-tools mr-2"></i>Herramientas y Cloud
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag"><i class="fab fa-aws mr-1"></i>AWS</span>
+                <span class="tag"><i class="fab fa-laravel mr-1"></i>Laravel</span>
+                <span class="tag"><i class="fas fa-database mr-1"></i>PostgreSQL</span>
+                <span class="tag"><i class="fas fa-memory mr-1"></i>Redis</span>
+                <span class="tag"><i class="fab fa-jira mr-1"></i>Jira / Confluence</span>
+                <span class="tag"><i class="fab fa-github mr-1"></i>Git / GitHub Actions</span>
+                <span class="tag"><i class="fab fa-docker mr-1"></i>Docker</span>
+                <span class="tag"><i class="fas fa-stream mr-1"></i>CI/CD</span>
+              </div>
+            </div>
+            
+            <div data-view="complete management">
+              <h3 class="text-lg font-semibold mb-3 text-[var(--accent)]">
+                <i class="fas fa-handshake mr-2"></i>Soft Skills
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag"><i class="fas fa-lightbulb mr-1"></i>Resolución de Problemas</span>
+                <span class="tag"><i class="fas fa-comments mr-1"></i>Comunicación Efectiva</span>
+                <span class="tag"><i class="fas fa-exchange-alt mr-1"></i>Adaptabilidad</span>
+                <span class="tag"><i class="fas fa-user-graduate mr-1"></i>Mentoring</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="mb-12 fade-in delay-3" data-view="complete technical">
+          <h2 class="text-3xl font-bold mb-6 border-b pb-2">Proyectos Destacados</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <article class="p-5 rounded">
+              <h3 class="font-bold text-xl mb-1">Portafolio Personal</h3>
+              <p class="text-sm text-[var(--text-muted)]">Portafolio público (Stitch) + CV detallado en URL privada; GitHub Pages.</p>
+              <div class="mt-3 flex gap-3 text-sm">
+                <a href="https://github.com/aiKristian" target="_blank" class="link">Código</a>
+                <a href="https://aikristian.github.io" target="_blank" class="link">Demo</a>
+              </div>
+            </article>
+            <article class="p-5 rounded">
+              <h3 class="font-bold text-xl mb-1">Automatización de Marketing (n8n)</h3>
+              <p class="text-sm text-[var(--slate)]">Flujos de lead scoring y notificaciones omnicanal; reducción de tiempo operativo ~35 %.</p>
+              <div class="mt-3 flex gap-3 text-sm">
+                <a href="https://github.com/aiKristian" target="_blank" class="link">Código</a>
+                <a href="https://www.youtube.com/@ai_kristian" target="_blank" class="link">Video</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="education" class="mb-12 fade-in delay-4" data-view="complete technical management">
+          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Educación</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="font-bold text-xl">Ingeniería en Informática y Gestión</h3>
+              <p class="text-sm">Universidad Diego Portales (2009 – 2014)</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl">Analista de sistemas · Análisis de sistemas informáticos</h3>
+              <p class="text-sm">Duoc UC (2004 – 2007)</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="certifications" class="mb-12 fade-in delay-5" data-view="complete technical management">
+          <h2 class="text-2xl font-semibold mb-6 border-b pb-2">Certificaciones</h2>
+          <p class="text-sm text-[var(--text-muted)] mb-6 max-w-3xl">
+            <strong>Destacadas (perfil actualizado):</strong> gestión de proyectos simplificada; fundamentos profesionales de IA generativa (Microsoft y LinkedIn); introducción a AWS (conceptos de la nube); Vibe Coding with GitHub Copilot. El detalle con enlaces a PDF sigue en las categorías siguientes.
+          </p>
+
+          <div class="certifications-container">
+            <!-- Scrum y Metodologías Ágiles -->
+            <div class="cert-category" data-category="scrum-agile">
+              <h3 class="cert-category-title">
+                <i class="fas fa-certificate mr-2"></i>Scrum y Metodologías Ágiles
+              </h3>
+              <div class="cert-grid">
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Scrum avanzado</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Scrum avanzado.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Scrum esencial</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Scrum esencial .pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">SCRUM Roles</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_SCRUM Roles.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Product Owner esencial</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Product Owner esencial.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Características de un gran Scrum Master</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Caracteristicas de un gran Scrum Master.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Profundiza tus competencias en metodologías ágiles y Design Thinking</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Profundiza tus competencias en metodologias agiles y Design Thinking.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Gestión de proyectos con Jira</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Gestion de proyectos con Jira.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Fundamentos de la gestión de proyectos Proyectos pequeños</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Fundamentos de la gestion de proyectos Proyectos pequenos.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cloud Computing -->
+            <div class="cert-category" data-category="cloud">
+              <h3 class="cert-category-title">
+                <i class="fas fa-cloud mr-2"></i>Cloud Computing
+              </h3>
+              <div class="cert-grid">
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Fundamentos de AWS Cloud Services</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Fundamentos de AWS Cloud Services.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Introducción a AWS Conceptos de la nube</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Introduccion a AWS Conceptos de la nube.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Amazon Web Services para profesionales IT</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Amazon Web Services para profesionales IT.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Fundamentos de cloud computing</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Fundamentos de cloud computing.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Aprende cloud computing para IT</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Aprende cloud computing para IT.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Cloud computing para IT avanzado</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Cloud computing para IT avanzado.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Conviértete en profesional de administración Cloud</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Conviertete en profesional de administracion Cloud.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Azure Introducción a la nube de Microsoft</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Azure Introduccion a la nube de Microsoft.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Azure Microservicios esencial</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Azure Microservicios esencial.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Google Cloud para administradores IT esencial</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Google Cloud para administradores IT esencial.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Cuarta revolución industrial Retos del cloud computing</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Cuarta revolucion industrial Retos del cloud computing.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Desarrollo y Tecnología -->
+            <div class="cert-category" data-category="development">
+              <h3 class="cert-category-title">
+                <i class="fas fa-code mr-2"></i>Desarrollo y Tecnología
+              </h3>
+              <div class="cert-grid">
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Conviértete en desarrollador WordPress</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Conviertete en desarrollador WordPress.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">DevOps esencial</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_DevOps esencial.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Fundamentos profesionales de IA generativa por Microsoft y LinkedIn</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Fundamentos profesionales de IA generativa por Microsoft y LinkedIn.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Introducción a las habilidades profesionales en análisis de datos</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Introduccion a las habilidades profesionales en analisis de datos.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Automatización de edificios con PLC esencial</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Automatizacion de edificios con PLC esencial.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Industria 4.0 Perspectivas y experiencias de especialistas de la industria</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Industria 4.0 Perspectivas y experiencias de especialistas de la industria.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Descubre Microsoft 365 Copilot</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Descubre Microsoft 365 Copilot.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Liderazgo y Gestión -->
+            <div class="cert-category" data-category="leadership">
+              <h3 class="cert-category-title">
+                <i class="fas fa-users-cog mr-2"></i>Liderazgo y Gestión
+              </h3>
+              <div class="cert-grid">
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Liderazgo con inteligencia emocional</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Liderazgo con inteligencia emocional.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Liderazgo y trabajo en equipo</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Liderazgo y trabajo en equipo.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Habilidades de coaching para líderes y gerentes</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Habilidades de coaching para lideres y gerentes.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Cómo liderar a la generación Y</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Como liderar a la generacion Y.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Aprende a liderarte autocontrol y autogestión para el éxito laboral y personal</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Aprende a liderarte autocontrol y autogestion para el exito laboral y personal.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Fundamentos de la gestión del tiempo</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Fundamentos de la gestion del tiempo.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Cómo ejercer la responsabilidad</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Como ejercer la responsabilidad.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Negocios y Comunicación -->
+            <div class="cert-category" data-category="business">
+              <h3 class="cert-category-title">
+                <i class="fas fa-briefcase mr-2"></i>Negocios y Comunicación
+              </h3>
+              <div class="cert-grid">
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Fundamentos de redacción de textos para negocios</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Fundamentos de redaccion de textos para negocios.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Pensamiento crítico para ponderar y decidir mejor</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Pensamiento critico para ponderar y decidir mejor.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Comunicación interpersonal</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Comunicacion interpersonal.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">El lenguaje de la influencia Cómo persuadir y generar impacto</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_El lenguaje de la influencia Como persuadir y generar impacto.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Ruta de aprendizaje de habilidades profesionales blandas</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Ruta de aprendizaje de habilidades profesionales blandas.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete management">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Prepara tu curriculum vitae</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">LinkedIn Learning</p>
+                  <a href="certificaciones/CertificadoDeFinalizacion_Prepara tu curriculum vitae.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Otras Certificaciones -->
+            <div class="cert-category" data-category="other">
+              <h3 class="cert-category-title">
+                <i class="fas fa-graduation-cap mr-2"></i>Otras Certificaciones
+              </h3>
+              <div class="cert-grid">
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">Cursor IA Vibe Coding</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">Coursera</p>
+                  <a href="certificaciones/Cursor IA Vibe Coding -Coursera P1V9YSP2DCJB.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+                <div class="cert-card" data-view="complete technical">
+                  <div class="cert-header">
+                    <h4 class="cert-name">IA Gemini Google</h4>
+                    <span class="cert-date">2024</span>
+                  </div>
+                  <p class="cert-org">Google</p>
+                  <a href="certificaciones/ia_gemini_google.pdf" class="cert-link" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>Ver certificado
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-sm mt-6 text-center">
+            <a href="https://linkedin.com/in/aikristian" class="link" target="_blank">
+              <i class="fab fa-linkedin mr-1"></i>Ver perfil completo en LinkedIn
+            </a>
+          </p>
+        </section>
+
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
