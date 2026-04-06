@@ -21,7 +21,7 @@ jobs:
       - name: Install linters
         run: |
           npm install -g htmlhint
-          npm install --no-fund --no-audit --silent -D stylelint stylelint-config-standard
+          npm ci --no-fund --no-audit
 
       - name: HTML validation
         run: |
