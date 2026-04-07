@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aikristian.github.io/sitemap.xml

@@ -9,8 +9,20 @@
     <meta property="og:url" content="https://aikristian.github.io/" />
     <meta property="og:title" content="Cristian Gómez — Producto digital, web e inteligencia artificial" />
     <meta property="og:description" content="Ordeno tu idea digital, la llevo a la web y automatizo lo repetible —con lenguaje claro y foco en resultados." />
+    <meta property="og:image" content="https://aikristian.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="AIK — Cristian Gómez, producto digital y web" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cristian Gómez — Producto digital, web e inteligencia artificial" />
+    <meta name="twitter:description" content="Ordeno tu idea digital, la llevo a la web y automatizo lo repetible —con lenguaje claro y foco en resultados." />
+    <meta name="twitter:image" content="https://aikristian.github.io/og-image.png" />
+    <meta name="theme-color" content="#0b1326" />
     <title>Cristian Gómez — Producto digital, web e inteligencia artificial</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="canonical" href="https://aikristian.github.io/" />
+    <link rel="icon" href="logo-aik.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet" />
@@ -98,6 +110,25 @@
       html {
         scroll-behavior: smooth;
       }
+
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0.75rem;
+        z-index: 100;
+        padding: 0.5rem 1rem;
+        background: #c0c1ff;
+        color: #0b1326;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        text-decoration: none;
+      }
+
+      .skip-link:focus {
+        left: 0.75rem;
+        outline: 2px solid #45dfa4;
+        outline-offset: 2px;
+      }
       /* Marcas: Simple Icons servidos por Iconify (https://iconify.design — misma colección CC0) */
       .stack-tech-icon {
         width: 2rem;
@@ -107,22 +138,37 @@
     </style>
   </head>
   <body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary-fixed portfolio-stitch">
-    <nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-indigo-500/5">
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-indigo-500/5" aria-label="Principal">
       <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center max-w-7xl mx-auto px-4 sm:px-6 py-4 md:h-20 md:py-0">
-        <a href="index.html" class="text-lg sm:text-xl font-bold tracking-tighter text-indigo-200 shrink-0"> Cristian Gómez </a>
+        <a
+          href="index.html"
+          class="inline-flex items-center gap-2.5 text-lg sm:text-xl font-bold tracking-tighter text-indigo-200 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300"
+        >
+          <img
+            class="h-9 w-9 shrink-0"
+            src="logo-aik.svg"
+            alt=""
+            width="36"
+            height="36"
+            loading="eager"
+            decoding="async"
+          />
+          <span>Cristian Gómez</span>
+        </a>
         <div class="stitch-nav-section flex flex-wrap items-center gap-x-5 gap-y-2 md:gap-8">
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide" href="#inicio">Inicio</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide" href="#about">Sobre mí</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide" href="#services">Servicios</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide" href="#experience">Experiencia</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide" href="#stack">Tecnologías</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide" href="#contact">Contacto</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#inicio">Inicio</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#about">Sobre mí</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#services">Servicios</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#experience">Experiencia</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#stack">Tecnologías</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#contact">Contacto</a>
         </div>
-        <a class="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:scale-[0.98] active:scale-95 transition-transform text-sm shrink-0" href="mailto:cristgomezc@gmail.com"> Cuéntame tu idea </a>
+        <a class="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:scale-[0.98] active:scale-95 transition-transform text-sm shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="mailto:cristgomezc@gmail.com"> Cuéntame tu idea </a>
       </div>
     </nav>
 
-    <main>
+    <main id="main-content">
       <section class="relative pt-28 pb-16 md:pt-44 md:pb-28 overflow-hidden" id="inicio">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">

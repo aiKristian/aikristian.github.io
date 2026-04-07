@@ -9,10 +9,10 @@
     <meta name="author" content="Cristian Gómez Carrasco" />
     
     <title>CV — Cristian Gómez Carrasco</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="apple-touch-icon" href="favicon.png" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="logo-aik.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,9 +34,19 @@
     </script>
   </head>
   <body class="font-sans">
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="min-h-screen flex flex-col md:flex-row">
-      <aside class="p-4 md:w-64 w-full sidebar md:sticky top-0 h-screen">
+      <aside class="p-4 md:w-64 w-full sidebar md:sticky top-0 h-screen" aria-label="Presentación y navegación del CV">
         <div> <!-- Top part -->
+            <img
+              class="mb-3 h-auto w-[120px] max-w-full"
+              src="logo-aik.svg"
+              alt="AIK"
+              width="120"
+              height="98"
+              loading="eager"
+              decoding="async"
+            />
             <h1 class="text-2xl font-bold">CRISTIAN GÓMEZ CARRASCO</h1>
             <p class="text-sm">Product Manager · Sistemas con IA y arquitectura de software · Transformación digital</p>
             <p class="text-xs text-[var(--text-muted)] mt-3 leading-relaxed">+56 9 7767 3927</p>
@@ -80,7 +90,7 @@
         </div>
       </aside>
 
-      <main class="flex-1 p-6 main-content">
+      <main id="main-content" class="flex-1 p-6 main-content">
         <header class="flex justify-end items-center mb-8 fade-in md:hidden">
           <div class="flex gap-2">
             <button id="focus-mode" class="px-3 py-1 rounded text-sm theme-toggle">🎯 Modo foco</button>

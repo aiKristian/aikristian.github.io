@@ -7,6 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
+    "build:brand": "node scripts/render-brand.mjs",
     "lint:css": "stylelint \"**/*.css\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/aiKristian/aikristian.github.io#readme",
   "devDependencies": {
+    "sharp": "^0.34.5",
     "stylelint": "^17.6.0",
     "stylelint-config-standard": "^40.0.0"
   }
