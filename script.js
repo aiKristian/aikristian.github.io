@@ -287,7 +287,7 @@ if (toggleCertsBtn && certsList) {
 
 // --- MODO LECTURA ---
 const readingModeBtns = document.querySelectorAll(
-  '#cv-reading-mode, #cv-reading-mode-mobile, #cv-reading-mode-desktop'
+  '#cv-reading-mode-mobile, #cv-reading-mode-desktop'
 );
 const syncReadingModeButtons = () => {
   const on = body.classList.contains('cv-reading-mode');

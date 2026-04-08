@@ -37,7 +37,7 @@
   <body class="font-sans">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="min-h-screen flex flex-col md:flex-row">
-      <aside class="p-4 w-full sidebar md:sticky top-0 h-screen md:w-72 lg:w-80 shrink-0" aria-label="Presentación y navegación del CV">
+      <aside class="p-4 w-full sidebar md:sticky md:top-0 md:self-start md:w-72 lg:w-80 shrink-0" aria-label="Presentación y navegación del CV">
         <div class="cv-sidebar-identity">
             <p class="brand-mark-aik cv-sidebar-brand" aria-label="AIK">AIK</p>
             <div class="cv-profile-photo-wrap">
@@ -58,14 +58,17 @@
             <p class="cv-sidebar-contact"><a href="tel:+56977673927">+56 9 7767 3927</a></p>
         </div>
         
-        <nav class="mt-8 flex-grow overflow-y-auto"> <!-- Scrollable middle part -->
+        <details class="cv-sidebar-nav mt-8" open>
+          <summary class="cv-sidebar-nav__summary">Secciones del CV</summary>
+          <nav class="cv-sidebar-nav__panel" aria-label="Secciones del curriculum">
             <a href="#profile" class="nav-link block mb-2">Perfil</a>
             <a href="#experience" class="nav-link block mb-2">Experiencia</a>
             <a href="#skills" class="nav-link block mb-2">Habilidades</a>
             <a href="#projects" class="nav-link block mb-2">Proyectos</a>
             <a href="#education" class="nav-link block mb-2">Educación</a>
             <a href="#certifications" class="nav-link block mb-2">Certificaciones</a>
-        </nav>
+          </nav>
+        </details>
 
         <div class="pt-4"> <!-- Bottom part -->
             <div class="view-switcher mb-4">
@@ -81,7 +84,7 @@
                         <i class="fas fa-users"></i> <span class="view-btn-text">Gestión</span>
                     </button>
                 </div>
-                <p id="view-mode-hint" class="view-mode-hint">Ves perfil, experiencia, habilidades, proyectos, educación y certificaciones en conjunto.</p>
+                <p id="view-mode-hint" class="view-mode-hint">Orden estándar: todas las secciones visibles con equilibrio entre técnica y gestión.</p>
             </div>
             <div class="theme-switcher mb-4">
                 <button class="theme-btn" data-theme="light" aria-label="Tema Claro"><i class="fas fa-sun"></i></button>
@@ -94,9 +97,6 @@
                 <a href="https://github.com/aiKristian" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://youtube.com/@ai_kristian" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
-            <button type="button" id="cv-reading-mode" class="cv-reading-mode-btn" aria-pressed="false" aria-label="Modo lectura: texto más grande">
-              <i class="fas fa-book-open mr-1" aria-hidden="true"></i><span class="cv-reading-mode-btn__text">Modo lectura</span>
-            </button>
         </div>
       </aside>
 
