@@ -38,30 +38,24 @@
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="min-h-screen flex flex-col md:flex-row">
       <aside class="p-4 w-full sidebar md:sticky top-0 h-screen md:w-72 lg:w-80 shrink-0" aria-label="Presentación y navegación del CV">
-        <div class="cv-sidebar-identity"> <!-- Top part -->
-            <p class="brand-mark-aik mb-3 text-3xl font-black tracking-tight leading-none" aria-label="AIK">AIK</p>
+        <div class="cv-sidebar-identity">
+            <p class="brand-mark-aik cv-sidebar-brand" aria-label="AIK">AIK</p>
             <div class="cv-profile-photo-wrap">
               <img
                 src="images/cv-photo.jpg"
                 alt="Retrato profesional de Cristian Gómez Carrasco"
                 class="cv-profile-photo"
-                width="120"
-                height="120"
+                width="112"
+                height="112"
                 loading="lazy"
                 decoding="async"
                 onerror="this.classList.add('cv-profile-photo--missing'); this.nextElementSibling &amp;&amp; this.nextElementSibling.classList.add('is-visible');"
               />
-              <div class="cv-profile-fallback" aria-hidden="true">CG</div>
+              <div class="cv-profile-fallback" aria-hidden="true"><span class="cv-profile-fallback__text">CG</span></div>
             </div>
-            <h1 class="text-2xl font-bold">CRISTIAN GÓMEZ CARRASCO</h1>
-            <p class="text-sm">Product Manager · Sistemas con IA y arquitectura de software · Transformación digital</p>
-            <div class="cv-chip-row" role="list">
-              <span class="cv-chip" role="listitem">Producto</span>
-              <span class="cv-chip" role="listitem">IA aplicada</span>
-              <span class="cv-chip" role="listitem">Arquitectura</span>
-              <span class="cv-chip" role="listitem">15+ años</span>
-            </div>
-            <p class="text-xs text-[var(--text-muted)] mt-3 leading-relaxed">+56 9 7767 3927</p>
+            <p class="cv-sidebar-name">Cristian Gómez Carrasco</p>
+            <p class="cv-sidebar-role">Product Manager · IA y arquitectura de software</p>
+            <p class="cv-sidebar-contact"><a href="tel:+56977673927">+56 9 7767 3927</a></p>
         </div>
         
         <nav class="mt-8 flex-grow overflow-y-auto"> <!-- Scrollable middle part -->
@@ -75,8 +69,8 @@
 
         <div class="pt-4"> <!-- Bottom part -->
             <div class="view-switcher mb-4">
-                <label class="view-switcher-label">Vista:</label>
-                <div class="view-buttons">
+                <span class="view-switcher-label" id="view-switcher-label">Vista del documento</span>
+                <div class="view-buttons" role="group" aria-labelledby="view-switcher-label">
                     <button class="view-btn active" data-view="complete" aria-label="Vista Completa" title="Vista Completa">
                         <i class="fas fa-th"></i> <span class="view-btn-text">Completa</span>
                     </button>
@@ -108,35 +102,33 @@
 
       <main id="main-content" class="flex-1 min-w-0 p-6 main-content">
         <header class="flex flex-wrap justify-end items-center gap-2 mb-8 fade-in md:hidden">
-          <button type="button" id="cv-reading-mode-mobile" class="px-3 py-1 rounded text-sm theme-toggle" aria-pressed="false" aria-label="Modo lectura">📖 Lectura</button>
-          <button id="focus-mode" class="px-3 py-1 rounded text-sm theme-toggle">🎯 Modo foco</button>
-          <button id="print-cv" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
+          <button type="button" id="cv-reading-mode-mobile" class="cv-toolbar-btn theme-toggle" aria-pressed="false" aria-label="Texto más grande para lectura"><i class="fas fa-book-open" aria-hidden="true"></i> Lectura</button>
+          <button type="button" id="focus-mode" class="cv-toolbar-btn theme-toggle" aria-label="Ocultar secciones secundarias"><i class="fas fa-bullseye" aria-hidden="true"></i> Foco</button>
+          <button type="button" id="print-cv" class="cv-toolbar-btn theme-toggle" aria-label="Imprimir o guardar como PDF"><i class="fas fa-print" aria-hidden="true"></i> Imprimir / PDF</button>
         </header>
 
         <div class="hidden md:flex flex-wrap justify-end items-center gap-2 mb-8 fade-in">
-             <button type="button" id="cv-reading-mode-desktop" class="px-3 py-1 rounded text-sm theme-toggle" aria-pressed="false" aria-label="Modo lectura">📖 Modo lectura</button>
-             <button id="focus-mode-desktop" class="px-3 py-1 rounded text-sm theme-toggle">🎯 Modo foco</button>
-             <button id="print-cv-desktop" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
+             <button type="button" id="cv-reading-mode-desktop" class="cv-toolbar-btn theme-toggle" aria-pressed="false" aria-label="Texto más grande para lectura"><i class="fas fa-book-open" aria-hidden="true"></i> Lectura</button>
+             <button type="button" id="focus-mode-desktop" class="cv-toolbar-btn theme-toggle" aria-label="Ocultar secciones secundarias"><i class="fas fa-bullseye" aria-hidden="true"></i> Foco</button>
+             <button type="button" id="print-cv-desktop" class="cv-toolbar-btn theme-toggle" aria-label="Imprimir o guardar como PDF"><i class="fas fa-print" aria-hidden="true"></i> Imprimir / PDF</button>
         </div>
 
         <section id="profile" class="mb-12 fade-in delay-1" data-view="complete technical management">
           <div class="hero-section py-10">
             <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-primary)]">Cristian Gómez Carrasco</h1>
-            <p class="text-xl md:text-2xl text-[var(--accent)] mb-6 font-medium">Product Manager | AI Systems &amp; Software Architecture | Driving Digital Transformation</p>
-            <div class="cv-chip-row cv-chip-row--profile mb-6" role="list" aria-label="Enfoque profesional">
+            <p class="text-xl md:text-2xl text-[var(--accent)] mb-6 font-medium">Product Manager · Sistemas de IA y arquitectura de software · Transformación digital</p>
+            <div class="cv-chip-row cv-chip-row--profile mb-6" role="list" aria-label="Áreas de especialización">
               <span class="cv-chip" role="listitem">Producto</span>
               <span class="cv-chip" role="listitem">IA aplicada</span>
               <span class="cv-chip" role="listitem">Arquitectura</span>
               <span class="cv-chip" role="listitem">Sector público y retail</span>
             </div>
-            <details class="cv-executive-summary">
-              <summary class="cv-executive-summary__summary">Resumen ejecutivo (~2 min)</summary>
-              <div class="cv-executive-summary__body">
-                <p class="text-base leading-relaxed max-w-3xl text-[var(--text-primary)]">
-                  PM y arquitecto de producto con 15+ años en tecnología: hoy lidero la evolución de productos digitales con IA en el Poder Judicial de Chile, con trayectoria previa en consultoría (Núcleo), telecomunicaciones (WOM), retail y logística (Sodimac, Epysa). Combino visión de negocio, definición técnica y entregas iterativas; inglés profesional.
-                </p>
-              </div>
-            </details>
+            <section class="cv-pro-summary" aria-labelledby="cv-pro-summary-heading">
+              <h2 class="cv-pro-summary__title" id="cv-pro-summary-heading">Síntesis profesional</h2>
+              <p class="cv-pro-summary__text">
+                Product manager y arquitecto de producto con más de quince años en tecnología. Actualmente impulso la evolución de productos digitales con inteligencia artificial en el Poder Judicial de Chile. Trayectoria previa en consultoría (Núcleo), telecomunicaciones (WOM), retail y logística (Sodimac, Epysa). Combino visión de negocio, definición técnica y entregas iterativas; inglés nivel profesional.
+              </p>
+            </section>
             <div class="cv-value-flow mt-8 mb-8" role="img" aria-label="Flujo: de producto y requisitos a arquitectura y entrega">
               <svg class="cv-value-flow__svg" viewBox="0 0 520 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
                 <rect x="8" y="28" width="140" height="44" rx="10" fill="var(--accent-tint)" stroke="var(--border-color)" stroke-width="1.5"/>

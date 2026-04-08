@@ -55,11 +55,11 @@ const VIEWS = {
 
 const VIEW_HINTS = {
   complete:
-    'Ves perfil, experiencia, habilidades, proyectos, educación y certificaciones en conjunto.',
+    'Orden estándar: todas las secciones visibles con equilibrio entre técnica y gestión.',
   technical:
-    'Prioriza proyectos y stack técnico al inicio; el orden de secciones favorece un perfil orientado a ingeniería y entrega.',
+    'Orden orientado a perfiles técnicos: proyectos y habilidades de stack al inicio.',
   management:
-    'Prioriza experiencia, gestión y certificaciones; el orden ayuda a roles de liderazgo, producto y stakeholders.'
+    'Orden orientado a liderazgo y producto: experiencia y certificaciones priorizadas.'
 };
 
 const updateViewHint = (view) => {

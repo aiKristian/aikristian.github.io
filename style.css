@@ -391,11 +391,44 @@ a:hover {
   line-height: 1.3;
 }
 
-.sidebar > div:first-child p {
+.cv-sidebar-brand {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--fz-3xl);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.cv-sidebar-name {
+  color: var(--accent);
+  font-size: var(--fz-lg);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-xs);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.cv-sidebar-role {
   font-size: var(--fz-sm);
   color: var(--text-muted);
+  margin: 0 0 var(--spacing-md);
+  line-height: 1.5;
+}
+
+.cv-sidebar-contact {
+  font-size: var(--fz-xs);
   margin: 0;
   line-height: 1.5;
+}
+
+.cv-sidebar-contact a {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.cv-sidebar-contact a:hover {
+  color: var(--accent);
 }
 
 .sidebar nav {
@@ -632,9 +665,9 @@ body.cv-reading-mode main.main-content {
 
 .cv-profile-photo-wrap {
   position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto var(--spacing-md);
+  width: 112px;
+  height: 112px;
+  margin: 0 auto var(--spacing-lg);
 }
 
 @media (width >= 768px) {
@@ -645,12 +678,14 @@ body.cv-reading-mode main.main-content {
 }
 
 .cv-profile-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: var(--radius-xl);
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
+  box-shadow:
+    0 0 0 3px var(--bg-secondary),
+    0 4px 14px rgb(0 0 0 / 12%);
   display: block;
   background: var(--bg-tertiary);
 }
@@ -665,15 +700,22 @@ body.cv-reading-mode main.main-content {
   inset: 0;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
-  border-radius: var(--radius-xl);
-  background: var(--accent-tint);
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--accent-tint) 0%, var(--bg-tertiary) 100%);
   border: 2px solid var(--border-color);
-  font-size: var(--fz-3xl);
+  box-shadow:
+    0 0 0 3px var(--bg-secondary),
+    0 4px 14px rgb(0 0 0 / 10%);
+}
+
+.cv-profile-fallback__text {
+  font-size: 1.65rem;
   font-weight: 800;
   color: var(--accent);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.06em;
+  line-height: 1;
 }
 
 .cv-profile-fallback.is-visible {
@@ -718,45 +760,46 @@ body.cv-reading-mode main.main-content {
   transform: translateY(-1px);
 }
 
-.cv-executive-summary {
+.cv-pro-summary {
   margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
   background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--accent);
+}
+
+.cv-pro-summary__title {
+  margin: 0 0 var(--spacing-md);
   padding: 0;
-  overflow: hidden;
-}
-
-.cv-executive-summary__summary {
-  cursor: pointer;
-  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--fz-sm);
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--accent);
-  list-style: none;
-  transition: background-color var(--transition-base);
 }
 
-.cv-executive-summary__summary::-webkit-details-marker {
-  display: none;
+.cv-pro-summary__text {
+  margin: 0;
+  max-width: 65ch;
+  font-size: var(--fz-base);
+  line-height: 1.75;
+  color: var(--text-secondary);
 }
 
-.cv-executive-summary__summary::after {
-  content: '+';
-  float: right;
-  font-weight: 800;
-  opacity: 0.6;
+.cv-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.75rem;
+  font-size: var(--fz-sm);
+  font-weight: 600;
 }
 
-.cv-executive-summary[open] .cv-executive-summary__summary::after {
-  content: '−';
-}
-
-.cv-executive-summary__summary:hover {
-  background: var(--accent-tint);
-}
-
-.cv-executive-summary__body {
-  padding: 0 var(--spacing-lg) var(--spacing-lg);
+.cv-toolbar-btn i {
+  font-size: 0.85em;
+  opacity: 0.9;
 }
 
 .cv-value-flow__svg {
@@ -1595,13 +1638,12 @@ body.theme-retro #education > div > div:hover {
     display: none !important;
   }
 
-  details.cv-executive-summary .cv-executive-summary__body {
-    display: block !important;
-  }
-
-  details.cv-executive-summary .cv-executive-summary__summary {
-    display: block !important;
-    padding-bottom: 0.25rem;
+  .cv-pro-summary {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    border-left: 3px solid #333 !important;
+    break-inside: avoid;
   }
 
   body {
