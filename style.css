@@ -251,26 +251,29 @@ section.visible > *:nth-child(8) {
   animation-delay: 0.46s;
 }
 
-/* Bloques de habilidades: ligera elevación al hover */
+/* Bloques de habilidades: mismo contenedor para las cuatro columnas */
 #skills > div > div[data-view] {
-  padding: var(--spacing-md);
-  margin: calc(-1 * var(--spacing-md));
+  padding: var(--spacing-lg);
+  margin-bottom: 0;
   border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
   transition:
     transform var(--transition-base),
     box-shadow var(--transition-base),
-    background-color var(--transition-base);
+    border-color var(--transition-base);
 }
 
 #skills > div > div[data-view]:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-  background-color: rgb(0 0 0 / 3%);
+  border-color: var(--accent);
 }
 
 body.theme-developer #skills > div > div[data-view]:hover,
 body.theme-retro #skills > div > div[data-view]:hover {
-  background-color: rgb(255 255 255 / 4%);
+  background: var(--bg-secondary);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -908,8 +911,23 @@ body.cv-reading-mode main.main-content {
   display: none !important;
 }
 
+#projects .grid {
+  align-items: stretch;
+}
+
 #projects article.cv-project-card {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+}
+
+#projects article.cv-project-card > .p-5,
+#projects article.cv-project-card > div.p-5 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 #projects .cv-project-card__media {
@@ -991,15 +1009,18 @@ body.cv-reading-mode main.main-content {
   gap: var(--spacing-xl);
 }
 
-@media (width >= 768px) {
+/* Dos columnas solo en pantallas anchas: evita raíl izquierdo demasiado estrecho en tablet */
+@media (width >= 1024px) {
   #experience .inner {
     flex-direction: row;
     align-items: flex-start;
+    gap: var(--spacing-2xl);
   }
 
   #experience .cv-exp-controls {
-    flex: 0 0 min(220px, 34%);
-    max-width: 260px;
+    flex: 0 0 300px;
+    max-width: 340px;
+    width: 300px;
   }
 
   #experience .tab-content {
@@ -1371,13 +1392,19 @@ body.cv-reading-mode main.main-content {
 
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--spacing-lg);
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
 }
 
-@media (width >= 768px) {
+@media (width >= 560px) {
   .cert-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .cert-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1385,7 +1412,8 @@ body.cv-reading-mode main.main-content {
   background: var(--bg-secondary);
   border: 1.5px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  min-height: 8.5rem;
   transition: all var(--transition-slow);
   display: flex;
   flex-direction: column;
@@ -1426,12 +1454,12 @@ body.cv-reading-mode main.main-content {
 }
 
 .cert-name {
-  font-size: var(--fz-base);
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-primary);
   margin: 0;
   flex: 1;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .cert-date {
