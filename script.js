@@ -72,6 +72,19 @@ const activateView = (view) => {
   body.classList.add(`view-${view}`);
 };
 
+const applyExperiencePaneViewFilter = (view) => {
+  const experienceItems = document.querySelectorAll('#experience .tab-pane');
+  experienceItems.forEach(item => {
+    item.style.opacity = '';
+    item.style.pointerEvents = '';
+    const itemViews = item.getAttribute('data-view') || 'complete';
+    const itemViewArray = itemViews.split(' ');
+    const matches = view === VIEWS.complete || itemViewArray.includes(view);
+    const isActive = item.classList.contains('active');
+    item.classList.toggle('cv-pane-view-off', isActive && !matches);
+  });
+};
+
 const filterContentByView = (view) => {
   // Filter sections - all sections are visible but content is filtered
   const sections = document.querySelectorAll('section[data-view]');
@@ -79,20 +92,7 @@ const filterContentByView = (view) => {
     section.style.display = '';
   });
 
-  // Filter experience items
-  const experienceItems = document.querySelectorAll('#experience .tab-pane');
-  experienceItems.forEach(item => {
-    const itemViews = item.getAttribute('data-view') || 'complete';
-    const itemViewArray = itemViews.split(' ');
-    
-    if (view === VIEWS.complete || itemViewArray.includes(view)) {
-      item.style.opacity = '1';
-      item.style.pointerEvents = 'auto';
-    } else {
-      item.style.opacity = '0.2';
-      item.style.pointerEvents = 'none';
-    }
-  });
+  applyExperiencePaneViewFilter(view);
 
   // Filter skills sections
   const skillsSections = document.querySelectorAll('#skills [data-view]');
@@ -206,6 +206,8 @@ tabButtons.forEach(button => {
         tabPanes.forEach(p => p.classList.remove('active'));
         button.classList.add('active');
         pane.classList.add('active');
+        const currentView = localStorage.getItem(VIEW_KEY) || VIEWS.complete;
+        applyExperiencePaneViewFilter(currentView);
     });
 });
 
@@ -246,3 +248,29 @@ const navObserver = new IntersectionObserver((entries) => {
 contentSections.forEach(section => {
     navObserver.observe(section);
 });
+
+// --- VOLVER ARRIBA (CV) ---
+const cvBackTop = document.getElementById('cv-back-top');
+if (cvBackTop) {
+  let cvBackTicking = false;
+  const syncCvBackTop = () => {
+    cvBackTop.classList.toggle('is-visible', window.scrollY > 400);
+  };
+  cvBackTop.addEventListener('click', () => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (cvBackTicking) return;
+      cvBackTicking = true;
+      requestAnimationFrame(() => {
+        syncCvBackTop();
+        cvBackTicking = false;
+      });
+    },
+    { passive: true }
+  );
+  syncCvBackTop();
+}

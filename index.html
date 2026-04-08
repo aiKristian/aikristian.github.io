@@ -136,6 +136,76 @@
         object-fit: contain;
       }
 
+      .stack-icon-wrap {
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* CTAs: brillo sutil al pasar el ratón (solo transform/opacity en el brillo) */
+      .stitch-cta-shine {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stitch-cta-shine::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          105deg,
+          transparent 38%,
+          rgb(255 255 255 / 14%) 50%,
+          transparent 62%
+        );
+        transform: translateX(-120%);
+        transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: none;
+      }
+
+      .stitch-cta-shine:hover::after {
+        transform: translateX(120%);
+      }
+
+      /* Navegación: indicador activo con scaleX */
+      .stitch-nav-link {
+        position: relative;
+        padding-bottom: 0.2rem;
+      }
+
+      .stitch-nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, rgb(165 180 252), rgb(129 140 248));
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .stitch-nav-link.stitch-nav-link--active::after {
+        transform: scaleX(1);
+      }
+
+      #stitch-scroll-progress {
+        transform-origin: left center;
+        transform: scaleX(0);
+      }
+
+      #stitch-back-top {
+        transition:
+          opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      #stitch-back-top.is-visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+      }
+
       .footer-icon {
         width: 1.5rem;
         height: 1.5rem;
@@ -150,6 +220,7 @@
         transform: translateY(-2px);
       }
 
+      /* Movimiento: curva cubic-bezier(0.22, 1, 0.36, 1) alineada con CV (--ease-motion en style.css) */
       /* --- Movimiento (respeta prefers-reduced-motion) --- */
       @keyframes stitch-fade-up {
         from {
@@ -353,11 +424,37 @@
         .stitch-hero-img-wrap:hover .stitch-hero-img {
           transform: none;
         }
+
+        .stitch-scroll-track {
+          display: none !important;
+        }
+
+        .stitch-cta-shine::after {
+          display: none;
+        }
+
+        .stack-icon-wrap {
+          transition: none !important;
+        }
+
+        .group:hover .stack-icon-wrap {
+          transform: none !important;
+        }
+
+        #stitch-back-top {
+          transition: opacity 0.15s ease, transform 0.15s ease;
+        }
       }
     </style>
   </head>
   <body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary-fixed portfolio-stitch">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <div class="stitch-scroll-track fixed top-0 left-0 right-0 h-0.5 z-[60] pointer-events-none bg-slate-950/50" aria-hidden="true">
+      <div
+        id="stitch-scroll-progress"
+        class="h-full w-full bg-gradient-to-r from-primary to-secondary will-change-transform"
+      ></div>
+    </div>
     <nav class="nav-enter fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-indigo-500/5" aria-label="Principal">
       <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center max-w-7xl mx-auto px-4 sm:px-6 py-4 md:h-20 md:py-0">
         <a
@@ -371,14 +468,14 @@
           <span class="text-lg sm:text-xl font-bold tracking-tighter text-indigo-200">Cristian Gómez</span>
         </a>
         <div class="stitch-nav-section flex flex-wrap items-center gap-x-5 gap-y-2 md:gap-8">
-          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#inicio">Inicio</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#about">Sobre mí</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#services">Servicios</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#experience">Experiencia</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#stack">Tecnologías</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#contact">Contacto</a>
+          <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#inicio">Inicio</a>
+          <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#about">Sobre mí</a>
+          <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#services">Servicios</a>
+          <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#experience">Experiencia</a>
+          <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#stack">Tecnologías</a>
+          <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#contact">Contacto</a>
         </div>
-        <a class="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:scale-[0.98] active:scale-95 transition-transform text-sm shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="mailto:cristgomezc@gmail.com"> Cuéntame tu idea </a>
+        <a class="stitch-cta-shine inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:scale-[0.98] active:scale-95 transition-transform text-sm shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="mailto:cristgomezc@gmail.com"> Cuéntame tu idea </a>
       </div>
     </nav>
 
@@ -402,7 +499,7 @@
               <a href="https://aikristian.com" target="_blank" rel="noopener noreferrer" class="text-secondary font-medium hover:underline">aikristian.com</a>, donde acompaño a equipos y pymes con el mismo rigor que aprendí en grandes compañías.
             </p>
             <div class="flex flex-wrap gap-4 pt-2">
-              <a href="mailto:cristgomezc@gmail.com" class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform text-center"> Pedir una conversación </a>
+              <a href="mailto:cristgomezc@gmail.com" class="stitch-cta-shine px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform text-center"> Pedir una conversación </a>
               <a href="#services" class="px-8 py-4 bg-surface-container-high text-on-surface border border-outline-variant/20 font-bold rounded-lg hover:bg-surface-container-highest transition-colors text-center"> Ver cómo puedo ayudarte </a>
             </div>
           </div>
@@ -610,50 +707,50 @@
             <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Los nombres técnicos ayudan a quien ya conoce el oficio; si no es tu caso, lo importante es el resultado: algo que cargue rápido, se pueda actualizar y no te deje colgado un domingo a las ocho.</p>
           </div>
           <div class="motion-stagger-children grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
-              <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Nube Amazon (AWS)">
+            <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
+              <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Nube Amazon (AWS)">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900" alt="Logo AWS" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Nube<br /><span class="text-[10px] uppercase tracking-widest opacity-70">Amazon</span></span>
             </div>
-            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
-              <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Inteligencia artificial">
+            <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
+              <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Inteligencia artificial">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:openai.svg?color=%2310A37F" alt="Logo OpenAI" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Inteligencia<br />artificial</span>
             </div>
-            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
-              <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Laravel">
+            <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
+              <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Laravel">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:laravel.svg?color=%23FF2D20" alt="Logo Laravel" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold uppercase tracking-widest text-on-surface">Laravel</span>
             </div>
-            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
-              <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="PostgreSQL (bases de datos)">
+            <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
+              <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="PostgreSQL (bases de datos)">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:postgresql.svg?color=%234169E1" alt="Logo PostgreSQL" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Bases de<br />datos</span>
             </div>
-            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
-              <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="GitHub Actions — despliegues automáticos">
+            <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
+              <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="GitHub Actions — despliegues automáticos">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:githubactions.svg?color=%232088FF" alt="Logo GitHub Actions" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Despliegues<br />automáticos</span>
             </div>
-            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
-              <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Jira — planificación en equipo">
+            <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
+              <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Jira — planificación en equipo">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:jira.svg?color=%230052CC" alt="Logo Jira" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Planificación<br />en equipo</span>
             </div>
-            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
-              <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="WordPress">
+            <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
+              <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="WordPress">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:wordpress.svg?color=%2321759B" alt="Logo WordPress" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold uppercase tracking-widest text-on-surface">WordPress</span>
             </div>
-            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
-              <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Docker">
+            <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
+              <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Docker">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:docker.svg?color=%232496ED" alt="Logo Docker" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Contenedores<br /><span class="text-[10px] uppercase tracking-widest opacity-70">Docker</span></span>
@@ -676,12 +773,21 @@
               · cristgomezc@gmail.com
             </p>
             <div class="pt-4">
-              <a class="inline-block px-10 py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg rounded-xl shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all" href="mailto:cristgomezc@gmail.com"> Escribirme por correo </a>
+              <a class="stitch-cta-shine inline-block px-10 py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg rounded-xl shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all" href="mailto:cristgomezc@gmail.com"> Escribirme por correo </a>
             </div>
           </div>
         </div>
       </section>
     </main>
+
+    <button
+      type="button"
+      id="stitch-back-top"
+      class="fixed bottom-6 right-6 z-[55] flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-slate-900/90 text-indigo-200 shadow-lg backdrop-blur-sm opacity-0 pointer-events-none translate-y-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300"
+      aria-label="Volver arriba"
+    >
+      <span class="material-symbols-outlined text-2xl" aria-hidden="true">arrow_upward</span>
+    </button>
 
     <footer class="bg-slate-950 border-t border-slate-900 w-full py-12">
       <div class="motion-reveal flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6 text-center md:text-left">
@@ -796,16 +902,63 @@
             if (el && el.offsetTop <= y) current = s;
           });
           links.forEach(function (a) {
-            a.classList.remove('text-indigo-200', 'font-semibold', 'border-b-2', 'border-indigo-300', 'pb-0.5');
+            a.classList.remove('text-indigo-200', 'font-semibold', 'stitch-nav-link--active');
             a.classList.add('text-slate-400');
           });
           if (current && current.link) {
             current.link.classList.remove('text-slate-400');
-            current.link.classList.add('text-indigo-200', 'font-semibold', 'border-b-2', 'border-indigo-300', 'pb-0.5');
+            current.link.classList.add('text-indigo-200', 'font-semibold', 'stitch-nav-link--active');
           }
         }
         window.addEventListener('scroll', setActive, { passive: true });
         setActive();
+      })();
+
+      (function () {
+        var bar = document.getElementById('stitch-scroll-progress');
+        var track = document.querySelector('.stitch-scroll-track');
+        var backTop = document.getElementById('stitch-back-top');
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function updateScrollBar() {
+          if (!bar || reduceMotion) return;
+          var doc = document.documentElement;
+          var max = doc.scrollHeight - window.innerHeight;
+          var p = max > 0 ? window.scrollY / max : 0;
+          if (p < 0) p = 0;
+          if (p > 1) p = 1;
+          bar.style.transform = 'scaleX(' + p + ')';
+        }
+
+        function updateBackTop() {
+          if (!backTop) return;
+          backTop.classList.toggle('is-visible', window.scrollY > 400);
+        }
+
+        var ticking = false;
+        function onScroll() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            updateScrollBar();
+            updateBackTop();
+            ticking = false;
+          });
+        }
+
+        if (reduceMotion && track) {
+          track.style.display = 'none';
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        updateScrollBar();
+        updateBackTop();
+
+        if (backTop) {
+          backTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+          });
+        }
       })();
 
       (function () {
