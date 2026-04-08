@@ -136,6 +136,17 @@ html {
   outline-offset: 2px;
 }
 
+/* Marca tipográfica AIK (sustituye logo raster hasta tener imagen final) */
+.brand-mark-aik {
+  background: linear-gradient(105deg, var(--accent), var(--accent-light));
+
+  /* Safari: prefijo necesario para texto con degradado */
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-secondary);

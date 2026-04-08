@@ -1,22 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#0b1326"/>
-  <g transform="translate(72 165) scale(1.35)">
-    <g opacity="0.95">
-      <path fill="#e8898a" fill-opacity="0.92" d="M52 118c0-18 10-28 26-22l58 28c12 6 12 22 0 28l-58 28c-16 6-26-4-26-22v-40z" />
-      <path fill="#5eb8ec" fill-opacity="0.9" d="M98 52c0-20 14-30 32-18l88 52c20 12 20 36 0 48l-88 52c-18 12-32 2-32-18V52z" />
-      <path fill="#6dd86a" fill-opacity="0.9" d="M98 138c0-20 14-30 32-18l88 52c20 12 20 36 0 48l-88 52c-18 12-32 2-32-18v-116z" />
-    </g>
-    <text
-      x="160"
-      y="78"
-      text-anchor="middle"
-      font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
-      font-size="64"
-      font-weight="900"
-      letter-spacing="-0.04em"
-      fill="#f8fafc"
-    >AIK</text>
-  </g>
+  <rect width="1200" height="630" fill="#0b1326" />
+  <defs>
+    <linearGradient id="ogAikGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c0c1ff" />
+      <stop offset="100%" stop-color="#45dfa4" />
+    </linearGradient>
+  </defs>
+  <text
+    x="96"
+    y="340"
+    font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-size="168"
+    font-weight="900"
+    letter-spacing="-0.06em"
+    fill="url(#ogAikGrad)"
+  >AIK</text>
   <text
     x="420"
     y="260"
