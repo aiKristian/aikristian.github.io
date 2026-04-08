@@ -53,21 +53,48 @@ const VIEWS = {
   complete: 'complete'
 };
 
+const VIEW_HINTS = {
+  complete:
+    'Ves perfil, experiencia, habilidades, proyectos, educación y certificaciones en conjunto.',
+  technical:
+    'Prioriza proyectos y stack técnico al inicio; el orden de secciones favorece un perfil orientado a ingeniería y entrega.',
+  management:
+    'Prioriza experiencia, gestión y certificaciones; el orden ayuda a roles de liderazgo, producto y stakeholders.'
+};
+
+const updateViewHint = (view) => {
+  const el = document.getElementById('view-mode-hint');
+  if (el && VIEW_HINTS[view]) {
+    el.textContent = VIEW_HINTS[view];
+  }
+};
+
+const syncCertCategoriesVisibility = () => {
+  const bar = document.getElementById('cert-filter-bar');
+  if (!bar) return;
+  const activeFilter = bar.dataset.activeFilter || 'all';
+  document.querySelectorAll('#certifications-list .cert-category').forEach(cat => {
+    const key = cat.dataset.category;
+    if (!key) return;
+    const filterOk = activeFilter === 'all' || activeFilter === key;
+    const cards = cat.querySelectorAll('.cert-card');
+    const visibleCount = Array.from(cards).filter(c => c.style.display !== 'none').length;
+    cat.classList.toggle('cert-category--hidden', !filterOk || visibleCount === 0);
+  });
+};
+
 const activateView = (view) => {
   const viewButtons = document.querySelectorAll('.view-btn');
-  
-  // Remove active class from all view buttons
+
   viewButtons.forEach(btn => {
     btn.classList.toggle('active', btn.dataset.view === view);
   });
 
-  // Filter content within sections
+  updateViewHint(view);
   filterContentByView(view);
 
-  // Save preference
   localStorage.setItem(VIEW_KEY, view);
-  
-  // Update body class for styling
+
   body.classList.remove('view-technical', 'view-management', 'view-complete');
   body.classList.add(`view-${view}`);
 };
@@ -122,8 +149,8 @@ const filterContentByView = (view) => {
     }
   });
 
-  // Reorder sections based on view priority
   reorderSectionsByView(view);
+  syncCertCategoriesVisibility();
 };
 
 const reorderSectionsByView = (view) => {
@@ -194,22 +221,59 @@ document.querySelectorAll('section').forEach(section => {
     sectionObserver.observe(section);
 });
 
-// --- EXPERIENCE TABS ---
+// --- EXPERIENCE TABS + TIMELINE ---
+const activateExperienceTab = (targetSelector) => {
+  const pane = targetSelector ? document.querySelector(targetSelector) : null;
+  if (!pane || !pane.classList.contains('tab-pane')) return;
+
+  document.querySelectorAll('.tab-button').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-target') === targetSelector);
+  });
+
+  document.querySelectorAll('.cv-timeline-btn').forEach(btn => {
+    const match = btn.getAttribute('data-target') === targetSelector;
+    btn.classList.toggle('active', match);
+    btn.setAttribute('aria-selected', match ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  pane.classList.add('active');
+
+  const currentView = localStorage.getItem(VIEW_KEY) || VIEWS.complete;
+  applyExperiencePaneViewFilter(currentView);
+};
+
 const tabButtons = document.querySelectorAll('.tab-button');
-const tabPanes = document.querySelectorAll('.tab-pane');
 tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const target = button.getAttribute('data-target');
-        const pane = target ? document.querySelector(target) : null;
-        if (!pane) return;
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabPanes.forEach(p => p.classList.remove('active'));
-        button.classList.add('active');
-        pane.classList.add('active');
-        const currentView = localStorage.getItem(VIEW_KEY) || VIEWS.complete;
-        applyExperiencePaneViewFilter(currentView);
-    });
+  button.addEventListener('click', () => {
+    const target = button.getAttribute('data-target');
+    if (target) activateExperienceTab(target);
+  });
 });
+
+document.querySelectorAll('.cv-timeline-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const target = button.getAttribute('data-target');
+    if (target) activateExperienceTab(target);
+  });
+});
+
+// --- CERTIFICATION CATEGORY FILTER ---
+const certFilterBar = document.getElementById('cert-filter-bar');
+if (certFilterBar) {
+  certFilterBar.querySelectorAll('.cert-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.certFilter || 'all';
+      certFilterBar.dataset.activeFilter = f;
+      certFilterBar.querySelectorAll('.cert-filter-btn').forEach(b => {
+        const on = b === btn;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      syncCertCategoriesVisibility();
+    });
+  });
+}
 
 // --- TOGGLE CERTIFICATIONS ---
 const toggleCertsBtn = document.getElementById('toggle-certs');
@@ -220,6 +284,22 @@ if (toggleCertsBtn && certsList) {
     toggleCertsBtn.textContent = isExpanded ? 'Ver menos' : 'Ver más';
   });
 }
+
+// --- MODO LECTURA ---
+const readingModeBtns = document.querySelectorAll(
+  '#cv-reading-mode, #cv-reading-mode-mobile, #cv-reading-mode-desktop'
+);
+const syncReadingModeButtons = () => {
+  const on = body.classList.contains('cv-reading-mode');
+  readingModeBtns.forEach(b => b.setAttribute('aria-pressed', on ? 'true' : 'false'));
+};
+readingModeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    body.classList.toggle('cv-reading-mode');
+    syncReadingModeButtons();
+  });
+});
+syncReadingModeButtons();
 
 // --- ACTIVE NAVIGATION LINK ON SCROLL ---
 const navLinks = document.querySelectorAll('.sidebar nav a');

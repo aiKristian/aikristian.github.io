@@ -20,6 +20,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
+    <!-- Recursos opcionales: images/cv-photo.jpg (retrato) e images/cv-brands/*.svg (logos por empresa); si no existen, se muestran iniciales. -->
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -37,10 +38,29 @@
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="min-h-screen flex flex-col md:flex-row">
       <aside class="p-4 md:w-64 w-full sidebar md:sticky top-0 h-screen" aria-label="Presentación y navegación del CV">
-        <div> <!-- Top part -->
+        <div class="cv-sidebar-identity"> <!-- Top part -->
             <p class="brand-mark-aik mb-3 text-3xl font-black tracking-tight leading-none" aria-label="AIK">AIK</p>
+            <div class="cv-profile-photo-wrap">
+              <img
+                src="images/cv-photo.jpg"
+                alt="Retrato profesional de Cristian Gómez Carrasco"
+                class="cv-profile-photo"
+                width="120"
+                height="120"
+                loading="lazy"
+                decoding="async"
+                onerror="this.classList.add('cv-profile-photo--missing'); this.nextElementSibling &amp;&amp; this.nextElementSibling.classList.add('is-visible');"
+              />
+              <div class="cv-profile-fallback" aria-hidden="true">CG</div>
+            </div>
             <h1 class="text-2xl font-bold">CRISTIAN GÓMEZ CARRASCO</h1>
             <p class="text-sm">Product Manager · Sistemas con IA y arquitectura de software · Transformación digital</p>
+            <div class="cv-chip-row" role="list">
+              <span class="cv-chip" role="listitem">Producto</span>
+              <span class="cv-chip" role="listitem">IA aplicada</span>
+              <span class="cv-chip" role="listitem">Arquitectura</span>
+              <span class="cv-chip" role="listitem">15+ años</span>
+            </div>
             <p class="text-xs text-[var(--text-muted)] mt-3 leading-relaxed">+56 9 7767 3927</p>
         </div>
         
@@ -67,6 +87,7 @@
                         <i class="fas fa-users"></i> <span class="view-btn-text">Gestión</span>
                     </button>
                 </div>
+                <p id="view-mode-hint" class="view-mode-hint">Ves perfil, experiencia, habilidades, proyectos, educación y certificaciones en conjunto.</p>
             </div>
             <div class="theme-switcher mb-4">
                 <button class="theme-btn" data-theme="light" aria-label="Tema Claro"><i class="fas fa-sun"></i></button>
@@ -79,19 +100,22 @@
                 <a href="https://github.com/aiKristian" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://youtube.com/@ai_kristian" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
+            <button type="button" id="cv-reading-mode" class="cv-reading-mode-btn" aria-pressed="false" aria-label="Modo lectura: texto más grande">
+              <i class="fas fa-book-open mr-1" aria-hidden="true"></i><span class="cv-reading-mode-btn__text">Modo lectura</span>
+            </button>
         </div>
       </aside>
 
       <main id="main-content" class="flex-1 p-6 main-content">
-        <header class="flex justify-end items-center mb-8 fade-in md:hidden">
-          <div class="flex gap-2">
-            <button id="focus-mode" class="px-3 py-1 rounded text-sm theme-toggle">🎯 Modo foco</button>
-            <button id="print-cv" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
-          </div>
+        <header class="flex flex-wrap justify-end items-center gap-2 mb-8 fade-in md:hidden">
+          <button type="button" id="cv-reading-mode-mobile" class="px-3 py-1 rounded text-sm theme-toggle" aria-pressed="false" aria-label="Modo lectura">📖 Lectura</button>
+          <button id="focus-mode" class="px-3 py-1 rounded text-sm theme-toggle">🎯 Modo foco</button>
+          <button id="print-cv" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
         </header>
 
-        <div class="hidden md:flex justify-end items-center mb-8 fade-in">
-             <button id="focus-mode-desktop" class="px-3 py-1 rounded text-sm theme-toggle mr-2">🎯 Modo foco</button>
+        <div class="hidden md:flex flex-wrap justify-end items-center gap-2 mb-8 fade-in">
+             <button type="button" id="cv-reading-mode-desktop" class="px-3 py-1 rounded text-sm theme-toggle" aria-pressed="false" aria-label="Modo lectura">📖 Modo lectura</button>
+             <button id="focus-mode-desktop" class="px-3 py-1 rounded text-sm theme-toggle">🎯 Modo foco</button>
              <button id="print-cv-desktop" class="px-3 py-1 rounded text-sm theme-toggle">🖨️ Imprimir / Descargar CV</button>
         </div>
 
@@ -99,6 +123,34 @@
           <div class="hero-section py-10">
             <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-primary)]">Cristian Gómez Carrasco</h1>
             <p class="text-xl md:text-2xl text-[var(--accent)] mb-6 font-medium">Product Manager | AI Systems &amp; Software Architecture | Driving Digital Transformation</p>
+            <div class="cv-chip-row cv-chip-row--profile mb-6" role="list" aria-label="Enfoque profesional">
+              <span class="cv-chip" role="listitem">Producto</span>
+              <span class="cv-chip" role="listitem">IA aplicada</span>
+              <span class="cv-chip" role="listitem">Arquitectura</span>
+              <span class="cv-chip" role="listitem">Sector público y retail</span>
+            </div>
+            <details class="cv-executive-summary">
+              <summary class="cv-executive-summary__summary">Resumen ejecutivo (~2 min)</summary>
+              <div class="cv-executive-summary__body">
+                <p class="text-base leading-relaxed max-w-3xl text-[var(--text-primary)]">
+                  PM y arquitecto de producto con 15+ años en tecnología: hoy lidero la evolución de productos digitales con IA en el Poder Judicial de Chile, con trayectoria previa en consultoría (Núcleo), telecomunicaciones (WOM), retail y logística (Sodimac, Epysa). Combino visión de negocio, definición técnica y entregas iterativas; inglés profesional.
+                </p>
+              </div>
+            </details>
+            <div class="cv-value-flow mt-8 mb-8" role="img" aria-label="Flujo: de producto y requisitos a arquitectura y entrega">
+              <svg class="cv-value-flow__svg" viewBox="0 0 520 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <rect x="8" y="28" width="140" height="44" rx="10" fill="var(--accent-tint)" stroke="var(--border-color)" stroke-width="1.5"/>
+                <text x="78" y="56" text-anchor="middle" fill="var(--text-primary)" font-size="13" font-family="Inter, sans-serif" font-weight="600">Producto</text>
+                <path d="M158 50h36" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+                <polygon points="198,50 188,44 188,56" fill="var(--accent)"/>
+                <rect x="208" y="28" width="140" height="44" rx="10" fill="var(--accent-tint)" stroke="var(--border-color)" stroke-width="1.5"/>
+                <text x="278" y="56" text-anchor="middle" fill="var(--text-primary)" font-size="13" font-family="Inter, sans-serif" font-weight="600">Arquitectura</text>
+                <path d="M358 50h36" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+                <polygon points="398,50 388,44 388,56" fill="var(--accent)"/>
+                <rect x="408" y="28" width="104" height="44" rx="10" fill="var(--accent-tint)" stroke="var(--border-color)" stroke-width="1.5"/>
+                <text x="460" y="56" text-anchor="middle" fill="var(--text-primary)" font-size="13" font-family="Inter, sans-serif" font-weight="600">Entrega</text>
+              </svg>
+            </div>
             <p class="text-lg leading-relaxed max-w-3xl mb-4">
               Product Manager especializado en diseño de sistemas basados en inteligencia artificial y arquitectura de software. Más de 15 años de experiencia en tecnología, liderando la definición, desarrollo e implementación de soluciones digitales que optimizan procesos de negocio en organizaciones complejas.
             </p>
@@ -114,6 +166,17 @@
         <section id="experience" class="mb-12 fade-in delay-2" data-view="complete technical management">
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Experiencia Laboral</h2>
           <div class="inner">
+            <div class="cv-exp-controls">
+            <div class="cv-exp-timeline" role="tablist" aria-label="Saltar a una empresa">
+              <button type="button" class="cv-timeline-btn active" data-target="#exp-pj" role="tab" aria-selected="true" aria-controls="exp-pj" id="tab-exp-pj">P. Judicial</button>
+              <button type="button" class="cv-timeline-btn" data-target="#exp-nucleo" role="tab" aria-selected="false" aria-controls="exp-nucleo" id="tab-exp-nucleo">Núcleo</button>
+              <button type="button" class="cv-timeline-btn" data-target="#exp-netadswork" role="tab" aria-selected="false" aria-controls="exp-netadswork" id="tab-exp-netadswork">aiKristian</button>
+              <button type="button" class="cv-timeline-btn" data-target="#exp-wom" role="tab" aria-selected="false" aria-controls="exp-wom" id="tab-exp-wom">WOM</button>
+              <button type="button" class="cv-timeline-btn" data-target="#exp-epysa" role="tab" aria-selected="false" aria-controls="exp-epysa" id="tab-exp-epysa">Epysa</button>
+              <button type="button" class="cv-timeline-btn" data-target="#exp-sodimac" role="tab" aria-selected="false" aria-controls="exp-sodimac" id="tab-exp-sodimac">Sodimac</button>
+              <button type="button" class="cv-timeline-btn" data-target="#exp-uchile" role="tab" aria-selected="false" aria-controls="exp-uchile" id="tab-exp-uchile">U. Chile</button>
+              <button type="button" class="cv-timeline-btn" data-target="#exp-getgo" role="tab" aria-selected="false" aria-controls="exp-getgo" id="tab-exp-getgo">Getgo</button>
+            </div>
             <ul class="tab-list flex flex-wrap gap-1">
               <li><button type="button" class="tab-button active" data-target="#exp-pj">P. Judicial</button></li>
               <li><button type="button" class="tab-button" data-target="#exp-nucleo">Núcleo</button></li>
@@ -124,9 +187,15 @@
               <li><button type="button" class="tab-button" data-target="#exp-uchile">U. Chile</button></li>
               <li><button type="button" class="tab-button" data-target="#exp-getgo">Getgo</button></li>
             </ul>
+            </div>
             <div class="tab-content">
-              <div id="exp-pj" class="tab-pane active" data-view="complete technical management">
+              <div id="exp-pj" class="tab-pane active" data-view="complete technical management" role="tabpanel" aria-labelledby="tab-exp-pj">
+                <div class="cv-exp-header">
+                  <div class="cv-exp-brand" aria-hidden="true"><span class="cv-exp-brand__initials">PJ</span></div>
+                  <div class="cv-exp-header__text">
                 <h3>Arquitectura y Desarrollo de Sistemas (IA) <span class="company">— Poder Judicial de Chile</span></h3>
+                  </div>
+                </div>
                 <p class="range">Enero 2026 – Presente · Chile</p>
                 <ul>
                   <li>Responsable de la definición y evolución de productos tecnológicos en el área informática, con enfoque en soluciones basadas en inteligencia artificial y mejora de procesos judiciales.</li>
@@ -137,8 +206,13 @@
                   <li>Aseguramiento de calidad, seguridad y cumplimiento de estándares; documentación técnica y funcional.</li>
                 </ul>
               </div>
-              <div id="exp-nucleo" class="tab-pane" data-view="complete technical management">
+              <div id="exp-nucleo" class="tab-pane" data-view="complete technical management" role="tabpanel" aria-labelledby="tab-exp-nucleo">
+                <div class="cv-exp-header">
+                  <div class="cv-exp-brand" aria-hidden="true"><span class="cv-exp-brand__initials">NF</span></div>
+                  <div class="cv-exp-header__text">
                 <h3>Arquitecto de soluciones | Product Manager <span class="company">— Núcleo Factory</span></h3>
+                  </div>
+                </div>
                 <p class="range">Mayo 2025 – Enero 2026</p>
                 <ul>
                   <li>Diseño y gobierno arquitectural end-to-end: dominios, límites de contexto, modelado de datos y contratos de API versionados.</li>
@@ -147,8 +221,13 @@
                   <li>PRDs y ADRs; priorización por valor y riesgo; QA/UAT y monitoreo post-release.</li>
                 </ul>
               </div>
-              <div id="exp-netadswork" class="tab-pane" data-view="complete technical">
+              <div id="exp-netadswork" class="tab-pane" data-view="complete technical" role="tabpanel" aria-labelledby="tab-exp-netadswork">
+                <div class="cv-exp-header">
+                  <div class="cv-exp-brand" aria-hidden="true"><span class="cv-exp-brand__initials">AI</span></div>
+                  <div class="cv-exp-header__text">
                 <h3>Socio fundador <span class="company">— aiKristian / NetAdsWork</span></h3>
+                  </div>
+                </div>
                 <p class="range">Enero 2022 – Actualidad</p>
                 <ul>
                   <li>Desarrollo de sitios web personalizados en WordPress y de aplicaciones web a medida.</li>
@@ -156,24 +235,39 @@
                   <li>Integración de herramientas de IA para análisis predictivo y personalización de la experiencia de usuario.</li>
                 </ul>
               </div>
-              <div id="exp-wom" class="tab-pane" data-view="complete technical management">
+              <div id="exp-wom" class="tab-pane" data-view="complete technical management" role="tabpanel" aria-labelledby="tab-exp-wom">
+                <div class="cv-exp-header">
+                  <div class="cv-exp-brand" aria-hidden="true"><span class="cv-exp-brand__initials">WO</span></div>
+                  <div class="cv-exp-header__text">
                 <h3>DevOps Engineer | Ingeniero especialista operaciones de TI <span class="company">— WOM Chile</span></h3>
+                  </div>
+                </div>
                 <p class="range">Mayo 2023 – Enero 2024 · Región Metropolitana</p>
                 <ul>
                   <li>Responsable del módulo CRM de Zsmart en el proyecto de migración del datacenter de Quilicura a Panamericana.</li>
                   <li>Mejoras en prácticas DevOps y tiempos de despliegue en WhaleCloud; objetivos de estabilidad (~15%) y uptime 99.7% con red de nueva generación.</li>
                 </ul>
               </div>
-              <div id="exp-epysa" class="tab-pane" data-view="complete management">
+              <div id="exp-epysa" class="tab-pane" data-view="complete management" role="tabpanel" aria-labelledby="tab-exp-epysa">
+                <div class="cv-exp-header">
+                  <div class="cv-exp-brand" aria-hidden="true"><span class="cv-exp-brand__initials">EP</span></div>
+                  <div class="cv-exp-header__text">
                 <h3>Jefe de Proyectos | Ingeniero de proyectos y logística <span class="company">— Implementos Chile (Epysa)</span></h3>
+                  </div>
+                </div>
                 <p class="range">Marzo 2021 – Diciembre 2021</p>
                 <ul>
                   <li>Evaluación e implementación de Oracle WMS en equipo multidisciplinario; mejora esperada de eficiencia operativa ~20%.</li>
                   <li>Proyectos logísticos en cadena de abastecimiento; reducción de costos ~15% y mejora de servicio con retail, minería y transporte.</li>
                 </ul>
               </div>
-              <div id="exp-sodimac" class="tab-pane" data-view="complete technical management">
+              <div id="exp-sodimac" class="tab-pane" data-view="complete technical management" role="tabpanel" aria-labelledby="tab-exp-sodimac">
+                <div class="cv-exp-header">
+                  <div class="cv-exp-brand" aria-hidden="true"><span class="cv-exp-brand__initials">SO</span></div>
+                  <div class="cv-exp-header__text">
                 <h3>Sodimac S.A. <span class="company">— 10 años 8 meses</span></h3>
+                  </div>
+                </div>
                 <h4 class="text-lg font-semibold mt-4 mb-2">Jefe de Proyectos | Ingeniero desarrollo logístico</h4>
                 <p class="range">Octubre 2018 – Octubre 2020</p>
                 <ul class="mb-6">
@@ -190,8 +284,13 @@
                   <li>Análisis comercial y logístico; desarrollo y mantenimiento de sistemas web y bases de datos para abastecimiento y despacho.</li>
                 </ul>
               </div>
-              <div id="exp-uchile" class="tab-pane" data-view="complete technical">
+              <div id="exp-uchile" class="tab-pane" data-view="complete technical" role="tabpanel" aria-labelledby="tab-exp-uchile">
+                <div class="cv-exp-header">
+                  <div class="cv-exp-brand" aria-hidden="true"><span class="cv-exp-brand__initials">UC</span></div>
+                  <div class="cv-exp-header__text">
                 <h3>Coordinador de Soporte y Operaciones Infotecnología <span class="company">— Escuela de Postgrado, FEN, Universidad de Chile</span></h3>
+                  </div>
+                </div>
                 <p class="range">Junio 2008 – Marzo 2010 · Santiago</p>
                 <ul>
                   <li>Gestión del soporte informático a pregrado; mantención de servidores y equipos.</li>
@@ -199,8 +298,13 @@
                   <li>Cotización y compra de equipos; implementación en salas de clase y auditorio.</li>
                 </ul>
               </div>
-              <div id="exp-getgo" class="tab-pane" data-view="complete management">
+              <div id="exp-getgo" class="tab-pane" data-view="complete management" role="tabpanel" aria-labelledby="tab-exp-getgo">
+                <div class="cv-exp-header">
+                  <div class="cv-exp-brand" aria-hidden="true"><span class="cv-exp-brand__initials">GT</span></div>
+                  <div class="cv-exp-header__text">
                 <h3>Analista de Distribución <span class="company">— Getgo</span></h3>
+                  </div>
+                </div>
                 <p class="range">Agosto 2007 – Junio 2008</p>
                 <ul>
                   <li>Análisis para reducir costos y tiempos operativos; gestión de base de datos de clientes.</li>
@@ -275,20 +379,30 @@
         <section id="projects" class="mb-12 fade-in delay-3" data-view="complete technical">
           <h2 class="text-3xl font-bold mb-6 border-b pb-2">Proyectos Destacados</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            <article class="p-5 rounded">
+            <article class="cv-project-card rounded overflow-hidden border border-[var(--border-color)]">
+              <div class="cv-project-card__media">
+                <img src="og-image.png" alt="" width="1200" height="630" class="cv-project-card__img" loading="lazy" decoding="async" />
+              </div>
+              <div class="p-5">
               <h3 class="font-bold text-xl mb-1">Portafolio Personal</h3>
               <p class="text-sm text-[var(--text-muted)]">Portafolio público (Stitch) + CV detallado en URL privada; GitHub Pages.</p>
               <div class="mt-3 flex gap-3 text-sm">
-                <a href="https://github.com/aiKristian" target="_blank" class="link">Código</a>
-                <a href="https://aikristian.github.io" target="_blank" class="link">Demo</a>
+                <a href="https://github.com/aiKristian" target="_blank" rel="noopener noreferrer" class="link">Código</a>
+                <a href="https://aikristian.github.io" target="_blank" rel="noopener noreferrer" class="link">Demo</a>
+              </div>
               </div>
             </article>
-            <article class="p-5 rounded">
+            <article class="cv-project-card rounded overflow-hidden border border-[var(--border-color)]">
+              <div class="cv-project-card__media cv-project-card__media--placeholder" aria-hidden="true">
+                <i class="fas fa-project-diagram cv-project-card__placeholder-icon"></i>
+              </div>
+              <div class="p-5">
               <h3 class="font-bold text-xl mb-1">Automatización de Marketing (n8n)</h3>
               <p class="text-sm text-[var(--slate)]">Flujos de lead scoring y notificaciones omnicanal; reducción de tiempo operativo ~35 %.</p>
               <div class="mt-3 flex gap-3 text-sm">
-                <a href="https://github.com/aiKristian" target="_blank" class="link">Código</a>
-                <a href="https://www.youtube.com/@ai_kristian" target="_blank" class="link">Video</a>
+                <a href="https://github.com/aiKristian" target="_blank" rel="noopener noreferrer" class="link">Código</a>
+                <a href="https://www.youtube.com/@ai_kristian" target="_blank" rel="noopener noreferrer" class="link">Video</a>
+              </div>
               </div>
             </article>
           </div>
@@ -313,6 +427,16 @@
           <p class="text-sm text-[var(--text-muted)] mb-6 max-w-3xl">
             <strong>Destacadas (perfil actualizado):</strong> gestión de proyectos simplificada; fundamentos profesionales de IA generativa (Microsoft y LinkedIn); introducción a AWS (conceptos de la nube); Vibe Coding with GitHub Copilot. El detalle con enlaces a PDF sigue en las categorías siguientes.
           </p>
+
+          <div id="cert-filter-bar" class="cert-filter-bar" data-active-filter="all" role="group" aria-label="Filtrar certificaciones por categoría">
+            <button type="button" class="cert-filter-btn active" data-cert-filter="all" aria-pressed="true">Todas</button>
+            <button type="button" class="cert-filter-btn" data-cert-filter="scrum-agile" aria-pressed="false">Scrum / Ágil</button>
+            <button type="button" class="cert-filter-btn" data-cert-filter="cloud" aria-pressed="false">Cloud</button>
+            <button type="button" class="cert-filter-btn" data-cert-filter="development" aria-pressed="false">Desarrollo</button>
+            <button type="button" class="cert-filter-btn" data-cert-filter="leadership" aria-pressed="false">Liderazgo</button>
+            <button type="button" class="cert-filter-btn" data-cert-filter="business" aria-pressed="false">Negocio</button>
+            <button type="button" class="cert-filter-btn" data-cert-filter="other" aria-pressed="false">Otras</button>
+          </div>
 
           <button type="button" id="toggle-certs">Ver más</button>
           <div id="certifications-list">
