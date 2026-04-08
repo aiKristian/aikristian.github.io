@@ -221,16 +221,12 @@ document.querySelectorAll('section').forEach(section => {
     sectionObserver.observe(section);
 });
 
-// --- EXPERIENCE TABS + TIMELINE ---
+// --- EXPERIENCE TABS ---
 const activateExperienceTab = (targetSelector) => {
   const pane = targetSelector ? document.querySelector(targetSelector) : null;
   if (!pane || !pane.classList.contains('tab-pane')) return;
 
   document.querySelectorAll('.tab-button').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-target') === targetSelector);
-  });
-
-  document.querySelectorAll('.cv-timeline-btn').forEach(btn => {
     const match = btn.getAttribute('data-target') === targetSelector;
     btn.classList.toggle('active', match);
     btn.setAttribute('aria-selected', match ? 'true' : 'false');
@@ -245,13 +241,6 @@ const activateExperienceTab = (targetSelector) => {
 
 const tabButtons = document.querySelectorAll('.tab-button');
 tabButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const target = button.getAttribute('data-target');
-    if (target) activateExperienceTab(target);
-  });
-});
-
-document.querySelectorAll('.cv-timeline-btn').forEach(button => {
   button.addEventListener('click', () => {
     const target = button.getAttribute('data-target');
     if (target) activateExperienceTab(target);

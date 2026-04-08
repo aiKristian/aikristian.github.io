@@ -847,64 +847,6 @@ body.cv-reading-mode main.main-content {
   gap: var(--spacing-lg);
 }
 
-.cv-exp-timeline {
-  display: flex;
-  flex-flow: row nowrap;
-  gap: var(--spacing-sm);
-  overflow-x: auto;
-  padding-bottom: var(--spacing-xs);
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-}
-
-.cv-timeline-btn {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  min-height: 44px;
-  padding: 0.5rem 0.85rem;
-  font-size: var(--fz-sm);
-  font-weight: 600;
-  color: var(--text-muted);
-  background: var(--bg-tertiary);
-  border: 1.5px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition:
-    color var(--transition-base),
-    background-color var(--transition-base),
-    border-color var(--transition-base),
-    transform var(--transition-base);
-}
-
-.cv-timeline-btn:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.cv-timeline-btn.active {
-  color: var(--accent);
-  background: var(--accent-tint);
-  border-color: var(--accent);
-}
-
-.cv-timeline-btn:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-@media (width >= 768px) {
-  .cv-exp-timeline {
-    flex-flow: column nowrap;
-    overflow-x: visible;
-    scroll-snap-type: none;
-  }
-
-  .cv-timeline-btn {
-    width: 100%;
-    text-align: left;
-  }
-}
-
 .cv-exp-header {
   display: flex;
   align-items: flex-start;
@@ -1661,7 +1603,6 @@ body.theme-retro #education > div > div:hover {
   #toggle-certs,
   .cv-back-top,
   .social-links,
-  .cv-exp-timeline,
   .cert-filter-bar,
   #cv-reading-mode-mobile,
   #cv-reading-mode-desktop {
@@ -2464,10 +2405,6 @@ body.portfolio-public .stitch-cta__social a:hover {
   }
 
   .cert-filter-btn:hover {
-    transform: none;
-  }
-
-  .cv-timeline-btn:hover {
     transform: none;
   }
 
