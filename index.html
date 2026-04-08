@@ -135,11 +135,216 @@
         height: 2rem;
         object-fit: contain;
       }
+
+      /* --- Movimiento (respeta prefers-reduced-motion) --- */
+      @keyframes stitch-fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(1.75rem);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes stitch-nav-in {
+        from {
+          opacity: 0;
+          transform: translateY(-0.75rem);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes stitch-aurora {
+        0%,
+        100% {
+          opacity: 0.38;
+        }
+
+        50% {
+          opacity: 0.62;
+        }
+      }
+
+      @keyframes stitch-orb-drift {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+
+        33% {
+          transform: translate(3%, -4%) scale(1.06);
+        }
+
+        66% {
+          transform: translate(-2%, 2%) scale(0.98);
+        }
+      }
+
+      @keyframes stitch-gradient-shift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .nav-enter {
+        animation: stitch-nav-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .hero-motion-stack > * {
+        opacity: 0;
+        animation: stitch-fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .hero-motion-stack > *:nth-child(1) {
+        animation-delay: 0.06s;
+      }
+
+      .hero-motion-stack > *:nth-child(2) {
+        animation-delay: 0.16s;
+      }
+
+      .hero-motion-stack > *:nth-child(3) {
+        animation-delay: 0.26s;
+      }
+
+      .hero-motion-stack > *:nth-child(4) {
+        animation-delay: 0.36s;
+      }
+
+      .stitch-hero-aurora {
+        animation: stitch-aurora 14s ease-in-out infinite;
+      }
+
+      .motion-reveal {
+        opacity: 0;
+        transform: translateY(2rem);
+        transition:
+          opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .motion-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .motion-stagger-children > *:nth-child(1) {
+        transition-delay: 0s;
+      }
+
+      .motion-stagger-children > *:nth-child(2) {
+        transition-delay: 0.07s;
+      }
+
+      .motion-stagger-children > *:nth-child(3) {
+        transition-delay: 0.14s;
+      }
+
+      .motion-stagger-children > *:nth-child(4) {
+        transition-delay: 0.21s;
+      }
+
+      .motion-stagger-children > *:nth-child(5) {
+        transition-delay: 0.28s;
+      }
+
+      .motion-stagger-children > *:nth-child(6) {
+        transition-delay: 0.35s;
+      }
+
+      .motion-stagger-children > *:nth-child(7) {
+        transition-delay: 0.42s;
+      }
+
+      .motion-stagger-children > *:nth-child(8) {
+        transition-delay: 0.49s;
+      }
+
+      .stitch-card-lift {
+        transition:
+          transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.45s ease,
+          border-color 0.35s ease,
+          background-color 0.35s ease;
+      }
+
+      .stitch-card-lift:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -12px rgb(192 193 255 / 12%);
+      }
+
+      .stitch-orb {
+        animation: stitch-orb-drift 18s ease-in-out infinite;
+      }
+
+      .stitch-orb-delay {
+        animation-delay: -6s;
+      }
+
+      .stitch-gradient-text-animated {
+        background-size: 200% auto !important;
+        animation: stitch-gradient-shift 8s ease-in-out infinite;
+      }
+
+      .stitch-hero-img {
+        transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+      }
+
+      .stitch-hero-img-wrap:hover .stitch-hero-img {
+        transform: scale(1.03);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nav-enter,
+        .hero-motion-stack > *,
+        .stitch-hero-aurora,
+        .stitch-orb,
+        .stitch-orb-delay,
+        .stitch-gradient-text-animated {
+          animation: none !important;
+        }
+
+        .nav-enter,
+        .hero-motion-stack > * {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+
+        .motion-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+
+        .motion-stagger-children > * {
+          transition-delay: 0s !important;
+        }
+
+        .stitch-card-lift:hover {
+          transform: none;
+        }
+
+        .stitch-hero-img-wrap:hover .stitch-hero-img {
+          transform: none;
+        }
+      }
     </style>
   </head>
   <body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary-fixed portfolio-stitch">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
-    <nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-indigo-500/5" aria-label="Principal">
+    <nav class="nav-enter fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-indigo-500/5" aria-label="Principal">
       <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center max-w-7xl mx-auto px-4 sm:px-6 py-4 md:h-20 md:py-0">
         <a
           href="index.html"
@@ -152,12 +357,12 @@
           <span class="text-lg sm:text-xl font-bold tracking-tighter text-indigo-200">Cristian Gómez</span>
         </a>
         <div class="stitch-nav-section flex flex-wrap items-center gap-x-5 gap-y-2 md:gap-8">
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#inicio">Inicio</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#about">Sobre mí</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#services">Servicios</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#experience">Experiencia</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#stack">Tecnologías</a>
-          <a class="text-slate-400 hover:text-indigo-100 transition-colors font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#contact">Contacto</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#inicio">Inicio</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#about">Sobre mí</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#services">Servicios</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#experience">Experiencia</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#stack">Tecnologías</a>
+          <a class="text-slate-400 hover:text-indigo-100 transition-all duration-200 font-sans text-sm tracking-wide rounded-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#contact">Contacto</a>
         </div>
         <a class="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:scale-[0.98] active:scale-95 transition-transform text-sm shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="mailto:cristgomezc@gmail.com"> Cuéntame tu idea </a>
       </div>
@@ -165,16 +370,16 @@
 
     <main id="main-content">
       <section class="relative pt-28 pb-16 md:pt-44 md:pb-28 overflow-hidden" id="inicio">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+        <div class="stitch-hero-aurora absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-          <div class="flex flex-col items-start gap-8">
+          <div class="hero-motion-stack flex flex-col items-start gap-8">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold tracking-widest uppercase border border-secondary/20">
               <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">bolt</span>
               Producto digital · Web · Inteligencia artificial
             </div>
             <h1 class="font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight max-w-4xl leading-[1.1] text-indigo-50">
               Tu
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"> idea de negocio </span>
+              <span class="stitch-gradient-text-animated text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"> idea de negocio </span>
               merece un plan claro y alguien que lo
               <span class="text-secondary"> haga realidad en la web</span>.
             </h1>
@@ -188,10 +393,10 @@
             </div>
           </div>
         </div>
-        <div class="mt-16 md:mt-20 max-w-7xl mx-auto px-6">
-          <div class="glass-card rounded-2xl overflow-hidden aspect-[16/7] relative group">
+        <div class="motion-reveal mt-16 md:mt-20 max-w-7xl mx-auto px-6">
+          <div class="stitch-hero-img-wrap glass-card rounded-2xl overflow-hidden aspect-[16/7] relative group">
             <img
-              class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
+              class="stitch-hero-img w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
               alt="Panel con métricas: claridad para decidir en tu negocio digital"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgRfNvNCIVenp2liGM8xQV5NiU2PwFK4pbvS-TxvqQtCyHjR10vzXawL5eyyflNfW4AQvTkwxwW5ZMaWms9heztUFqk31Jrf8SggM3g0qPGYT0o1LqBvVIbjBfNBZ4yai100-vQfAHCLvo6PmY0SF9VPl3zZQsR4RAnjKoX5ZvJ6PGzlDKfU2vPy9JPpLGYQcPG-w6Yhbx1QFk0I9SXljEnlkXOWlyFU2QBVMufErVKdZBn_e_-7yXhd4yOJ08dkYr2pXbrRb1_uks"
               width="1600"
@@ -204,8 +409,8 @@
       </section>
 
       <section class="py-20 md:py-24 bg-surface-container-lowest" id="about">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div class="relative order-2 lg:order-1">
+        <div class="motion-stagger-children max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="motion-reveal relative order-2 lg:order-1">
             <div class="absolute -top-10 -left-10 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full"></div>
             <div class="glass-card p-2 rounded-3xl rotate-2 hover:rotate-0 transition-transform duration-500">
               <img
@@ -218,7 +423,7 @@
               />
             </div>
           </div>
-          <div class="flex flex-col gap-8 order-1 lg:order-2">
+          <div class="motion-reveal flex flex-col gap-8 order-1 lg:order-2">
             <span class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold">Cómo trabajo</span>
             <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               Menos jerga, <span class="italic text-primary-fixed-dim">más claridad</span> para tu equipo.
@@ -249,34 +454,34 @@
 
       <section class="py-20 md:py-24 bg-surface" id="services">
         <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-12 md:mb-16 space-y-4">
+          <div class="motion-reveal text-center mb-12 md:mb-16 space-y-4">
             <span class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold">Servicios</span>
             <h2 class="font-headline text-3xl md:text-4xl font-bold">Cuatro formas de avanzar sin perder el norte</h2>
             <p class="text-on-surface-variant text-base max-w-2xl mx-auto">Cada una responde a una pregunta que suelen hacer los equipos chicos: ¿por dónde parto?, ¿quién lo construye?, ¿cómo ahorro tiempo?, ¿cómo no se cae todo?</p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="glass-card p-8 rounded-2xl flex flex-col gap-6 hover:-translate-y-2 transition-all duration-300">
+          <div class="motion-stagger-children grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="motion-reveal stitch-card-lift glass-card p-8 rounded-2xl flex flex-col gap-6 border border-transparent hover:border-primary/20">
               <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                 <span class="material-symbols-outlined">strategy</span>
               </div>
               <h3 class="font-headline text-xl font-bold">Plan de producto y prioridades</h3>
               <p class="text-on-surface-variant text-sm leading-relaxed">Te ayudo a ordenar la lista de deseos: qué hace falta ahora, qué puede esperar y cómo hablarlo con tu equipo y tus clientes. Salís con un camino por etapas, no con un documento que nadie lee.</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl flex flex-col gap-6 hover:-translate-y-2 transition-all duration-300">
+            <div class="motion-reveal stitch-card-lift glass-card p-8 rounded-2xl flex flex-col gap-6 border border-transparent hover:border-secondary/25">
               <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
                 <span class="material-symbols-outlined">code</span>
               </div>
               <h3 class="font-headline text-xl font-bold">Sitios y sistemas web a tu medida</h3>
               <p class="text-on-surface-variant text-sm leading-relaxed">Desde una web en WordPress que puedas actualizar tú, hasta aplicaciones más robustas cuando el negocio lo exige. Todo pensado para que cargue bien, sea seguro y se pueda mantener en el tiempo.</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl flex flex-col gap-6 hover:-translate-y-2 transition-all duration-300">
+            <div class="motion-reveal stitch-card-lift glass-card p-8 rounded-2xl flex flex-col gap-6 border border-transparent hover:border-tertiary/30">
               <div class="w-12 h-12 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
                 <span class="material-symbols-outlined">psychology</span>
               </div>
               <h3 class="font-headline text-xl font-bold">Inteligencia artificial y tareas automáticas</h3>
               <p class="text-on-surface-variant text-sm leading-relaxed">Automatizo lo repetitivo (avisos, formularios, seguimiento) y uso inteligencia artificial donde aporta: menos horas perdidas en copiar y pegar, más tiempo para vender o atender.</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl flex flex-col gap-6 hover:-translate-y-2 transition-all duration-300">
+            <div class="motion-reveal stitch-card-lift glass-card p-8 rounded-2xl flex flex-col gap-6 border border-transparent hover:border-primary/20">
               <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                 <span class="material-symbols-outlined">architecture</span>
               </div>
@@ -289,20 +494,20 @@
 
       <section class="py-20 md:py-24 bg-surface-container-low overflow-hidden" id="experience">
         <div class="max-w-7xl mx-auto px-6">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
+          <div class="motion-reveal flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
             <div class="space-y-4 max-w-xl">
               <span class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold">Trayectoria</span>
               <h2 class="font-headline text-3xl md:text-4xl font-bold">Donde he aplicado el mismo criterio</h2>
               <p class="text-on-surface-variant text-sm leading-relaxed">Grandes empresas y consultoría me enseñaron a no improvisar. Hoy uso esa misma seriedad con negocios que necesitan resultados claros, no promesas vacías.</p>
             </div>
           </div>
-          <div class="relative space-y-10 md:space-y-12">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
+          <div class="motion-stagger-children relative space-y-10 md:space-y-12">
+            <div class="motion-reveal grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
               <div class="lg:col-span-3">
                 <span class="text-on-surface-variant font-bold text-lg">2022 — Actualidad</span>
                 <div class="text-secondary text-sm font-medium mt-1">Fundador · <a href="https://aikristian.com" target="_blank" rel="noopener noreferrer" class="hover:underline">aikristian.com</a></div>
               </div>
-              <div class="lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl group-hover:bg-surface-container-high transition-colors">
+              <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
                 <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">
                   <a href="https://aikristian.com" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">aiKristian.com</a>
                 </h4>
@@ -316,12 +521,12 @@
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
+            <div class="motion-reveal grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
               <div class="lg:col-span-3">
                 <span class="text-on-surface-variant font-bold text-lg">2025 — 2026</span>
                 <div class="text-secondary text-sm font-medium mt-1">Diseño de soluciones digitales · gestión de producto</div>
               </div>
-              <div class="lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl group-hover:bg-surface-container-high transition-colors">
+              <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
                 <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">Núcleo Factory</h4>
                 <p class="text-on-surface-variant mb-6">
                   Organicé cómo encajan los distintos sistemas de la empresa, con conexiones entre programas bien definidas y actualizaciones que no rompen lo que ya funciona. Despliegues automáticos, entornos controlados y documentación que el equipo puede seguir; pruebas antes de publicar para que los usuarios no sufran los errores.
@@ -332,12 +537,12 @@
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
+            <div class="motion-reveal grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
               <div class="lg:col-span-3">
                 <span class="text-on-surface-variant font-bold text-lg">2023 — 2024</span>
                 <div class="text-secondary text-sm font-medium mt-1">Operaciones digitales · puesta en marcha de sistemas</div>
               </div>
-              <div class="lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl group-hover:bg-surface-container-high transition-colors">
+              <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
                 <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">WOM Chile — gestión de clientes y cambio de centro de datos</h4>
                 <p class="text-on-surface-variant mb-6">
                   Participé en el módulo de gestión de clientes (Zsmart) durante la mudanza del centro de datos: menos cortes, despliegues más ordenados y un servicio más estable para quienes dependían del sistema a diario.
@@ -348,12 +553,12 @@
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
+            <div class="motion-reveal grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
               <div class="lg:col-span-3">
                 <span class="text-on-surface-variant font-bold text-lg">2021</span>
                 <div class="text-secondary text-sm font-medium mt-1">Jefe de proyectos · Epysa Implementos</div>
               </div>
-              <div class="lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl group-hover:bg-surface-container-high transition-colors">
+              <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
                 <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">Sistema de bodega Oracle y cadena de abastecimiento</h4>
                 <p class="text-on-surface-variant mb-6">
                   Evalué e implementé el sistema de almacén y despacho de Oracle junto a proyectos logísticos para retail, minería y transporte: menos errores en stock y mejor coordinación entre bodega y ventas.
@@ -364,12 +569,12 @@
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
+            <div class="motion-reveal grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start relative group">
               <div class="lg:col-span-3">
                 <span class="text-on-surface-variant font-bold text-lg">2010 — 2019</span>
                 <div class="text-secondary text-sm font-medium mt-1">Sodimac S.A.</div>
               </div>
-              <div class="lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl group-hover:bg-surface-container-high transition-colors">
+              <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
                 <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">Logística, software corporativo y reposición</h4>
                 <p class="text-on-surface-variant mb-6">
                   Lideré proyectos de distribución y reposición; trabajé con equipos en ciclos cortos de entrega y mejoras de software interno; análisis y sistemas para que la cadena de abastecimiento respondiera mejor a la tienda y al cliente.
@@ -386,54 +591,54 @@
 
       <section class="py-20 md:py-24 bg-surface" id="stack">
         <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-12 md:mb-16 space-y-3 max-w-2xl mx-auto">
+          <div class="motion-reveal text-center mb-12 md:mb-16 space-y-3 max-w-2xl mx-auto">
             <h2 class="font-headline text-3xl md:text-4xl font-bold">Tecnologías que suelo usar</h2>
             <p class="text-on-surface-variant text-sm md:text-base leading-relaxed">Los nombres técnicos ayudan a quien ya conoce el oficio; si no es tu caso, lo importante es el resultado: algo que cargue rápido, se pueda actualizar y no te deje colgado un domingo a las ocho.</p>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent transition-all">
+          <div class="motion-stagger-children grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Nube Amazon (AWS)">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900" alt="Logo AWS" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Nube<br /><span class="text-[10px] uppercase tracking-widest opacity-70">Amazon</span></span>
             </div>
-            <div class="bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent transition-all">
+            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Inteligencia artificial">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:openai.svg?color=%2310A37F" alt="Logo OpenAI" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Inteligencia<br />artificial</span>
             </div>
-            <div class="bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent transition-all">
+            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Laravel">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:laravel.svg?color=%23FF2D20" alt="Logo Laravel" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold uppercase tracking-widest text-on-surface">Laravel</span>
             </div>
-            <div class="bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent transition-all">
+            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="PostgreSQL (bases de datos)">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:postgresql.svg?color=%234169E1" alt="Logo PostgreSQL" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Bases de<br />datos</span>
             </div>
-            <div class="bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent transition-all">
+            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="GitHub Actions — despliegues automáticos">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:githubactions.svg?color=%232088FF" alt="Logo GitHub Actions" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Despliegues<br />automáticos</span>
             </div>
-            <div class="bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent transition-all">
+            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Jira — planificación en equipo">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:jira.svg?color=%230052CC" alt="Logo Jira" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Planificación<br />en equipo</span>
             </div>
-            <div class="bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent transition-all">
+            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="WordPress">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:wordpress.svg?color=%2321759B" alt="Logo WordPress" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold uppercase tracking-widest text-on-surface">WordPress</span>
             </div>
-            <div class="bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent transition-all">
+            <div class="motion-reveal stitch-card-lift bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2" title="Docker">
                 <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:docker.svg?color=%232496ED" alt="Logo Docker" width="32" height="32" loading="lazy" decoding="async" />
               </div>
@@ -444,9 +649,9 @@
       </section>
 
       <section class="py-20 md:py-24 px-6" id="contact">
-        <div class="max-w-5xl mx-auto glass-card p-10 md:p-20 rounded-[2.5rem] text-center relative overflow-hidden">
-          <div class="absolute -top-20 -right-20 w-80 h-80 bg-primary/20 blur-[120px] rounded-full"></div>
-          <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary/10 blur-[120px] rounded-full"></div>
+        <div class="motion-reveal max-w-5xl mx-auto glass-card p-10 md:p-20 rounded-[2.5rem] text-center relative overflow-hidden stitch-card-lift border border-white/5">
+          <div class="stitch-orb pointer-events-none absolute -top-20 -right-20 w-80 h-80 bg-primary/20 blur-[120px] rounded-full"></div>
+          <div class="stitch-orb stitch-orb-delay pointer-events-none absolute -bottom-20 -left-20 w-80 h-80 bg-secondary/10 blur-[120px] rounded-full"></div>
           <div class="relative z-10 space-y-8">
             <h2 class="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">¿Llevas una idea o un negocio que quieres llevar al digital?</h2>
             <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">
@@ -465,7 +670,7 @@
     </main>
 
     <footer class="bg-slate-950 border-t border-slate-900 w-full py-12">
-      <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6 text-center md:text-left">
+      <div class="motion-reveal flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6 text-center md:text-left">
         <div class="text-lg font-black text-slate-100 uppercase tracking-tighter">Cristian Gómez</div>
         <div class="flex flex-wrap justify-center gap-6 md:gap-8">
           <a class="text-slate-500 hover:text-emerald-300 transition-colors font-sans text-xs uppercase tracking-widest opacity-80 hover:opacity-100" href="https://aikristian.com" target="_blank" rel="noopener noreferrer">aiKristian.com</a>
@@ -509,6 +714,31 @@
         }
         window.addEventListener('scroll', setActive, { passive: true });
         setActive();
+      })();
+
+      (function () {
+        var nodes = document.querySelectorAll('.motion-reveal');
+        if (!nodes.length) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          nodes.forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          return;
+        }
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -5% 0px', threshold: 0.06 }
+        );
+        nodes.forEach(function (el) {
+          obs.observe(el);
+        });
       })();
     </script>
   </body>
