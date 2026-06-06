@@ -34,10 +34,10 @@
       }
     </script>
   </head>
-  <body class="font-sans">
+  <body class="font-sans cv-document">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="min-h-screen flex flex-col md:flex-row">
-      <aside class="p-4 w-full sidebar md:sticky md:top-0 md:self-start md:w-72 lg:w-80 shrink-0" aria-label="Presentación y navegación del CV">
+      <aside class="p-4 w-full sidebar md:sticky md:top-0 md:self-start md:max-h-[100dvh] md:overflow-y-auto md:overscroll-y-contain md:w-72 lg:w-80 shrink-0" aria-label="Presentación y navegación del CV">
         <div class="cv-sidebar-identity">
             <p class="brand-mark-aik cv-sidebar-brand" aria-label="AIK">AIK</p>
             <div class="cv-profile-photo-wrap">
@@ -360,7 +360,7 @@
 
         <section id="projects" class="mb-12 fade-in delay-3" data-view="complete technical">
           <h2 class="text-3xl font-bold mb-6 border-b pb-2">Proyectos Destacados</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
+          <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 items-stretch">
             <article class="cv-project-card rounded overflow-hidden border border-[var(--border-color)] h-full flex flex-col">
               <div class="cv-project-card__media">
                 <img src="og-image.png" alt="" width="1200" height="630" class="cv-project-card__img" loading="lazy" decoding="async" />
@@ -420,7 +420,7 @@
             <button type="button" class="cert-filter-btn" data-cert-filter="other" aria-pressed="false">Otras</button>
           </div>
 
-          <button type="button" id="toggle-certs">Ver más</button>
+          <button type="button" id="toggle-certs" aria-expanded="false" aria-controls="certifications-list">Ver más certificaciones</button>
           <div id="certifications-list">
           <div class="certifications-container">
             <!-- Scrum y Metodologías Ágiles -->
@@ -889,9 +889,9 @@
           </div>
           </div>
 
-          <p class="text-sm mt-6 text-center">
-            <a href="https://linkedin.com/in/aikristian" class="link" target="_blank">
-              <i class="fab fa-linkedin mr-1"></i>Ver perfil completo en LinkedIn
+          <p class="cv-cert-footer text-sm mt-10 mb-2 text-center">
+            <a href="https://linkedin.com/in/aikristian" class="link" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin mr-1" aria-hidden="true"></i>Ver perfil completo en LinkedIn
             </a>
           </p>
         </section>

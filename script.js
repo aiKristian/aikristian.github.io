@@ -268,10 +268,17 @@ if (certFilterBar) {
 const toggleCertsBtn = document.getElementById('toggle-certs');
 const certsList = document.getElementById('certifications-list');
 if (toggleCertsBtn && certsList) {
+  const syncCertsToggle = (expanded) => {
+    toggleCertsBtn.textContent = expanded ? 'Ver menos certificaciones' : 'Ver más certificaciones';
+    toggleCertsBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  };
+
   toggleCertsBtn.addEventListener('click', () => {
     const isExpanded = certsList.classList.toggle('expanded');
-    toggleCertsBtn.textContent = isExpanded ? 'Ver menos' : 'Ver más';
+    syncCertsToggle(isExpanded);
   });
+
+  syncCertsToggle(certsList.classList.contains('expanded'));
 }
 
 // --- MODO LECTURA ---

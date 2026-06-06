@@ -39,6 +39,8 @@
     <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <link rel="preload" href="/portfolio.css" as="style" />
+    <link rel="preload" href="/files/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="" />
+    <link rel="preload" href="/files/plus-jakarta-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin="" />
     <link rel="preload" href="/images/hero.webp" as="image" type="image/webp" fetchpriority="high" />
     <link rel="stylesheet" href="/portfolio.css" />
     <script type="application/ld+json">
@@ -66,6 +68,7 @@
     </script>
   </head>
   <body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary-fixed portfolio-stitch">
+    <noscript><style>.motion-reveal,.hero-motion-stack&gt;*{opacity:1!important;transform:none!important}</style></noscript>
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="stitch-scroll-track fixed top-0 left-0 right-0 h-0.5 z-[60] pointer-events-none bg-slate-950/50" aria-hidden="true">
       <div id="stitch-scroll-progress" class="h-full w-full bg-gradient-to-r from-primary to-secondary will-change-transform"></div>
@@ -211,7 +214,7 @@
 
       <section class="py-12 md:py-16 bg-surface-container-low border-y border-white/5" id="trust" aria-labelledby="trust-heading">
         <div class="motion-reveal max-w-7xl mx-auto px-6 text-center space-y-6">
-          <p id="trust-heading" class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold">Experiencia en empresas de distintos rubros</p>
+          <h2 id="trust-heading" class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold">Experiencia en empresas de distintos rubros</h2>
           <div class="flex flex-wrap justify-center gap-3 md:gap-4">
             <span class="trust-badge">Sodimac</span>
             <span class="trust-badge">WOM Chile</span>

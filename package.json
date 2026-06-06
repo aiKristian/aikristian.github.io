@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "build:brand": "node scripts/render-brand.mjs",
-    "build:assets": "node scripts/fetch-assets.mjs",
+    "build:fonts": "node scripts/copy-fonts.mjs",
     "build:css": "tailwindcss -i ./src/input.css -o ./portfolio.css --minify",
-    "build": "npm run build:css",
+    "build": "npm run build:fonts && npm run build:css",
     "lint:css": "stylelint \"src/**/*.css\" \"style.css\"",
     "lint:html": "npx --yes htmlhint \"**/*.html\" --config .htmlhintrc",
     "lint": "npm run lint:html && npm run lint:css",

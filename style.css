@@ -1323,31 +1323,11 @@ body.cv-reading-mode main.main-content {
 }
 
 #certifications-list {
-  max-height: 24rem;
-  overflow: hidden;
-  transition: max-height 0.55s var(--ease-motion);
   position: relative;
 }
 
-#certifications-list.expanded {
-  max-height: 12000px;
-}
-
-#certifications-list:not(.expanded)::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3.5rem;
-  background: linear-gradient(to bottom, transparent, var(--bg-primary));
-  pointer-events: none;
-  transition: opacity 0.35s var(--ease-motion);
-}
-
-#certifications-list.expanded::after {
-  opacity: 0;
-  pointer-events: none;
+#certifications-list:not(.expanded) .cert-category ~ .cert-category {
+  display: none;
 }
 
 /* Volver arriba (CV) */
@@ -1419,10 +1399,14 @@ body.cv-reading-mode main.main-content {
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 1280px) {
   .cert-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+.cert-grid > * {
+  min-width: 0;
 }
 
 .cert-card {
@@ -1431,12 +1415,16 @@ body.cv-reading-mode main.main-content {
   border-radius: var(--radius-xl);
   padding: var(--spacing-xl);
   min-height: 8.5rem;
-  transition: all var(--transition-slow);
+  transition:
+    transform var(--transition-slow),
+    box-shadow var(--transition-slow),
+    border-color var(--transition-slow);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .cert-card::before {
@@ -1456,6 +1444,7 @@ body.cv-reading-mode main.main-content {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--accent);
+  z-index: 2;
 }
 
 .cert-card:hover::before {
@@ -1477,6 +1466,7 @@ body.cv-reading-mode main.main-content {
   margin: 0;
   flex: 1;
   line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .cert-date {
@@ -1497,7 +1487,8 @@ body.cv-reading-mode main.main-content {
 }
 
 .cert-link {
-  margin-top: var(--spacing-sm);
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
   font-size: var(--fz-sm);
   font-weight: 600;
   display: inline-flex;
@@ -1661,9 +1652,11 @@ body.theme-retro #education > div > div:hover {
   }
 
   #certifications-list {
-    max-height: none !important;
     overflow: visible !important;
-    transition: none !important;
+  }
+
+  #certifications-list:not(.expanded) .cert-category ~ .cert-category {
+    display: block !important;
   }
 
   #certifications-list::after {
@@ -2364,14 +2357,6 @@ body.portfolio-public .stitch-cta__social a:hover {
     transform: none !important;
   }
 
-  #certifications-list {
-    transition: none !important;
-  }
-
-  #certifications-list:not(.expanded)::after {
-    display: none;
-  }
-
   .sidebar nav a:hover {
     transform: none;
   }
@@ -2410,5 +2395,56 @@ body.portfolio-public .stitch-cta__social a:hover {
 
   .cv-sidebar-nav__summary::after {
     transition: none;
+  }
+}
+
+/* --- CV DOCUMENT (cv-k9m2x7q4vf8n.html) --- */
+
+body.cv-document {
+  overflow-x: clip;
+}
+
+body.cv-document main.main-content {
+  padding-bottom: 7rem;
+}
+
+@media (width >= 768px) {
+  body.cv-document main.main-content {
+    padding-bottom: 8.5rem;
+  }
+}
+
+body.cv-document #certifications {
+  padding-bottom: var(--spacing-xl);
+  scroll-margin-top: 5rem;
+}
+
+body.cv-document .cv-cert-footer {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 0.5rem;
+}
+
+body.cv-document .cv-back-top.is-visible {
+  z-index: 50;
+}
+
+body.cv-document #experience .tab-content {
+  min-height: 0;
+}
+
+body.cv-document #projects .grid {
+  align-items: stretch;
+}
+
+body.cv-document #projects article.cv-project-card {
+  height: 100%;
+}
+
+@media (width < 768px) {
+  body.cv-document .sidebar {
+    position: relative;
+    max-height: none;
+    overflow: visible;
   }
 }

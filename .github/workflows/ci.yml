@@ -23,8 +23,8 @@ jobs:
         run: |
           npm ci --no-fund --no-audit
 
-      - name: Build CSS
-        run: npm run build:css
+      - name: Build site assets
+        run: npm run build
 
       - name: HTML validation
         run: npm run lint:html
