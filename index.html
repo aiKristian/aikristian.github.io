@@ -1,491 +1,134 @@
 <!DOCTYPE html>
-<html class="dark" lang="es">
+<html class="dark" lang="es" data-analytics="">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Cristian Gómez: más de 15 años ayudando a empresas y emprendedores a ordenar su producto digital, su web y la inteligencia artificial. Proyecto activo en aikristian.com." />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://plausible.io; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://plausible.io; base-uri 'self'; form-action 'self' mailto:;"
+    />
+    <meta
+      name="description"
+      content="Cristian Gómez: más de 15 años ayudando a empresas y emprendedores a ordenar su producto digital, su web y la inteligencia artificial. Proyecto activo en aikristian.com."
+    />
     <meta name="author" content="Cristian Gómez Carrasco" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://aikristian.github.io/" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content="https://aikristian.com/" />
     <meta property="og:title" content="Cristian Gómez — Producto digital, web e inteligencia artificial" />
-    <meta property="og:description" content="Ordeno tu idea digital, la llevo a la web y automatizo lo repetible —con lenguaje claro y foco en resultados." />
-    <meta property="og:image" content="https://aikristian.github.io/og-image.png" />
+    <meta
+      property="og:description"
+      content="Ordeno tu idea digital, la llevo a la web y automatizo lo repetible —con lenguaje claro y foco en resultados."
+    />
+    <meta property="og:image" content="https://aikristian.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="AIK — Cristian Gómez, producto digital y web" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Cristian Gómez — Producto digital, web e inteligencia artificial" />
-    <meta name="twitter:description" content="Ordeno tu idea digital, la llevo a la web y automatizo lo repetible —con lenguaje claro y foco en resultados." />
-    <meta name="twitter:image" content="https://aikristian.github.io/og-image.png" />
+    <meta
+      name="twitter:description"
+      content="Ordeno tu idea digital, la llevo a la web y automatizo lo repetible —con lenguaje claro y foco en resultados."
+    />
+    <meta name="twitter:image" content="https://aikristian.com/og-image.png" />
     <meta name="theme-color" content="#0b1326" />
     <title>Cristian Gómez — Producto digital, web e inteligencia artificial</title>
-    <link rel="canonical" href="https://aikristian.github.io/" />
-    <link rel="icon" href="logo-aik.svg" type="image/svg+xml" />
-    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              'primary-fixed': '#e1e0ff',
-              'surface-container': '#171f33',
-              'on-secondary': '#003825',
-              'on-primary-container': '#0d0096',
-              outline: '#908fa0',
-              'on-tertiary-fixed-variant': '#703700',
-              'surface-container-low': '#131b2e',
-              'on-error-container': '#ffdad6',
-              'surface-container-highest': '#2d3449',
-              'secondary-fixed-dim': '#45dfa4',
-              'surface-variant': '#2d3449',
-              'primary-fixed-dim': '#c0c1ff',
-              background: '#0b1326',
-              'on-secondary-container': '#00452e',
-              'secondary-fixed': '#68fcbf',
-              'surface-container-lowest': '#060e20',
-              'tertiary-fixed': '#ffdcc5',
-              'secondary-container': '#00bd85',
-              'on-tertiary': '#4f2500',
-              'outline-variant': '#464554',
-              error: '#ffb4ab',
-              'surface-container-high': '#222a3d',
-              'on-primary': '#1000a9',
-              'on-surface-variant': '#c7c4d7',
-              'inverse-primary': '#494bd6',
-              'on-secondary-fixed-variant': '#005137',
-              'on-primary-fixed-variant': '#2f2ebe',
-              'on-tertiary-fixed': '#301400',
-              'inverse-on-surface': '#283044',
-              'primary-container': '#8083ff',
-              tertiary: '#ffb783',
-              'error-container': '#93000a',
-              'on-tertiary-container': '#452000',
-              'on-secondary-fixed': '#002114',
-              'on-primary-fixed': '#07006c',
-              'tertiary-fixed-dim': '#ffb783',
-              'surface-bright': '#31394d',
-              'surface-tint': '#c0c1ff',
-              'on-error': '#690005',
-              primary: '#c0c1ff',
-              secondary: '#45dfa4',
-              surface: '#0b1326',
-              'on-background': '#dae2fd',
-              'on-surface': '#dae2fd',
-              'tertiary-container': '#d97721',
-              'surface-dim': '#0b1326',
-              'inverse-surface': '#dae2fd',
-            },
-            borderRadius: {
-              DEFAULT: '0.25rem',
-              lg: '0.5rem',
-              xl: '0.75rem',
-              full: '9999px',
-            },
-            fontFamily: {
-              headline: ['Plus Jakarta Sans', 'sans-serif'],
-              body: ['Inter', 'sans-serif'],
-              label: ['Inter', 'sans-serif'],
-            },
-          },
+    <link rel="canonical" href="https://aikristian.com/" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href="/logo-aik.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="preload" href="/portfolio.css" as="style" />
+    <link rel="preload" href="/images/hero.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="stylesheet" href="/portfolio.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Cristian Gómez Carrasco",
+        "url": "https://aikristian.com/",
+        "image": "https://aikristian.com/og-image.png",
+        "jobTitle": "Consultor de producto digital, web e inteligencia artificial",
+        "description": "Ayudo a empresas y emprendedores a ordenar su producto digital, llevarlo a la web y automatizar lo repetible.",
+        "email": "cristgomezc@gmail.com",
+        "telephone": "+56-9-7767-3927",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CL"
         },
-      };
+        "sameAs": [
+          "https://aikristian.com",
+          "https://linkedin.com/in/aikristian",
+          "https://github.com/aiKristian",
+          "https://youtube.com/@ai_kristian"
+        ]
+      }
     </script>
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      .glass-card {
-        background: rgba(45, 52, 73, 0.4);
-        backdrop-filter: blur(20px);
-        border-top: 1px solid rgba(192, 193, 255, 0.15);
-        border-left: 1px solid rgba(192, 193, 255, 0.1);
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-
-      .skip-link {
-        position: absolute;
-        left: -9999px;
-        top: 0.75rem;
-        z-index: 100;
-        padding: 0.5rem 1rem;
-        background: #c0c1ff;
-        color: #0b1326;
-        font-weight: 600;
-        border-radius: 0.5rem;
-        text-decoration: none;
-      }
-
-      .skip-link:focus {
-        left: 0.75rem;
-        outline: 2px solid #45dfa4;
-        outline-offset: 2px;
-      }
-      /* Marcas: Simple Icons servidos por Iconify (https://iconify.design — misma colección CC0) */
-      .stack-tech-icon {
-        width: 2rem;
-        height: 2rem;
-        object-fit: contain;
-      }
-
-      .stack-icon-wrap {
-        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      /* CTAs: brillo sutil al pasar el ratón (solo transform/opacity en el brillo) */
-      .stitch-cta-shine {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .stitch-cta-shine::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          105deg,
-          transparent 38%,
-          rgb(255 255 255 / 14%) 50%,
-          transparent 62%
-        );
-        transform: translateX(-120%);
-        transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        pointer-events: none;
-      }
-
-      .stitch-cta-shine:hover::after {
-        transform: translateX(120%);
-      }
-
-      /* Navegación: indicador activo con scaleX */
-      .stitch-nav-link {
-        position: relative;
-        padding-bottom: 0.2rem;
-      }
-
-      .stitch-nav-link::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 2px;
-        border-radius: 2px;
-        background: linear-gradient(90deg, rgb(165 180 252), rgb(129 140 248));
-        transform: scaleX(0);
-        transform-origin: left center;
-        transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      .stitch-nav-link.stitch-nav-link--active::after {
-        transform: scaleX(1);
-      }
-
-      #stitch-scroll-progress {
-        transform-origin: left center;
-        transform: scaleX(0);
-      }
-
-      #stitch-back-top {
-        transition:
-          opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-          transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      #stitch-back-top.is-visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        pointer-events: auto !important;
-      }
-
-      .footer-icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        object-fit: contain;
-        opacity: 0.85;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-      }
-
-      a.footer-icon-link:hover .footer-icon,
-      a.footer-icon-link:focus-visible .footer-icon {
-        opacity: 1;
-        transform: translateY(-2px);
-      }
-
-      /* Movimiento: curva cubic-bezier(0.22, 1, 0.36, 1) alineada con CV (--ease-motion en style.css) */
-      /* --- Movimiento (respeta prefers-reduced-motion) --- */
-      @keyframes stitch-fade-up {
-        from {
-          opacity: 0;
-          transform: translateY(1.75rem);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes stitch-nav-in {
-        from {
-          opacity: 0;
-          transform: translateY(-0.75rem);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes stitch-aurora {
-        0%,
-        100% {
-          opacity: 0.38;
-        }
-
-        50% {
-          opacity: 0.62;
-        }
-      }
-
-      @keyframes stitch-orb-drift {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-
-        33% {
-          transform: translate(3%, -4%) scale(1.06);
-        }
-
-        66% {
-          transform: translate(-2%, 2%) scale(0.98);
-        }
-      }
-
-      @keyframes stitch-gradient-shift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      .nav-enter {
-        animation: stitch-nav-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
-      }
-
-      .hero-motion-stack > * {
-        opacity: 0;
-        animation: stitch-fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      }
-
-      .hero-motion-stack > *:nth-child(1) {
-        animation-delay: 0.06s;
-      }
-
-      .hero-motion-stack > *:nth-child(2) {
-        animation-delay: 0.16s;
-      }
-
-      .hero-motion-stack > *:nth-child(3) {
-        animation-delay: 0.26s;
-      }
-
-      .hero-motion-stack > *:nth-child(4) {
-        animation-delay: 0.36s;
-      }
-
-      .stitch-hero-aurora {
-        animation: stitch-aurora 14s ease-in-out infinite;
-      }
-
-      .motion-reveal {
-        opacity: 0;
-        transform: translateY(2rem);
-        transition:
-          opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-          transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      .motion-reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .motion-stagger-children > *:nth-child(1) {
-        transition-delay: 0s;
-      }
-
-      .motion-stagger-children > *:nth-child(2) {
-        transition-delay: 0.07s;
-      }
-
-      .motion-stagger-children > *:nth-child(3) {
-        transition-delay: 0.14s;
-      }
-
-      .motion-stagger-children > *:nth-child(4) {
-        transition-delay: 0.21s;
-      }
-
-      .motion-stagger-children > *:nth-child(5) {
-        transition-delay: 0.28s;
-      }
-
-      .motion-stagger-children > *:nth-child(6) {
-        transition-delay: 0.35s;
-      }
-
-      .motion-stagger-children > *:nth-child(7) {
-        transition-delay: 0.42s;
-      }
-
-      .motion-stagger-children > *:nth-child(8) {
-        transition-delay: 0.49s;
-      }
-
-      .stitch-card-lift {
-        transition:
-          transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-          box-shadow 0.45s ease,
-          border-color 0.35s ease,
-          background-color 0.35s ease;
-      }
-
-      .stitch-card-lift:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 40px -12px rgb(192 193 255 / 12%);
-      }
-
-      .stitch-orb {
-        animation: stitch-orb-drift 18s ease-in-out infinite;
-      }
-
-      .stitch-orb-delay {
-        animation-delay: -6s;
-      }
-
-      .stitch-gradient-text-animated {
-        background-size: 200% auto !important;
-        animation: stitch-gradient-shift 8s ease-in-out infinite;
-      }
-
-      .stitch-hero-img {
-        transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
-      }
-
-      .stitch-hero-img-wrap:hover .stitch-hero-img {
-        transform: scale(1.03);
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .nav-enter,
-        .hero-motion-stack > *,
-        .stitch-hero-aurora,
-        .stitch-orb,
-        .stitch-orb-delay,
-        .stitch-gradient-text-animated {
-          animation: none !important;
-        }
-
-        .nav-enter,
-        .hero-motion-stack > * {
-          opacity: 1 !important;
-          transform: none !important;
-        }
-
-        .motion-reveal {
-          opacity: 1 !important;
-          transform: none !important;
-          transition: none !important;
-        }
-
-        .motion-stagger-children > * {
-          transition-delay: 0s !important;
-        }
-
-        .stitch-card-lift:hover {
-          transform: none;
-        }
-
-        .stitch-hero-img-wrap:hover .stitch-hero-img {
-          transform: none;
-        }
-
-        .stitch-scroll-track {
-          display: none !important;
-        }
-
-        .stitch-cta-shine::after {
-          display: none;
-        }
-
-        .stack-icon-wrap {
-          transition: none !important;
-        }
-
-        .group:hover .stack-icon-wrap {
-          transform: none !important;
-        }
-
-        #stitch-back-top {
-          transition: opacity 0.15s ease, transform 0.15s ease;
-        }
-      }
-    </style>
   </head>
   <body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary-fixed portfolio-stitch">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="stitch-scroll-track fixed top-0 left-0 right-0 h-0.5 z-[60] pointer-events-none bg-slate-950/50" aria-hidden="true">
-      <div
-        id="stitch-scroll-progress"
-        class="h-full w-full bg-gradient-to-r from-primary to-secondary will-change-transform"
-      ></div>
+      <div id="stitch-scroll-progress" class="h-full w-full bg-gradient-to-r from-primary to-secondary will-change-transform"></div>
     </div>
     <nav class="nav-enter fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-indigo-500/5" aria-label="Principal">
-      <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center max-w-7xl mx-auto px-4 sm:px-6 py-4 md:h-20 md:py-0">
-        <a
-          href="index.html"
-          class="inline-flex items-center gap-2.5 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300"
-        >
-          <span
-            class="font-headline text-lg sm:text-xl font-extrabold tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-            aria-hidden="true"
-          >AIK</span>
-          <span class="text-lg sm:text-xl font-bold tracking-tighter text-indigo-200">Cristian Gómez</span>
-        </a>
-        <div class="stitch-nav-section flex flex-wrap items-center gap-x-5 gap-y-2 md:gap-8">
+      <div class="flex flex-col gap-3 md:flex-row md:justify-between md:items-center max-w-7xl mx-auto px-4 sm:px-6 py-3 md:h-20 md:py-0">
+        <div class="flex items-center justify-between gap-3 w-full md:w-auto">
+          <a
+            href="/"
+            class="inline-flex items-center gap-2.5 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300"
+          >
+            <span
+              class="font-headline text-lg sm:text-xl font-extrabold tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              aria-hidden="true"
+              >AIK</span
+            >
+            <span class="text-lg sm:text-xl font-bold tracking-tighter text-indigo-200">Cristian Gómez</span>
+          </a>
+          <button
+            type="button"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            aria-label="Abrir menú de navegación"
+          >
+            <svg class="nav-toggle-icon--open stitch-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            <svg class="nav-toggle-icon--close stitch-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+        <div id="nav-menu" class="stitch-nav-section flex flex-wrap items-center gap-x-5 gap-y-2 md:gap-8">
           <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#inicio">Inicio</a>
           <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#about">Sobre mí</a>
           <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#services">Servicios</a>
           <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#experience">Experiencia</a>
           <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#stack">Tecnologías</a>
           <a class="stitch-nav-link text-slate-400 hover:text-indigo-100 transition-colors duration-200 font-sans text-sm tracking-wide rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="#contact">Contacto</a>
+          <a
+            class="nav-cta-mobile stitch-cta-shine inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:scale-[0.98] active:scale-95 transition-transform text-sm shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300"
+            href="mailto:cristgomezc@gmail.com"
+            >Cuéntame tu idea</a
+          >
         </div>
-        <a class="stitch-cta-shine inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:scale-[0.98] active:scale-95 transition-transform text-sm shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" href="mailto:cristgomezc@gmail.com"> Cuéntame tu idea </a>
+        <a
+          class="nav-cta-desktop stitch-cta-shine inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:scale-[0.98] active:scale-95 transition-transform text-sm shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300"
+          href="mailto:cristgomezc@gmail.com"
+          >Cuéntame tu idea</a
+        >
       </div>
     </nav>
 
     <main id="main-content">
-      <section class="relative pt-28 pb-16 md:pt-44 md:pb-28 overflow-hidden" id="inicio">
+      <section class="relative pt-24 pb-16 md:pt-40 md:pb-28 overflow-hidden" id="inicio">
         <div class="stitch-hero-aurora absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
           <div class="hero-motion-stack flex flex-col items-start gap-8">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold tracking-widest uppercase border border-secondary/20">
-              <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">bolt</span>
+              <svg class="stitch-icon stitch-icon--sm" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08 1.15-3.55 1.18-3.92 2.03-6.63 2.54-8.16.16-.43.51-.63 1-.63h3.18c.46 0 .76.26.82.65l1.11 7.23c.06.4-.24.76-.68.76H13l-1 7z" />
+              </svg>
               Producto digital · Web · Inteligencia artificial
             </div>
             <h1 class="font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight max-w-4xl leading-[1.1] text-indigo-50">
@@ -499,8 +142,8 @@
               <a href="https://aikristian.com" target="_blank" rel="noopener noreferrer" class="text-secondary font-medium hover:underline">aikristian.com</a>, donde acompaño a equipos y pymes con el mismo rigor que aprendí en grandes compañías.
             </p>
             <div class="flex flex-wrap gap-4 pt-2">
-              <a href="mailto:cristgomezc@gmail.com" class="stitch-cta-shine px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform text-center"> Pedir una conversación </a>
-              <a href="#services" class="px-8 py-4 bg-surface-container-high text-on-surface border border-outline-variant/20 font-bold rounded-lg hover:bg-surface-container-highest transition-colors text-center"> Ver cómo puedo ayudarte </a>
+              <a href="mailto:cristgomezc@gmail.com" class="stitch-cta-shine px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform text-center">Pedir una conversación</a>
+              <a href="#services" class="px-8 py-4 bg-surface-container-high text-on-surface border border-outline-variant/20 font-bold rounded-lg hover:bg-surface-container-highest transition-colors text-center">Ver cómo puedo ayudarte</a>
             </div>
           </div>
         </div>
@@ -509,10 +152,12 @@
             <img
               class="stitch-hero-img w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
               alt="Panel con métricas: claridad para decidir en tu negocio digital"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgRfNvNCIVenp2liGM8xQV5NiU2PwFK4pbvS-TxvqQtCyHjR10vzXawL5eyyflNfW4AQvTkwxwW5ZMaWms9heztUFqk31Jrf8SggM3g0qPGYT0o1LqBvVIbjBfNBZ4yai100-vQfAHCLvo6PmY0SF9VPl3zZQsR4RAnjKoX5ZvJ6PGzlDKfU2vPy9JPpLGYQcPG-w6Yhbx1QFk0I9SXljEnlkXOWlyFU2QBVMufErVKdZBn_e_-7yXhd4yOJ08dkYr2pXbrRb1_uks"
+              src="/images/hero.webp"
               width="1600"
               height="700"
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
           </div>
@@ -522,15 +167,16 @@
       <section class="py-20 md:py-24 bg-surface-container-lowest" id="about">
         <div class="motion-stagger-children max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div class="motion-reveal relative order-2 lg:order-1">
-            <div class="absolute -top-10 -left-10 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full"></div>
+            <div class="absolute -top-10 -left-10 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full" aria-hidden="true"></div>
             <div class="glass-card p-2 rounded-3xl rotate-2 hover:rotate-0 transition-transform duration-500">
               <img
                 class="rounded-2xl w-full h-auto grayscale hover:grayscale-0 transition-all duration-700 object-cover aspect-[4/5]"
                 alt="Profesional en entorno de trabajo con pantallas"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtfvzLYJjzrwx26pZdGVN34rterPkydBtB26vHFtNneoCaAnyMJovqs_nn4NfYp9vk4Yug12El9R7PJGczqik4B_UCtAiHxyj66r5KhJWQ5axBhh99zderynDZ4O4OFpnA1zBgjK3z-fGot7BWuGNymY9tDP3R0DjpMEwsiDbIwlJ69kJ7-Jnv-mso00WRbqE7wA1cNgUM3kXfvmSNd1nOOK72Ckkjdvln4G5Hd7A0QTQ-7OJ8_mQTdOtAwFrTGxiHbPWILvDlmggr"
+                src="/images/about.webp"
                 width="800"
                 height="1000"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -552,13 +198,25 @@
             <div class="grid grid-cols-2 gap-6 pt-4">
               <div class="p-6 bg-surface-container-low rounded-xl">
                 <div class="text-3xl font-bold text-primary mb-1">15+</div>
-                <div class="text-xs uppercase tracking-widest text-outline">Años resolviendo problemas digitales</div>
+                <div class="text-xs uppercase tracking-widest text-on-surface-variant">Años resolviendo problemas digitales</div>
               </div>
               <div class="p-6 bg-surface-container-low rounded-xl">
                 <div class="text-lg sm:text-xl font-bold text-secondary mb-1 leading-snug tracking-tight">aikristian.com</div>
-                <div class="text-xs uppercase tracking-widest text-outline">Donde trabajo contigo hoy</div>
+                <div class="text-xs uppercase tracking-widest text-on-surface-variant">Donde trabajo contigo hoy</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-12 md:py-16 bg-surface-container-low border-y border-white/5" id="trust" aria-labelledby="trust-heading">
+        <div class="motion-reveal max-w-7xl mx-auto px-6 text-center space-y-6">
+          <p id="trust-heading" class="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold">Experiencia en empresas de distintos rubros</p>
+          <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+            <span class="trust-badge">Sodimac</span>
+            <span class="trust-badge">WOM Chile</span>
+            <span class="trust-badge">Núcleo Factory</span>
+            <span class="trust-badge">Epysa</span>
           </div>
         </div>
       </section>
@@ -572,29 +230,29 @@
           </div>
           <div class="motion-stagger-children grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="motion-reveal stitch-card-lift glass-card p-8 rounded-2xl flex flex-col gap-6 border border-transparent hover:border-primary/20">
-              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                <span class="material-symbols-outlined">strategy</span>
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary" aria-hidden="true">
+                <svg class="stitch-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
               </div>
               <h3 class="font-headline text-xl font-bold">Plan de producto y prioridades</h3>
               <p class="text-on-surface-variant text-sm leading-relaxed">Te ayudo a ordenar la lista de deseos: qué hace falta ahora, qué puede esperar y cómo hablarlo con tu equipo y tus clientes. Salís con un camino por etapas, no con un documento que nadie lee.</p>
             </div>
             <div class="motion-reveal stitch-card-lift glass-card p-8 rounded-2xl flex flex-col gap-6 border border-transparent hover:border-secondary/25">
-              <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
-                <span class="material-symbols-outlined">code</span>
+              <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary" aria-hidden="true">
+                <svg class="stitch-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
               </div>
               <h3 class="font-headline text-xl font-bold">Sitios y sistemas web a tu medida</h3>
               <p class="text-on-surface-variant text-sm leading-relaxed">Desde una web en WordPress que puedas actualizar tú, hasta aplicaciones más robustas cuando el negocio lo exige. Todo pensado para que cargue bien, sea seguro y se pueda mantener en el tiempo.</p>
             </div>
             <div class="motion-reveal stitch-card-lift glass-card p-8 rounded-2xl flex flex-col gap-6 border border-transparent hover:border-tertiary/30">
-              <div class="w-12 h-12 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
-                <span class="material-symbols-outlined">psychology</span>
+              <div class="w-12 h-12 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary" aria-hidden="true">
+                <svg class="stitch-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
               </div>
               <h3 class="font-headline text-xl font-bold">Inteligencia artificial y tareas automáticas</h3>
               <p class="text-on-surface-variant text-sm leading-relaxed">Automatizo lo repetitivo (avisos, formularios, seguimiento) y uso inteligencia artificial donde aporta: menos horas perdidas en copiar y pegar, más tiempo para vender o atender.</p>
             </div>
             <div class="motion-reveal stitch-card-lift glass-card p-8 rounded-2xl flex flex-col gap-6 border border-transparent hover:border-primary/20">
-              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                <span class="material-symbols-outlined">architecture</span>
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary" aria-hidden="true">
+                <svg class="stitch-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
               </div>
               <h3 class="font-headline text-xl font-bold">Sistemas estables y buenas prácticas</h3>
               <p class="text-on-surface-variant text-sm leading-relaxed">Diseño la forma en que encajan las piezas (web, datos, correo, nube) para que los cambios no rompan lo que ya funciona. Ideal si manejas muchos contactos con clientes, bodegas o integraciones entre programas.</p>
@@ -619,9 +277,9 @@
                 <div class="text-secondary text-sm font-medium mt-1">Fundador · <a href="https://aikristian.com" target="_blank" rel="noopener noreferrer" class="hover:underline">aikristian.com</a></div>
               </div>
               <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
-                <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">
-                  <a href="https://aikristian.com" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">aiKristian.com</a>
-                </h4>
+                <h3 class="font-headline text-xl md:text-2xl font-bold mb-4">
+                  <a href="https://aikristian.com" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">aikristian.com</a>
+                </h3>
                 <p class="text-on-surface-variant mb-6">
                   Mi negocio actual: te acompaño desde la idea hasta la web que vende o el sistema que ahorra tiempo —incluye posicionamiento en buscadores, publicidad online cuando corresponde, automatización e inteligencia artificial donde realmente suma. Misma exigencia que en proyectos grandes, con precios y ritmo pensados para equipos más chicos.
                 </p>
@@ -638,7 +296,7 @@
                 <div class="text-secondary text-sm font-medium mt-1">Diseño de soluciones digitales · gestión de producto</div>
               </div>
               <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
-                <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">Núcleo Factory</h4>
+                <h3 class="font-headline text-xl md:text-2xl font-bold mb-4">Núcleo Factory</h3>
                 <p class="text-on-surface-variant mb-6">
                   Organicé cómo encajan los distintos sistemas de la empresa, con conexiones entre programas bien definidas y actualizaciones que no rompen lo que ya funciona. Despliegues automáticos, entornos controlados y documentación que el equipo puede seguir; pruebas antes de publicar para que los usuarios no sufran los errores.
                 </p>
@@ -654,7 +312,7 @@
                 <div class="text-secondary text-sm font-medium mt-1">Operaciones digitales · puesta en marcha de sistemas</div>
               </div>
               <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
-                <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">WOM Chile — gestión de clientes y cambio de centro de datos</h4>
+                <h3 class="font-headline text-xl md:text-2xl font-bold mb-4">WOM Chile — gestión de clientes y cambio de centro de datos</h3>
                 <p class="text-on-surface-variant mb-6">
                   Participé en el módulo de gestión de clientes (Zsmart) durante la mudanza del centro de datos: menos cortes, despliegues más ordenados y un servicio más estable para quienes dependían del sistema a diario.
                 </p>
@@ -670,7 +328,7 @@
                 <div class="text-secondary text-sm font-medium mt-1">Jefe de proyectos · Epysa Implementos</div>
               </div>
               <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
-                <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">Sistema de bodega Oracle y cadena de abastecimiento</h4>
+                <h3 class="font-headline text-xl md:text-2xl font-bold mb-4">Sistema de bodega Oracle y cadena de abastecimiento</h3>
                 <p class="text-on-surface-variant mb-6">
                   Evalué e implementé el sistema de almacén y despacho de Oracle junto a proyectos logísticos para retail, minería y transporte: menos errores en stock y mejor coordinación entre bodega y ventas.
                 </p>
@@ -686,7 +344,7 @@
                 <div class="text-secondary text-sm font-medium mt-1">Sodimac S.A.</div>
               </div>
               <div class="stitch-card-lift lg:col-span-9 bg-surface-container p-6 md:p-8 rounded-2xl border border-transparent group-hover:bg-surface-container-high group-hover:border-outline-variant/30 transition-colors">
-                <h4 class="font-headline text-xl md:text-2xl font-bold mb-4">Logística, software corporativo y reposición</h4>
+                <h3 class="font-headline text-xl md:text-2xl font-bold mb-4">Logística, software corporativo y reposición</h3>
                 <p class="text-on-surface-variant mb-6">
                   Lideré proyectos de distribución y reposición; trabajé con equipos en ciclos cortos de entrega y mejoras de software interno; análisis y sistemas para que la cadena de abastecimiento respondiera mejor a la tienda y al cliente.
                 </p>
@@ -709,49 +367,49 @@
           <div class="motion-stagger-children grid grid-cols-2 md:grid-cols-4 gap-4">
             <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Nube Amazon (AWS)">
-                <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900" alt="Logo AWS" width="32" height="32" loading="lazy" decoding="async" />
+                <img class="stack-tech-icon" src="/images/icons/aws.svg" alt="Logo AWS" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Nube<br /><span class="text-[10px] uppercase tracking-widest opacity-70">Amazon</span></span>
             </div>
             <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Inteligencia artificial">
-                <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:openai.svg?color=%2310A37F" alt="Logo OpenAI" width="32" height="32" loading="lazy" decoding="async" />
+                <img class="stack-tech-icon" src="/images/icons/openai.svg" alt="Logo OpenAI" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Inteligencia<br />artificial</span>
             </div>
             <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Laravel">
-                <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:laravel.svg?color=%23FF2D20" alt="Logo Laravel" width="32" height="32" loading="lazy" decoding="async" />
+                <img class="stack-tech-icon" src="/images/icons/laravel.svg" alt="Logo Laravel" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold uppercase tracking-widest text-on-surface">Laravel</span>
             </div>
             <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="PostgreSQL (bases de datos)">
-                <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:postgresql.svg?color=%234169E1" alt="Logo PostgreSQL" width="32" height="32" loading="lazy" decoding="async" />
+                <img class="stack-tech-icon" src="/images/icons/postgresql.svg" alt="Logo PostgreSQL" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Bases de<br />datos</span>
             </div>
             <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="GitHub Actions — despliegues automáticos">
-                <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:githubactions.svg?color=%232088FF" alt="Logo GitHub Actions" width="32" height="32" loading="lazy" decoding="async" />
+                <img class="stack-tech-icon" src="/images/icons/githubactions.svg" alt="Logo GitHub Actions" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Despliegues<br />automáticos</span>
             </div>
             <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Jira — planificación en equipo">
-                <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:jira.svg?color=%230052CC" alt="Logo Jira" width="32" height="32" loading="lazy" decoding="async" />
+                <img class="stack-tech-icon" src="/images/icons/jira.svg" alt="Logo Jira" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Planificación<br />en equipo</span>
             </div>
             <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="WordPress">
-                <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:wordpress.svg?color=%2321759B" alt="Logo WordPress" width="32" height="32" loading="lazy" decoding="async" />
+                <img class="stack-tech-icon" src="/images/icons/wordpress.svg" alt="Logo WordPress" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold uppercase tracking-widest text-on-surface">WordPress</span>
             </div>
             <div class="motion-reveal stitch-card-lift group bg-surface-container p-6 rounded-xl flex flex-col items-center gap-4 hover:border-primary/50 border border-transparent">
               <div class="stack-icon-wrap w-11 h-11 flex items-center justify-center bg-white/5 rounded-lg p-2 group-hover:rotate-[3deg] group-hover:scale-105" title="Docker">
-                <img class="stack-tech-icon" src="https://api.iconify.design/simple-icons:docker.svg?color=%232496ED" alt="Logo Docker" width="32" height="32" loading="lazy" decoding="async" />
+                <img class="stack-tech-icon" src="/images/icons/docker.svg" alt="Logo Docker" width="32" height="32" loading="lazy" decoding="async" />
               </div>
               <span class="text-xs font-bold tracking-wide text-on-surface text-center leading-tight">Contenedores<br /><span class="text-[10px] uppercase tracking-widest opacity-70">Docker</span></span>
             </div>
@@ -761,19 +419,23 @@
 
       <section class="py-20 md:py-24 px-6" id="contact">
         <div class="motion-reveal max-w-5xl mx-auto glass-card p-10 md:p-20 rounded-[2.5rem] text-center relative overflow-hidden stitch-card-lift border border-white/5">
-          <div class="stitch-orb pointer-events-none absolute -top-20 -right-20 w-80 h-80 bg-primary/20 blur-[120px] rounded-full"></div>
-          <div class="stitch-orb stitch-orb-delay pointer-events-none absolute -bottom-20 -left-20 w-80 h-80 bg-secondary/10 blur-[120px] rounded-full"></div>
+          <div class="stitch-orb pointer-events-none absolute -top-20 -right-20 w-80 h-80 bg-primary/20 blur-[120px] rounded-full" aria-hidden="true"></div>
+          <div class="stitch-orb stitch-orb-delay pointer-events-none absolute -bottom-20 -left-20 w-80 h-80 bg-secondary/10 blur-[120px] rounded-full" aria-hidden="true"></div>
           <div class="relative z-10 space-y-8">
             <h2 class="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">¿Llevas una idea o un negocio que quieres llevar al digital?</h2>
             <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">
               Cuéntame en pocas líneas qué necesitas: te respondo con opciones concretas y un siguiente paso claro, sin compromiso.
             </p>
-            <p class="text-on-surface-variant text-sm">
+            <p class="text-on-surface-variant text-sm flex flex-wrap justify-center items-center gap-x-2 gap-y-1">
               <a href="tel:+56977673927" class="text-secondary hover:underline">+56 9 7767 3927</a>
-              · cristgomezc@gmail.com
+              <span aria-hidden="true">·</span>
+              <a href="mailto:cristgomezc@gmail.com" class="text-secondary hover:underline">cristgomezc@gmail.com</a>
+              <span aria-hidden="true">·</span>
+              <a href="https://wa.me/56977673927" target="_blank" rel="noopener noreferrer" class="text-secondary hover:underline">WhatsApp</a>
             </p>
-            <div class="pt-4">
-              <a class="stitch-cta-shine inline-block px-10 py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg rounded-xl shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all" href="mailto:cristgomezc@gmail.com"> Escribirme por correo </a>
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+              <a class="stitch-cta-shine inline-block px-10 py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg rounded-xl shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all" href="mailto:cristgomezc@gmail.com">Escribirme por correo</a>
+              <a class="inline-block px-10 py-5 bg-surface-container-high text-on-surface border border-outline-variant/20 font-bold text-lg rounded-xl hover:bg-surface-container-highest transition-colors" href="https://wa.me/56977673927" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
             </div>
           </div>
         </div>
@@ -786,205 +448,35 @@
       class="fixed bottom-6 right-6 z-[55] flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-slate-900/90 text-indigo-200 shadow-lg backdrop-blur-sm opacity-0 pointer-events-none translate-y-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300"
       aria-label="Volver arriba"
     >
-      <span class="material-symbols-outlined text-2xl" aria-hidden="true">arrow_upward</span>
+      <svg class="stitch-icon stitch-icon--lg" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.59 5.58L20 12l-8-8-8 8z" />
+      </svg>
     </button>
 
-    <footer class="bg-slate-950 border-t border-slate-900 w-full py-12">
+    <footer class="bg-slate-950 border-t border-slate-900 w-full py-12" role="contentinfo">
       <div class="motion-reveal flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6 text-center md:text-left">
         <div class="text-lg font-black text-slate-100 uppercase tracking-tighter">Cristian Gómez</div>
         <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
-          <a
-            class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent text-slate-400 transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80"
-            href="https://aikristian.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="aiKristian.com"
-          >
-            <img
-              class="footer-icon"
-              src="https://api.iconify.design/mdi:web.svg?color=%2345dfa4"
-              width="24"
-              height="24"
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
+          <a class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent text-slate-400 transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80" href="https://aikristian.com" target="_blank" rel="noopener noreferrer" aria-label="aikristian.com">
+            <img class="footer-icon" src="/images/icons/web.svg" width="24" height="24" alt="" loading="lazy" decoding="async" />
           </a>
-          <a
-            class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80"
-            href="https://linkedin.com/in/aikristian"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <img
-              class="footer-icon"
-              src="https://api.iconify.design/simple-icons:linkedin.svg?color=%230a66c2"
-              width="24"
-              height="24"
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
+          <a class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80" href="https://linkedin.com/in/aikristian" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img class="footer-icon" src="/images/icons/linkedin.svg" width="24" height="24" alt="" loading="lazy" decoding="async" />
           </a>
-          <a
-            class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80"
-            href="https://github.com/aiKristian"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <img
-              class="footer-icon"
-              src="https://api.iconify.design/simple-icons:github.svg?color=%23e2e8f0"
-              width="24"
-              height="24"
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
+          <a class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80" href="https://github.com/aiKristian" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img class="footer-icon" src="/images/icons/github.svg" width="24" height="24" alt="" loading="lazy" decoding="async" />
           </a>
-          <a
-            class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80"
-            href="https://youtube.com/@ai_kristian"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="YouTube"
-          >
-            <img
-              class="footer-icon"
-              src="https://api.iconify.design/simple-icons:youtube.svg?color=%23ff0000"
-              width="24"
-              height="24"
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
+          <a class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80" href="https://youtube.com/@ai_kristian" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <img class="footer-icon" src="/images/icons/youtube.svg" width="24" height="24" alt="" loading="lazy" decoding="async" />
           </a>
-          <a
-            class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80"
-            href="cv-k9m2x7q4vf8n.html"
-            aria-label="Curriculum vitae (documento privado)"
-          >
-            <img
-              class="footer-icon"
-              src="https://api.iconify.design/mdi:file-document-outline.svg?color=%23c0c1ff"
-              width="24"
-              height="24"
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
+          <a class="footer-icon-link inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent transition-colors hover:border-white/10 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/80" href="/cv-k9m2x7q4vf8n.html" aria-label="Curriculum vitae (documento privado)">
+            <img class="footer-icon" src="/images/icons/cv.svg" width="24" height="24" alt="" loading="lazy" decoding="async" />
           </a>
         </div>
         <div class="text-emerald-400 font-sans text-xs uppercase tracking-widest">© 2026 Cristian Gómez</div>
       </div>
     </footer>
 
-    <script>
-      (function () {
-        var wrap = document.querySelector('.stitch-nav-section');
-        if (!wrap) return;
-        var links = wrap.querySelectorAll('a[href^="#"]');
-        var sections = [];
-        links.forEach(function (a) {
-          var id = a.getAttribute('href').slice(1);
-          if (id) {
-            var el = document.getElementById(id);
-            if (el) sections.push({ id: id, link: a });
-          }
-        });
-        function setActive() {
-          var y = window.scrollY + 120;
-          var current = sections[0];
-          sections.forEach(function (s) {
-            var el = document.getElementById(s.id);
-            if (el && el.offsetTop <= y) current = s;
-          });
-          links.forEach(function (a) {
-            a.classList.remove('text-indigo-200', 'font-semibold', 'stitch-nav-link--active');
-            a.classList.add('text-slate-400');
-          });
-          if (current && current.link) {
-            current.link.classList.remove('text-slate-400');
-            current.link.classList.add('text-indigo-200', 'font-semibold', 'stitch-nav-link--active');
-          }
-        }
-        window.addEventListener('scroll', setActive, { passive: true });
-        setActive();
-      })();
-
-      (function () {
-        var bar = document.getElementById('stitch-scroll-progress');
-        var track = document.querySelector('.stitch-scroll-track');
-        var backTop = document.getElementById('stitch-back-top');
-        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        function updateScrollBar() {
-          if (!bar || reduceMotion) return;
-          var doc = document.documentElement;
-          var max = doc.scrollHeight - window.innerHeight;
-          var p = max > 0 ? window.scrollY / max : 0;
-          if (p < 0) p = 0;
-          if (p > 1) p = 1;
-          bar.style.transform = 'scaleX(' + p + ')';
-        }
-
-        function updateBackTop() {
-          if (!backTop) return;
-          backTop.classList.toggle('is-visible', window.scrollY > 400);
-        }
-
-        var ticking = false;
-        function onScroll() {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(function () {
-            updateScrollBar();
-            updateBackTop();
-            ticking = false;
-          });
-        }
-
-        if (reduceMotion && track) {
-          track.style.display = 'none';
-        }
-
-        window.addEventListener('scroll', onScroll, { passive: true });
-        updateScrollBar();
-        updateBackTop();
-
-        if (backTop) {
-          backTop.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-          });
-        }
-      })();
-
-      (function () {
-        var nodes = document.querySelectorAll('.motion-reveal');
-        if (!nodes.length) return;
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          nodes.forEach(function (el) {
-            el.classList.add('is-visible');
-          });
-          return;
-        }
-        var obs = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (e) {
-              if (e.isIntersecting) {
-                e.target.classList.add('is-visible');
-                obs.unobserve(e.target);
-              }
-            });
-          },
-          { rootMargin: '0px 0px -5% 0px', threshold: 0.06 }
-        );
-        nodes.forEach(function (el) {
-          obs.observe(el);
-        });
-      })();
-    </script>
+    <script src="/portfolio.js" defer></script>
   </body>
 </html>

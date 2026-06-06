@@ -1,30 +1,34 @@
 {
   "name": "aikristian.github.io",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "description": "Portafolio de Cristian Gómez — producto digital, web e IA",
+  "private": true,
   "scripts": {
     "build:brand": "node scripts/render-brand.mjs",
-    "lint:css": "stylelint \"**/*.css\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:assets": "node scripts/fetch-assets.mjs",
+    "build:css": "tailwindcss -i ./src/input.css -o ./portfolio.css --minify",
+    "build": "npm run build:css",
+    "lint:css": "stylelint \"src/**/*.css\" \"style.css\"",
+    "lint:html": "npx --yes htmlhint \"**/*.html\" --config .htmlhintrc",
+    "lint": "npm run lint:html && npm run lint:css",
+    "test": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aiKristian/aikristian.github.io.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aiKristian/aikristian.github.io/issues"
   },
-  "homepage": "https://github.com/aiKristian/aikristian.github.io#readme",
+  "homepage": "https://aikristian.com/",
   "devDependencies": {
+    "@fontsource/inter": "^5.2.5",
+    "@fontsource/plus-jakarta-sans": "^5.2.5",
     "sharp": "^0.34.5",
     "stylelint": "^17.6.0",
-    "stylelint-config-standard": "^40.0.0"
+    "stylelint-config-standard": "^40.0.0",
+    "htmlhint": "^1.1.4",
+    "tailwindcss": "^3.4.17"
   }
 }

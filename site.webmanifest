@@ -1,0 +1,30 @@
+{
+  "name": "Cristian Gómez — Producto digital y web",
+  "short_name": "Cristian Gómez",
+  "description": "Producto digital, web e inteligencia artificial para equipos y pymes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1326",
+  "theme_color": "#0b1326",
+  "lang": "es-CL",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-aik.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

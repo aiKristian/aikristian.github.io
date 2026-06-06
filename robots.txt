@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aikristian.github.io/sitemap.xml
+Sitemap: https://aikristian.com/sitemap.xml

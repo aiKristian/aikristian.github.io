@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main, new_design ]
+    branches: [main, new_design]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint-and-validate:
@@ -17,19 +17,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: npm
 
-      - name: Install linters
+      - name: Install dependencies
         run: |
-          npm install -g htmlhint
           npm ci --no-fund --no-audit
 
+      - name: Build CSS
+        run: npm run build:css
+
       - name: HTML validation
-        run: |
-          npx htmlhint "**/*.html" --config .htmlhintrc
+        run: npm run lint:html
 
       - name: CSS lint
-        run: |
-          npx stylelint "**/*.css"
+        run: npm run lint:css
 
       - name: Check internal links (offline)
         uses: lycheeverse/lychee-action@v1.7.0
@@ -37,5 +38,3 @@ jobs:
           args: --offline --no-progress --verbose "./**/*.html"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
