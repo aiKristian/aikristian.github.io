@@ -36,9 +36,10 @@
   </head>
   <body class="font-sans cv-document">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
-    <div class="min-h-screen flex flex-col md:flex-row">
+    <div class="cv-layout min-h-screen flex flex-col md:flex-row">
       <aside class="p-4 w-full sidebar md:sticky md:top-0 md:self-start md:max-h-[100dvh] md:overflow-y-auto md:overscroll-y-contain md:w-72 lg:w-80 shrink-0" aria-label="Presentación y navegación del CV">
         <div class="cv-sidebar-identity">
+            <a href="/" class="text-sm font-semibold text-[var(--accent)] hover:underline mb-3 inline-flex items-center gap-1">← Portafolio</a>
             <p class="brand-mark-aik cv-sidebar-brand" aria-label="AIK">AIK</p>
             <div class="cv-profile-photo-wrap">
               <img
@@ -58,7 +59,7 @@
             <p class="cv-sidebar-contact"><a href="tel:+56977673927">+56 9 7767 3927</a></p>
         </div>
         
-        <details class="cv-sidebar-nav mt-8" open>
+        <details class="cv-sidebar-nav mt-6">
           <summary class="cv-sidebar-nav__summary">Secciones del CV</summary>
           <nav class="cv-sidebar-nav__panel" aria-label="Secciones del curriculum">
             <a href="#profile" class="nav-link block mb-2">Perfil</a>
@@ -70,7 +71,9 @@
           </nav>
         </details>
 
-        <div class="pt-4"> <!-- Bottom part -->
+        <details class="cv-sidebar-prefs mt-4">
+          <summary class="cv-sidebar-nav__summary">Preferencias de vista</summary>
+          <div class="cv-sidebar-prefs__panel pt-2">
             <div class="view-switcher mb-4">
                 <span class="view-switcher-label" id="view-switcher-label">Vista del documento</span>
                 <div class="view-buttons" role="group" aria-labelledby="view-switcher-label">
@@ -86,21 +89,22 @@
                 </div>
                 <p id="view-mode-hint" class="view-mode-hint">Orden estándar: todas las secciones visibles con equilibrio entre técnica y gestión.</p>
             </div>
-            <div class="theme-switcher mb-4">
+            <div class="theme-switcher mb-2">
                 <button class="theme-btn" data-theme="light" aria-label="Tema Claro"><i class="fas fa-sun"></i></button>
                 <button class="theme-btn" data-theme="developer" aria-label="Tema Developer"><i class="fas fa-terminal"></i></button>
                 <button class="theme-btn" data-theme="retro" aria-label="Tema Retro"><i class="fas fa-gamepad"></i></button>
             </div>
-            <div class="social-links">
+          </div>
+        </details>
+            <div class="social-links cv-sidebar-social">
                 <a href="mailto:cristgomezc@gmail.com" aria-label="Email" target="_blank"><i class="fas fa-envelope"></i></a>
                 <a href="https://linkedin.com/in/aikristian" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/aiKristian" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://youtube.com/@ai_kristian" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
-        </div>
       </aside>
 
-      <main id="main-content" class="flex-1 min-w-0 p-6 main-content">
+      <main id="main-content" class="flex-1 min-w-0 w-full p-4 sm:p-6 md:p-8 main-content">
         <header class="flex flex-wrap justify-end items-center gap-2 mb-8 fade-in md:hidden">
           <button type="button" id="cv-reading-mode-mobile" class="cv-toolbar-btn theme-toggle" aria-pressed="false" aria-label="Texto más grande para lectura"><i class="fas fa-book-open" aria-hidden="true"></i> Lectura</button>
           <button type="button" id="focus-mode" class="cv-toolbar-btn theme-toggle" aria-label="Ocultar secciones secundarias"><i class="fas fa-bullseye" aria-hidden="true"></i> Foco</button>
@@ -159,7 +163,7 @@
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Experiencia Laboral</h2>
           <div class="inner">
             <div class="cv-exp-controls">
-            <ul class="tab-list flex flex-wrap gap-1" role="tablist" aria-label="Experiencia por empresa">
+            <ul class="tab-list" role="tablist" aria-label="Experiencia por empresa">
               <li role="presentation"><button type="button" class="tab-button active" data-target="#exp-pj" role="tab" id="tab-exp-pj" aria-selected="true" aria-controls="exp-pj">P. Judicial</button></li>
               <li role="presentation"><button type="button" class="tab-button" data-target="#exp-nucleo" role="tab" id="tab-exp-nucleo" aria-selected="false" aria-controls="exp-nucleo">Núcleo</button></li>
               <li role="presentation"><button type="button" class="tab-button" data-target="#exp-netadswork" role="tab" id="tab-exp-netadswork" aria-selected="false" aria-controls="exp-netadswork">aiKristian</button></li>

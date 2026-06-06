@@ -81,6 +81,31 @@ const syncCertCategoriesVisibility = () => {
     const visibleCount = Array.from(cards).filter(c => c.style.display !== 'none').length;
     cat.classList.toggle('cert-category--hidden', !filterOk || visibleCount === 0);
   });
+  syncCertsCollapse();
+};
+
+const syncCertsCollapse = () => {
+  const list = document.getElementById('certifications-list');
+  if (!list) return;
+  const expanded = list.classList.contains('expanded');
+  const categories = list.querySelectorAll('.cert-category');
+  if (expanded) {
+    categories.forEach(cat => cat.classList.remove('cert-category--collapsed-hidden'));
+    return;
+  }
+  let shown = false;
+  categories.forEach(cat => {
+    if (cat.classList.contains('cert-category--hidden')) {
+      cat.classList.add('cert-category--collapsed-hidden');
+      return;
+    }
+    if (!shown) {
+      cat.classList.remove('cert-category--collapsed-hidden');
+      shown = true;
+    } else {
+      cat.classList.add('cert-category--collapsed-hidden');
+    }
+  });
 };
 
 const activateView = (view) => {
@@ -276,9 +301,26 @@ if (toggleCertsBtn && certsList) {
   toggleCertsBtn.addEventListener('click', () => {
     const isExpanded = certsList.classList.toggle('expanded');
     syncCertsToggle(isExpanded);
+    syncCertsCollapse();
   });
 
   syncCertsToggle(certsList.classList.contains('expanded'));
+  syncCertsCollapse();
+}
+
+// --- CV SIDEBAR (details abiertos solo en desktop) ---
+const cvSidebarNav = document.querySelector('.cv-sidebar-nav');
+const cvSidebarPrefs = document.querySelector('.cv-sidebar-prefs');
+
+const syncCvSidebarDetails = () => {
+  const desktop = window.matchMedia('(min-width: 768px)').matches;
+  if (cvSidebarNav) cvSidebarNav.open = desktop;
+  if (cvSidebarPrefs) cvSidebarPrefs.open = desktop;
+};
+
+if (cvSidebarNav || cvSidebarPrefs) {
+  syncCvSidebarDetails();
+  window.addEventListener('resize', syncCvSidebarDetails);
 }
 
 // --- MODO LECTURA ---

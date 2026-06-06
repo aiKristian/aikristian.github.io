@@ -1326,8 +1326,8 @@ body.cv-reading-mode main.main-content {
   position: relative;
 }
 
-#certifications-list:not(.expanded) .cert-category ~ .cert-category {
-  display: none;
+.cert-category--collapsed-hidden {
+  display: none !important;
 }
 
 /* Volver arriba (CV) */
@@ -1657,6 +1657,10 @@ body.theme-retro #education > div > div:hover {
 
   #certifications-list:not(.expanded) .cert-category ~ .cert-category {
     display: block !important;
+  }
+
+  .cert-category--collapsed-hidden {
+    display: none !important;
   }
 
   #certifications-list::after {
@@ -2404,25 +2408,149 @@ body.cv-document {
   overflow-x: clip;
 }
 
+body.cv-document .cv-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (width >= 768px) {
+  body.cv-document .cv-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+body.cv-document .sidebar {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+body.cv-document .cv-sidebar-prefs__panel .view-switcher,
+body.cv-document .cv-sidebar-prefs__panel .theme-switcher {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body.cv-document .cv-sidebar-social {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
 body.cv-document main.main-content {
+  width: 100%;
+  max-width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 1rem;
   padding-bottom: 7rem;
+  min-height: auto;
+  box-sizing: border-box;
+}
+
+@media (width >= 640px) {
+  body.cv-document main.main-content {
+    padding: 1.5rem;
+    padding-bottom: 7.5rem;
+  }
 }
 
 @media (width >= 768px) {
   body.cv-document main.main-content {
+    padding: 2rem 2.5rem;
     padding-bottom: 8.5rem;
+  }
+}
+
+@media (width >= 1536px) {
+  body.cv-document main.main-content {
+    padding: 3rem 4rem;
+    padding-bottom: 10rem;
+  }
+}
+
+body.cv-document main section {
+  max-width: none;
+  width: 100%;
+  padding: 1.5rem 0;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+  opacity: 1;
+  transform: none;
+}
+
+body.cv-document section[id] {
+  scroll-margin-top: 1rem;
+}
+
+@media (width >= 768px) {
+  body.cv-document section[id] {
+    scroll-margin-top: 1.5rem;
+  }
+}
+
+body.cv-document .hero-section {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+body.cv-document .hero-section h1 {
+  font-size: clamp(1.75rem, 6vw, var(--fz-4xl));
+  line-height: 1.15;
+}
+
+body.cv-document #experience .tab-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding-bottom: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+body.cv-document #experience .tab-list li {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+body.cv-document #experience .tab-button {
+  min-height: 2.75rem;
+  white-space: nowrap;
+}
+
+@media (width >= 768px) {
+  body.cv-document .cert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1536px) {
+  body.cv-document .cert-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 body.cv-document #certifications {
   padding-bottom: var(--spacing-xl);
-  scroll-margin-top: 5rem;
 }
 
 body.cv-document .cv-cert-footer {
   position: relative;
   z-index: 1;
   padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+body.cv-document .cv-back-top {
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(1rem, env(safe-area-inset-right));
 }
 
 body.cv-document .cv-back-top.is-visible {
@@ -2446,5 +2574,26 @@ body.cv-document #projects article.cv-project-card {
     position: relative;
     max-height: none;
     overflow: visible;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  body.cv-document .cv-toolbar-btn {
+    flex: 1 1 calc(50% - 0.35rem);
+    justify-content: center;
+    min-height: 2.75rem;
+  }
+
+  body.cv-document .view-mode-hint {
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
+
+  body.cv-document #skills .grid {
+    gap: 1.25rem;
+  }
+
+  body.cv-document .cert-filter-btn {
+    flex: 0 1 auto;
   }
 }
