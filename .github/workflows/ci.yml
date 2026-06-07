@@ -35,6 +35,6 @@ jobs:
       - name: Check internal links (offline)
         uses: lycheeverse/lychee-action@v2.8.0
         with:
-          args: --offline --no-progress --verbose "./**/*.html"
+          args: --offline --no-progress --verbose --root-dir . "./**/*.html"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
