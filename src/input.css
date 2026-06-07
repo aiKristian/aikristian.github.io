@@ -8,7 +8,9 @@
 @import '@fontsource/plus-jakarta-sans/latin-800.css' layer(base);
 
 @import 'tailwindcss';
-@source '../**/*.html';
+@source '../index.html';
+@source '../404.html';
+@source '../docs/**/*.html';
 @custom-variant dark (&:is(.dark *));
 
 @theme {

@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+@source '../cv-k9m2x7q4vf8n.html';
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}

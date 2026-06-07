@@ -6,7 +6,7 @@
   "scripts": {
     "build:brand": "node scripts/render-brand.mjs",
     "build:fonts": "node scripts/copy-fonts.mjs",
-    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./portfolio.css --minify",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./portfolio.css --minify && npx @tailwindcss/cli -i ./src/cv-input.css -o ./cv.css --minify",
     "build": "npm run build:fonts && npm run build:css",
     "lint:css": "stylelint \"src/**/*.css\" \"style.css\"",
     "lint:html": "npx --yes htmlhint \"**/*.html\" --config .htmlhintrc",

@@ -2423,9 +2423,25 @@ body.cv-document .cv-layout {
 }
 
 body.cv-document .sidebar {
+  box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  box-sizing: border-box;
+}
+
+@media (width >= 768px) {
+  body.cv-document .sidebar {
+    width: 18rem;
+    max-width: 18rem;
+    flex: 0 0 18rem;
+  }
+}
+
+@media (width >= 1024px) {
+  body.cv-document .sidebar {
+    width: 20rem;
+    max-width: 20rem;
+    flex: 0 0 20rem;
+  }
 }
 
 body.cv-document .cv-sidebar-prefs__panel .view-switcher,
