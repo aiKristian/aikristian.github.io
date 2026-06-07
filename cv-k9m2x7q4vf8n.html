@@ -13,33 +13,18 @@
     <link rel="icon" href="logo-aik.svg" type="image/svg+xml" />
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="/portfolio.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
     <!-- Recursos opcionales: images/cv-photo.jpg (retrato) e images/cv-brands/*.svg (logos por empresa); si no existen, se muestran iniciales. -->
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-            },
-          },
-        },
-      }
-    </script>
   </head>
   <body class="font-sans cv-document">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="cv-layout min-h-screen flex flex-col md:flex-row">
-      <aside class="p-4 w-full sidebar md:sticky md:top-0 md:self-start md:max-h-[100dvh] md:overflow-y-auto md:overscroll-y-contain md:w-72 lg:w-80 shrink-0" aria-label="Presentación y navegación del CV">
+      <aside class="p-4 w-full sidebar md:sticky md:top-0 md:self-start md:max-h-dvh md:overflow-y-auto md:overscroll-y-contain md:w-72 lg:w-80 shrink-0" aria-label="Presentación y navegación del CV">
         <div class="cv-sidebar-identity">
-            <a href="/" class="text-sm font-semibold text-[var(--accent)] hover:underline mb-3 inline-flex items-center gap-1">← Portafolio</a>
+            <a href="/" class="text-sm font-semibold text-(--accent) hover:underline mb-3 inline-flex items-center gap-1">← Portafolio</a>
             <p class="brand-mark-aik cv-sidebar-brand" aria-label="AIK">AIK</p>
             <div class="cv-profile-photo-wrap">
               <img
@@ -119,8 +104,8 @@
 
         <section id="profile" class="mb-12 fade-in delay-1" data-view="complete technical management">
           <div class="hero-section py-10">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-primary)]">Cristian Gómez Carrasco</h1>
-            <p class="text-xl md:text-2xl text-[var(--accent)] mb-6 font-medium">Product Manager · Sistemas de IA y arquitectura de software · Transformación digital</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">Cristian Gómez Carrasco</h1>
+            <p class="text-xl md:text-2xl text-(--accent) mb-6 font-medium">Product Manager · Sistemas de IA y arquitectura de software · Transformación digital</p>
             <div class="cv-chip-row cv-chip-row--profile mb-6" role="list" aria-label="Áreas de especialización">
               <span class="cv-chip" role="listitem">Producto</span>
               <span class="cv-chip" role="listitem">IA aplicada</span>
@@ -153,7 +138,7 @@
             <p class="text-lg leading-relaxed max-w-3xl mb-4">
               Actualmente en el <strong>Poder Judicial de Chile</strong>, participo en la evolución de productos tecnológicos con foco en inteligencia artificial, transformación digital y mejora de procesos judiciales. Combino visión de producto con definición técnica: arquitecturas, lineamientos de implementación, calidad, seguridad y escalabilidad.
             </p>
-            <p class="text-base leading-relaxed max-w-3xl text-[var(--text-muted)]">
+            <p class="text-base leading-relaxed max-w-3xl text-(--text-muted)">
               Trayectoria en telecomunicaciones, logística, consultoría y sector público. Incorporación intensiva de desarrollo asistido por IA manteniendo foco en arquitectura y valor de negocio. <strong>Idiomas:</strong> inglés (nivel profesional de trabajo).
             </p>
           </div>
@@ -306,7 +291,7 @@
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div data-view="complete management">
-              <h3 class="text-lg font-semibold mb-3 text-[var(--accent)]">
+              <h3 class="text-lg font-semibold mb-3 text-(--accent)">
                 <i class="fas fa-users-cog mr-2"></i>Producto y gestión
               </h3>
               <div class="flex flex-wrap gap-2">
@@ -319,7 +304,7 @@
             </div>
             
             <div data-view="complete technical">
-              <h3 class="text-lg font-semibold mb-3 text-[var(--accent)]">
+              <h3 class="text-lg font-semibold mb-3 text-(--accent)">
                 <i class="fas fa-laptop-code mr-2"></i>Técnicas y Desarrollo
               </h3>
               <div class="flex flex-wrap gap-2">
@@ -333,7 +318,7 @@
             </div>
 
             <div data-view="complete technical">
-              <h3 class="text-lg font-semibold mb-3 text-[var(--accent)]">
+              <h3 class="text-lg font-semibold mb-3 text-(--accent)">
                 <i class="fas fa-tools mr-2"></i>Herramientas y Cloud
               </h3>
               <div class="flex flex-wrap gap-2">
@@ -349,7 +334,7 @@
             </div>
             
             <div data-view="complete management">
-              <h3 class="text-lg font-semibold mb-3 text-[var(--accent)]">
+              <h3 class="text-lg font-semibold mb-3 text-(--accent)">
                 <i class="fas fa-handshake mr-2"></i>Soft Skills
               </h3>
               <div class="flex flex-wrap gap-2">
@@ -365,26 +350,26 @@
         <section id="projects" class="mb-12 fade-in delay-3" data-view="complete technical">
           <h2 class="text-3xl font-bold mb-6 border-b pb-2">Proyectos Destacados</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 items-stretch">
-            <article class="cv-project-card rounded overflow-hidden border border-[var(--border-color)] h-full flex flex-col">
+            <article class="cv-project-card rounded-sm overflow-hidden border border-(--border-color) h-full flex flex-col">
               <div class="cv-project-card__media">
                 <img src="og-image.png" alt="" width="1200" height="630" class="cv-project-card__img" loading="lazy" decoding="async" />
               </div>
-              <div class="p-5 flex flex-col flex-1 min-h-[8rem]">
+              <div class="p-5 flex flex-col flex-1 min-h-32">
               <h3 class="font-bold text-xl mb-1">Portafolio Personal</h3>
-              <p class="text-sm text-[var(--text-muted)] flex-1">Portafolio público (Stitch) + CV detallado en URL privada; GitHub Pages.</p>
+              <p class="text-sm text-(--text-muted) flex-1">Portafolio público (Stitch) + CV detallado en URL privada; GitHub Pages.</p>
               <div class="mt-3 flex flex-wrap gap-3 text-sm">
                 <a href="https://github.com/aiKristian" target="_blank" rel="noopener noreferrer" class="link">Código</a>
                 <a href="https://aikristian.github.io" target="_blank" rel="noopener noreferrer" class="link">Demo</a>
               </div>
               </div>
             </article>
-            <article class="cv-project-card rounded overflow-hidden border border-[var(--border-color)] h-full flex flex-col">
+            <article class="cv-project-card rounded-sm overflow-hidden border border-(--border-color) h-full flex flex-col">
               <div class="cv-project-card__media cv-project-card__media--placeholder" aria-hidden="true">
                 <i class="fas fa-project-diagram cv-project-card__placeholder-icon"></i>
               </div>
-              <div class="p-5 flex flex-col flex-1 min-h-[8rem]">
+              <div class="p-5 flex flex-col flex-1 min-h-32">
               <h3 class="font-bold text-xl mb-1">Automatización de Marketing (n8n)</h3>
-              <p class="text-sm text-[var(--slate)] flex-1">Flujos de lead scoring y notificaciones omnicanal; reducción de tiempo operativo ~35 %.</p>
+              <p class="text-sm text-(--slate) flex-1">Flujos de lead scoring y notificaciones omnicanal; reducción de tiempo operativo ~35 %.</p>
               <div class="mt-3 flex flex-wrap gap-3 text-sm">
                 <a href="https://github.com/aiKristian" target="_blank" rel="noopener noreferrer" class="link">Código</a>
                 <a href="https://www.youtube.com/@ai_kristian" target="_blank" rel="noopener noreferrer" class="link">Video</a>
@@ -410,7 +395,7 @@
 
         <section id="certifications" class="mb-12 fade-in delay-5" data-view="complete technical management">
           <h2 class="text-2xl font-semibold mb-6 border-b pb-2">Certificaciones</h2>
-          <p class="text-sm text-[var(--text-muted)] mb-6 max-w-3xl">
+          <p class="text-sm text-(--text-muted) mb-6 max-w-3xl">
             <strong>Destacadas (perfil actualizado):</strong> gestión de proyectos simplificada; fundamentos profesionales de IA generativa (Microsoft y LinkedIn); introducción a AWS (conceptos de la nube); Vibe Coding with GitHub Copilot. El detalle con enlaces a PDF sigue en las categorías siguientes.
           </p>
 

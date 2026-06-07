@@ -6,7 +6,7 @@
   "scripts": {
     "build:brand": "node scripts/render-brand.mjs",
     "build:fonts": "node scripts/copy-fonts.mjs",
-    "build:css": "tailwindcss -i ./src/input.css -o ./portfolio.css --minify",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./portfolio.css --minify",
     "build": "npm run build:fonts && npm run build:css",
     "lint:css": "stylelint \"src/**/*.css\" \"style.css\"",
     "lint:html": "npx --yes htmlhint \"**/*.html\" --config .htmlhintrc",
@@ -25,10 +25,11 @@
   "devDependencies": {
     "@fontsource/inter": "^5.2.5",
     "@fontsource/plus-jakarta-sans": "^5.2.5",
+    "@tailwindcss/cli": "^4.3.0",
     "htmlhint": "^1.1.4",
     "sharp": "^0.34.5",
     "stylelint": "^17.13.0",
     "stylelint-config-standard": "^40.0.0",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^4.3.0"
   }
 }
