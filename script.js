@@ -308,19 +308,29 @@ if (toggleCertsBtn && certsList) {
   syncCertsCollapse();
 }
 
-// --- CV SIDEBAR (details abiertos solo en desktop) ---
+// --- CV SIDEBAR (nav abierto en desktop; acordeón para evitar paneles superpuestos) ---
 const cvSidebarNav = document.querySelector('.cv-sidebar-nav');
 const cvSidebarPrefs = document.querySelector('.cv-sidebar-prefs');
+const cvSidebarDetails = [cvSidebarNav, cvSidebarPrefs].filter(Boolean);
 
 const syncCvSidebarDetails = () => {
   const desktop = window.matchMedia('(min-width: 768px)').matches;
   if (cvSidebarNav) cvSidebarNav.open = desktop;
-  if (cvSidebarPrefs) cvSidebarPrefs.open = desktop;
+  if (cvSidebarPrefs) cvSidebarPrefs.open = false;
 };
 
-if (cvSidebarNav || cvSidebarPrefs) {
+if (cvSidebarDetails.length) {
   syncCvSidebarDetails();
   window.addEventListener('resize', syncCvSidebarDetails);
+
+  cvSidebarDetails.forEach((details) => {
+    details.addEventListener('toggle', () => {
+      if (!details.open) return;
+      cvSidebarDetails.forEach((other) => {
+        if (other !== details) other.open = false;
+      });
+    });
+  });
 }
 
 // --- MODO LECTURA ---
