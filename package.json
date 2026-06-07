@@ -25,10 +25,10 @@
   "devDependencies": {
     "@fontsource/inter": "^5.2.5",
     "@fontsource/plus-jakarta-sans": "^5.2.5",
-    "sharp": "^0.34.5",
-    "stylelint": "^17.6.0",
-    "stylelint-config-standard": "^40.0.0",
     "htmlhint": "^1.1.4",
+    "sharp": "^0.34.5",
+    "stylelint": "^17.13.0",
+    "stylelint-config-standard": "^40.0.0",
     "tailwindcss": "^3.4.17"
   }
 }
