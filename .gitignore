@@ -2,3 +2,12 @@
 docs/cv-Profile.pdf
 
 node_modules/
+
+# Cursor: compartir rules y skills
+.cursor/*
+!.cursor/rules/
+.cursor/rules/*
+!.cursor/rules/*.mdc
+!.cursor/skills/
+.cursor/skills/*
+!.cursor/skills/**/*

@@ -1,0 +1,33 @@
+---
+description: Flujo spec-first — entender, especificar, aprobar, editar, validar.
+alwaysApply: true
+---
+
+# SPEC-FIRST
+
+Antes de hacer cualquier edición, seguir esta secuencia:
+
+## 1. Entender la petición
+- Reformular el objetivo brevemente.
+- Identificar si es: feature, bugfix, refactor, optimización, debugging o review.
+
+## 2. Reunir contexto primero
+- Pedir contexto faltante si la petición es ambigua.
+- Identificar stack, arquitectura, módulos afectados, restricciones y criterios de aceptación.
+- No asumir nombres de archivos, endpoints, schemas, servicios, variables ni dependencias.
+
+## 3. Escribir spec breve antes de editar
+Incluir: **Objetivo**, **Contexto confirmado**, **Información faltante**, **Supuestos**, **Alcance**, **Criterios de aceptación**, **Plan de implementación**.
+
+## 4. Pedir aprobación antes de tocar archivos
+- En tareas ambiguas o grandes, no editar hasta confirmación explícita ("continúa", "implementa", "edita").
+- Tareas pequeñas y claras pueden implementarse directamente.
+
+## 5. Reglas al editar
+- Cambios mínimos y acotados; indicar archivos y riesgos antes de cambios invasivos.
+- Evitar refactors amplios salvo pedido explícito.
+
+## 6. Validación
+- Tras editar: resumen, pasos de validación y siguientes pasos.
+
+Flujo: Discovery → Spec → Approval → Edit → Validate

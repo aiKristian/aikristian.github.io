@@ -1,0 +1,20 @@
+---
+description: Convenciones del portafolio estático aikristian.github.io.
+globs: "**/*.{html,css,js,mjs,json}"
+alwaysApply: false
+---
+
+# Portafolio estático
+
+## Build
+- Tailwind CLI: `npm run build` genera `portfolio.css` y `cv.css`
+- Scripts en `scripts/` (brand, fonts)
+- No commitear artefactos generados si el workflow CI los produce
+
+## Calidad
+- `npm run lint` antes de PR (HTMLHint + Stylelint)
+- Assets en rutas relativas para GitHub Pages
+
+## Contenido
+- Español chileno, tono profesional
+- Sin datos personales sensibles en el repo

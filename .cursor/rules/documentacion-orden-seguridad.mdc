@@ -1,0 +1,20 @@
+---
+description: Gobernanza de documentación y seguridad en archivos markdown.
+globs: **/*.md
+alwaysApply: false
+---
+
+# Documentación y seguridad
+
+## Ubicación
+- Documentación nueva en `docs/` (índice en `docs/README.md` si existe).
+- Permitidos en raíz: `README.md`, `AGENTS.md`, `CHANGELOG.md`.
+- Otros `.md` fuera de `docs/` → migrar o dejar como puntero breve.
+
+## Seguridad
+- No incluir secretos, credenciales, tokens, cookies ni datos personales en texto plano.
+- Al mover/renombrar `.md`, actualizar enlaces internos relevantes.
+
+## Agente
+- Antes de crear un `.md`, verificar si ya existe documento canónico en `docs/`.
+- Mantener índice de navegación actualizado cuando el proyecto lo use.
