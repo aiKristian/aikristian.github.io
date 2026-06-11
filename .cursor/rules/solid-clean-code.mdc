@@ -1,0 +1,26 @@
+---
+description: SOLID y Clean Code — principios prácticos de diseño y legibilidad.
+alwaysApply: true
+---
+
+# SOLID + Clean Code
+
+## Clean Code
+- Nombres que revelen intención; evitar abreviaturas crípticas.
+- Funciones cortas, una responsabilidad; máximo 2-3 niveles de anidación.
+- Sin comentarios que repitan el código; comentar invariantes o decisiones no obvias.
+- Cambios mínimos; no refactorizar fuera del alcance pedido.
+- Reutilizar patrones del repo; no reinventar helpers existentes.
+
+## SOLID
+- **S** — Una razón para cambiar por módulo/clase/función.
+- **O** — Extender sin modificar código estable (composición, estrategias).
+- **L** — Subtipos sustituibles sin romper contratos.
+- **I** — Interfaces pequeñas; segregar responsabilidades.
+- **D** — Depender de abstracciones, inyectar dependencias.
+
+## Evitar
+- Helpers de un solo uso → inline.
+- `any`, casts y non-null assertions innecesarios.
+- Estado duplicado que se pueda derivar.
+- `try/catch` amplios que oculten el error real.

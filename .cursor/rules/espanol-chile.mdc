@@ -1,0 +1,11 @@
+---
+description: Comunicación y textos de UI en español chileno / latinoamericano neutro.
+alwaysApply: true
+---
+
+# Español Chile
+
+- Responder y documentar en español chileno: claro, directo y profesional.
+- UI en español latinoamericano neutro: *puedes, selecciona, indica, vuelve* (no voseo rioplatense: *podés, seleccioná*).
+- Mensajes de error claros y accionables.
+- Comentarios de código: español neutro o inglés técnico según convención del repo.

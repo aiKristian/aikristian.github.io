@@ -1,0 +1,30 @@
+---
+description: Conventional Commits al crear o proponer mensajes de git.
+alwaysApply: false
+---
+
+# Conventional Commits
+
+Formato: `<type>(<scope>): <descripción imperativa>`
+
+| Type | Uso |
+|------|-----|
+| `feat` | Nueva funcionalidad |
+| `fix` | Corrección de bug |
+| `docs` | Solo documentación |
+| `style` | Formato, sin cambio lógico |
+| `refactor` | Reestructuración sin cambiar comportamiento |
+| `perf` | Mejora de rendimiento |
+| `test` | Tests |
+| `build` / `ci` / `chore` | Tooling, deps, CI |
+
+**Ejemplos:**
+```
+feat(auth): agregar refresh token
+fix(cart): corregir total con descuento nulo
+refactor(api): extraer validación a middleware
+```
+
+- Descripción en imperativo, minúsculas, sin punto final.
+- Enfocarse en el **por qué**, no en listar archivos.
+- No commitear sin pedido explícito del usuario.

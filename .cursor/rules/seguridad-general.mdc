@@ -1,0 +1,21 @@
+---
+description: Seguridad básica — secretos, validación de entradas y manejo de errores.
+alwaysApply: true
+---
+
+# Seguridad General
+
+## Secretos
+- Nunca en código, commits, logs, markdown ni variables hardcodeadas.
+- Usar variables de entorno o gestores de secretos del proyecto.
+- Si se detecta un secreto expuesto, alertar y proponer rotación.
+
+## Validación
+- Validar entradas en fronteras: API, formularios, CLI, webhooks.
+- Sanitizar salidas que van a HTML, SQL o shell.
+- Fallar de forma explícita con mensajes útiles, sin filtrar datos internos.
+
+## Errores
+- Capturar excepciones esperadas con contexto; re-lanzar o loguear según el caso.
+- No usar `catch (e) {}` vacío.
+- No exponer stack traces ni detalles internos al usuario final.

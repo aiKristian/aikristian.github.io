@@ -1,0 +1,23 @@
+---
+description: TDD y buenas prácticas de testing al escribir o modificar tests.
+globs: **/*.{test,spec}.{ts,tsx,js,jsx,py,php,go,rs},**/*Test.java,**/*IT.java,**/tests/**/*
+alwaysApply: false
+---
+
+# TDD y Testing
+
+## Ciclo Red → Green → Refactor
+1. Test que falla (comportamiento esperado).
+2. Mínimo código para que pase.
+3. Refactorizar sin romper tests.
+
+## Convenciones
+- Un comportamiento por test; nombres descriptivos.
+- Arrange → Act → Assert.
+- Probar comportamiento observable, no detalles internos.
+- Mocks solo en fronteras (I/O, red, reloj).
+
+## Evitar
+- Tests triviales que solo verifican el framework.
+- Tests acoplados a implementación.
+- Datos mágicos sin contexto.
