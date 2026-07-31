@@ -33,7 +33,7 @@ jobs:
         run: npm run lint:css
 
       - name: Check internal links (offline)
-        uses: lycheeverse/lychee-action@v2.8.0
+        uses: lycheeverse/lychee-action@v2.9.0
         with:
           args: --offline --no-progress --verbose --root-dir . "./**/*.html"
         env:
